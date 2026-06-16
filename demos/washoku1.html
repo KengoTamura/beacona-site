@@ -2,274 +2,284 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ===== SEO基本メタ ===== -->
-<title>鮨・和食 蒼（あおい）｜新浦安の寿司・日本料理｜浦安市</title>
-<meta name="description" content="新浦安駅徒歩5分の鮨・和食店。豊洲直送の鮮魚と旬の会席。カウンターのおまかせ、接待・慶事の個室も。浦安市入船、静かな大人の和の空間。">
-<link rel="canonical" href="https://example.com/">
-<meta name="robots" content="index,follow">
-
-<!-- ===== OGP ===== -->
-<meta property="og:type" content="restaurant.restaurant">
-<meta property="og:title" content="鮨・和食 蒼｜新浦安の寿司・日本料理">
-<meta property="og:description" content="豊洲直送の鮮魚と旬の会席。新浦安駅徒歩5分。個室・カウンターあり。">
-<meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://example.com/ogp.jpg">
-<meta name="twitter:card" content="summary_large_image">
-
-<!-- ===== 構造化データ JSON-LD（Restaurant型 / 寿司・和食）===== -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Restaurant",
-  "@id": "https://example.com/#business",
-  "name": "鮨・和食 蒼",
-  "description": "新浦安の鮨・和食店。豊洲直送の鮮魚と旬の会席料理。",
-  "image": "https://example.com/ogp.jpg",
-  "url": "https://example.com/",
-  "telephone": "+81-47-XXX-XXXX",
-  "priceRange": "¥¥¥¥",
-  "servesCuisine": ["寿司", "日本料理", "会席"],
-  "acceptsReservations": "True",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "入船◯-◯-◯ 新浦安プラザ 2F",
-    "addressLocality": "浦安市",
-    "addressRegion": "千葉県",
-    "postalCode": "279-00XX",
-    "addressCountry": "JP"
-  },
-  "geo": { "@type": "GeoCoordinates", "latitude": "35.6468", "longitude": "139.9148" },
-  "openingHoursSpecification": [
-    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"11:30","closes":"14:00"},
-    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"17:30","closes":"22:00"}
-  ]
-}
-</script>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<meta name="robots" content="noindex, nofollow">
+<title>寿司・和食①｜制作見本（Beaconaデモ・架空のお店）</title>
+<meta name="description" content="これは制作見本です。実在しないお店の架空サイトです（Beaconaデモ）。寿司・和食店のホームページの一例として制作しました。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --washi:#f4f1ea;
-    --washi-2:#eae5da;
-    --sumi:#1f1c18;
-    --sumi-soft:#4a453d;
-    --ink-soft:#6b6458;
-    --ai:#2d4a5c;        /* 藍 */
-    --ai-deep:#1f3644;
-    --shu:#a4453a;       /* 朱 */
-    --kin:#9c843f;       /* 金 */
-    --line:#d8d0c2;
+    --paper:#f4f2ec;
+    --paper-2:#eae6dc;
+    --ink:#22262b;
+    --ink-soft:#5d6168;
+    --ink-faint:#9aa0a6;
+    --indigo:#2e4257;
+    --indigo-d:#22384b;
+    --gold:#9a7b3f;
+    --line:rgba(34,38,43,.13);
     --serif:"Shippori Mincho",serif;
-    --sans:"Zen Kaku Gothic New",sans-serif;
+    --sans:"Zen Kaku Gothic New",system-ui,sans-serif;
   }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--sans);background:var(--washi);color:var(--sumi);line-height:2;font-size:15.5px;font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:16px;line-height:2;letter-spacing:.04em;
+    word-break:auto-phrase;line-break:normal;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h2,h3{word-break:keep-all;overflow-wrap:anywhere}
+  ::selection{background:rgba(46,66,87,.16)}
+  a:focus-visible{outline:2px solid var(--indigo);outline-offset:3px}
 
-  header{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 0;transition:.4s}
-  header.scrolled{background:rgba(244,241,234,.93);backdrop-filter:blur(10px);padding:14px 0;box-shadow:0 1px 24px rgba(60,50,30,.1)}
-  .nav{display:flex;align-items:center;justify-content:space-between}
-  .logo{font-family:var(--serif);font-size:1.5rem;font-weight:700;letter-spacing:.22em;color:var(--sumi);padding-left:.22em}
-  .logo span{color:var(--shu)}
-  .nav-links{display:flex;gap:34px;list-style:none}
-  .nav-links a{text-decoration:none;color:var(--ink-soft);font-size:.86rem;letter-spacing:.1em;transition:.3s}
-  .nav-links a:hover{color:var(--shu)}
-  .nav-cta{border:1px solid var(--ai);color:var(--ai)!important;padding:8px 22px;font-size:.8rem}
-  .nav-cta:hover{background:var(--ai);color:var(--washi)!important}
-  .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
-  .menu-toggle span{width:24px;height:1.5px;background:var(--sumi);transition:.3s}
+  .wrap{max-width:980px;margin-inline:auto;padding-inline:24px}
+  .narrow{max-width:660px}
 
-  .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--washi)}
-  .hero::before{content:"";position:absolute;inset:0;background:
-    linear-gradient(90deg,rgba(45,74,92,.05),transparent 40%),
-    radial-gradient(circle at 82% 28%,rgba(164,69,58,.07),transparent 38%)}
-  /* 縦書き風の装飾ライン */
-  .hero .vline{position:absolute;top:0;bottom:0;left:14%;width:1px;background:linear-gradient(180deg,transparent,var(--line) 20%,var(--line) 80%,transparent)}
-  .sun{position:absolute;right:12%;top:50%;transform:translateY(-50%);width:240px;height:240px;border-radius:50%;background:radial-gradient(circle at 50% 50%,var(--shu),#8a3530);box-shadow:0 0 80px rgba(164,69,58,.3);opacity:0;animation:rise 1.4s .5s forwards}
-  @keyframes rise{from{opacity:0;transform:translateY(-30%) scale(.85)}to{opacity:.92;transform:translateY(-50%) scale(1)}}
-  .hero-inner{position:relative;z-index:3;width:100%}
-  .hero .mark{font-family:var(--serif);font-size:.82rem;letter-spacing:.5em;color:var(--ai);margin-bottom:30px;opacity:0;animation:fu 1s .2s forwards;padding-left:.5em}
-  .hero h1{font-family:var(--serif);font-size:4.4rem;font-weight:600;letter-spacing:.16em;line-height:1.5;margin-bottom:22px;opacity:0;animation:fu 1s .4s forwards}
-  .hero h1 span{color:var(--shu)}
-  .hero .read{font-family:var(--serif);font-size:1.1rem;color:var(--ink-soft);letter-spacing:.18em;line-height:2;margin-bottom:42px;opacity:0;animation:fu 1s .6s forwards}
-  .hero .btn-row{opacity:0;animation:fu 1s .8s forwards}
-  @keyframes fu{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
-  .btn{display:inline-block;text-decoration:none;letter-spacing:.12em;font-size:.88rem;padding:15px 40px;transition:.35s}
-  .btn-fill{background:var(--ai);color:var(--washi)}
-  .btn-fill:hover{background:var(--ai-deep)}
-  .btn-line{border:1px solid var(--sumi-soft);color:var(--sumi);margin-left:12px}
-  .btn-line:hover{border-color:var(--shu);color:var(--shu)}
+  .demo-bar{background:#1b1f24;color:#e7e3d8;font-size:.82rem;text-align:center;padding:9px 16px;line-height:1.6}
+  .demo-bar b{color:#cdb079;font-weight:700}
+  .demo-bar a{color:#cdb079;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
 
-  section{padding:124px 0}
-  .sec-head{text-align:center;margin-bottom:66px}
-  .sec-en{display:block;font-size:.72rem;letter-spacing:.42em;color:var(--kin);margin-bottom:14px;text-transform:uppercase}
-  .sec-jp{font-family:var(--serif);font-size:1.9rem;font-weight:600;letter-spacing:.2em}
-  .sec-jp .dot{color:var(--shu)}
+  header.site{position:sticky;top:0;z-index:20;background:rgba(244,242,236,.92);
+    backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  header.site .bar{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-family:var(--serif);font-weight:600;font-size:1.24rem;letter-spacing:.18em;text-decoration:none;
+    display:flex;align-items:baseline;gap:10px}
+  .brand .sub{font-size:.62rem;color:var(--ink-faint);letter-spacing:.14em;font-family:var(--sans)}
+  nav.main{display:flex;gap:22px}
+  nav.main a{font-size:.82rem;color:var(--ink-soft);text-decoration:none;letter-spacing:.06em}
+  nav.main a:hover{color:var(--indigo)}
+  @media (max-width:600px){nav.main{display:none}}
 
-  .craft{background:var(--washi-2)}
-  .craft-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
-  .craft-img{aspect-ratio:3/4;background:linear-gradient(160deg,var(--ai),var(--ai-deep));position:relative;overflow:hidden}
-  .craft-img::before{content:"";position:absolute;inset:16px;border:1px solid rgba(244,241,234,.3)}
-  .craft-img::after{content:"🍣";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4.5rem}
-  .craft-text .lead{font-family:var(--serif);font-size:1.6rem;line-height:1.7;color:var(--ai);margin-bottom:26px}
-  .craft-text p{color:var(--ink-soft);margin-bottom:18px;font-size:.94rem}
+  /* hero: vertical mincho headline */
+  .hero{position:relative;background:#1c2127}
+  .hero .ph{width:100%;height:78vh;min-height:440px;object-fit:cover;filter:brightness(.78)}
+  .hero .tint{position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,22,27,.5),rgba(18,22,27,.05) 50%,rgba(18,22,27,.3))}
+  .hero .stage{position:absolute;inset:0}
+  .hero .stage .wrap{height:100%;display:flex;align-items:center;justify-content:flex-end}
+  .hero h1{writing-mode:vertical-rl;font-family:var(--serif);font-weight:600;font-size:2rem;
+    line-height:1.7;letter-spacing:.18em;margin:0;color:#f6f3ea;max-height:80%;
+    text-shadow:0 1px 16px rgba(0,0,0,.5)}
+  .hero h1 .g{color:#d8bd86}
+  .hero-foot{background:var(--indigo-d);color:#dfe3e2}
+  .hero-foot .wrap{padding-block:26px;display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline}
+  .hero-foot .ey{font-family:var(--serif);color:#d8bd86;font-size:.92rem;letter-spacing:.1em;margin:0}
+  .hero-foot .qk{font-size:.86rem;color:#c5cbca}
+  .hero-foot .qk b{color:#f0f2ee;font-weight:500}
 
-  .course{background:var(--washi)}
-  .course-wrap{max-width:760px;margin:0 auto}
-  .course-card{background:var(--washi-2);border:1px solid var(--line);padding:38px 42px;margin-bottom:22px;position:relative;transition:.4s}
-  .course-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(60,50,30,.1)}
-  .course-card .ttl{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
-  .course-card .ttl h3{font-family:var(--serif);font-size:1.35rem;font-weight:600;letter-spacing:.1em}
-  .course-card .ttl .pr{font-family:var(--serif);font-size:1.4rem;color:var(--shu);white-space:nowrap;padding-left:16px}
-  .course-card p{color:var(--ink-soft);font-size:.9rem}
-  .course-card .badge{position:absolute;top:-11px;left:32px;background:var(--shu);color:var(--washi);font-size:.72rem;letter-spacing:.1em;padding:3px 14px}
+  section{padding-block:66px}
+  .kicker{font-family:var(--serif);font-size:.84rem;letter-spacing:.3em;color:var(--gold);margin:0 0 16px}
+  h2{font-family:var(--serif);font-weight:600;font-size:1.55rem;line-height:1.6;margin:0;letter-spacing:.08em}
+  .lead{margin:1.2em 0 0;color:#3b3f45;text-wrap:pretty}
 
-  .info{background:var(--washi-2)}
-  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
-  .info-list .ir{display:flex;gap:20px;padding:15px 0;border-bottom:1px solid var(--line);font-size:.92rem}
-  .info-list .ir .l{font-family:var(--serif);color:var(--ai);min-width:80px;letter-spacing:.08em}
-  .map{aspect-ratio:1;background:repeating-linear-gradient(0deg,#e6e0d4,#e6e0d4 14px,#e0d9cb 14px,#e0d9cb 28px);position:relative;display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}
-  .map .pin{font-size:2.6rem;animation:fl 2.4s infinite}
-  @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
-  .map .t{position:absolute;bottom:16px;background:var(--washi);padding:5px 16px;font-size:.78rem;color:var(--ink-soft);border:1px solid var(--line)}
+  .concept{text-align:center}
+  .concept .lead{margin-inline:auto;max-width:30em}
+  .concept img{width:100%;height:300px;object-fit:cover;border-radius:2px;margin-top:36px}
 
-  .cta{background:var(--ai-deep);color:var(--washi);text-align:center;position:relative;overflow:hidden}
-  .cta::before{content:"";position:absolute;width:200px;height:200px;border-radius:50%;background:var(--shu);opacity:.18;top:-60px;right:10%}
-  .cta .sec-en{color:rgba(244,241,234,.6)}
-  .cta h2{font-family:var(--serif);font-size:2.2rem;letter-spacing:.14em;margin-bottom:16px;position:relative}
-  .cta p{opacity:.85;margin-bottom:34px;position:relative}
-  .cta .btn-fill{background:var(--washi);color:var(--ai-deep)}
-  .cta .btn-fill:hover{background:#fff}
+  .menu{background:var(--paper-2)}
+  .menu .group{margin-top:34px}.menu .group:first-of-type{margin-top:26px}
+  .menu h3{font-family:var(--serif);font-size:1.1rem;color:var(--indigo);margin:0 0 8px;letter-spacing:.14em;
+    display:flex;align-items:center;gap:14px}
+  .menu h3::after{content:"";flex:1;height:1px;background:var(--line)}
+  .mrow{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .mrow .nm{font-weight:500;letter-spacing:.06em}
+  .mrow .ds{font-size:.82rem;color:var(--ink-soft);margin-top:2px;letter-spacing:.02em}
+  .mrow .dots{flex:1;border-bottom:1px dotted var(--ink-faint);transform:translateY(-4px)}
+  .mrow .pr{font-variant-numeric:tabular-nums;color:var(--indigo);white-space:nowrap}
+  .menu .fine{margin-top:20px;font-size:.8rem;color:var(--ink-soft)}
 
-  footer{background:var(--sumi);color:#9b9384;text-align:center;padding:52px 0;font-size:.82rem;letter-spacing:.06em}
-  footer .logo{color:var(--washi);display:inline-block;margin-bottom:12px}
+  .news .item{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+  .news .item:last-child{border-bottom:1px solid var(--line)}
+  .news .dt{font-variant-numeric:tabular-nums;color:var(--ink-faint);font-size:.84rem}
+  .news .tx{color:#3b3f45}
 
-  .reveal{opacity:0;transform:translateY(34px);transition:.95s cubic-bezier(.2,.7,.2,1)}
-  .reveal.in{opacity:1;transform:translateY(0)}
+  .info{background:#1f242a;color:#dde1e0}
+  .info h2{color:#f0f2ee}.info .kicker{color:#cdb079}
+  .info .grid{display:grid;gap:30px;margin-top:26px}
+  .info .row{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:13px 0;border-top:1px solid rgba(255,255,255,.12)}
+  .info .row:last-child{border-bottom:1px solid rgba(255,255,255,.12)}
+  .info .k{color:#9aa0a0;font-size:.86rem}
+  .info .v{color:#eef1ee}.info .v a{color:#d8bd86}
+  .info .map{width:100%;height:220px;border-radius:2px;background:
+    repeating-linear-gradient(45deg,#262c33,#262c33 14px,#2b323a 14px,#2b323a 28px);
+    display:flex;align-items:center;justify-content:center;color:#828a90;font-size:.84rem;border:1px solid rgba(255,255,255,.1)}
 
-  @media(max-width:820px){
-    .hero h1{font-size:3rem}
-    .sun{width:160px;height:160px;right:6%;opacity:.5}
-    .hero .vline{display:none}
-    .craft-grid,.info-grid{grid-template-columns:1fr;gap:40px}
-    .btn-line{margin-left:0;margin-top:12px}
-    .nav-links{position:fixed;inset:0 0 0 auto;width:72%;max-width:300px;background:var(--washi);flex-direction:column;justify-content:center;align-items:center;gap:36px;transform:translateX(100%);transition:.4s}
-    .nav-links.open{transform:translateX(0)}
-    .menu-toggle{display:flex;z-index:101}
+  footer.site{background:#15191e;color:#828a90;padding-block:34px}
+  footer.site .disc{background:rgba(205,176,121,.07);border:1px solid rgba(205,176,121,.26);
+    border-radius:3px;padding:16px 18px;color:#c2c6c4;font-size:.86rem;line-height:1.85;margin-bottom:22px}
+  footer.site .disc b{color:#d8bd86}
+  footer.site .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline}
+  footer.site .brand{color:#e3e6e1;font-size:1.04rem}
+  footer.site small{font-size:.76rem}footer.site a{color:#cdb079}
+
+  @media (min-width:760px){
+    .hero h1{font-size:2.7rem;line-height:1.8}
+    .hero .ph{height:88vh}
+    h2{font-size:1.95rem}
+    section{padding-block:96px}
+    .concept img{height:420px;max-width:860px;margin-inline:auto}
+    .menu .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 54px}
+    .info .grid{grid-template-columns:1fr 1fr;gap:50px;align-items:start}
   }
+  /* ▼ テンプレ編集用ラベル（差し替え箇所） */
+  .pix{position:relative;display:block}
+  .pix-tag{position:absolute;z-index:6;font-size:.68rem;letter-spacing:.03em;line-height:1.4;
+    background:rgba(16,18,22,.74);color:#fff;padding:3px 9px;border-radius:4px;
+    font-family:var(--sans);pointer-events:none}
+  .pix>.pix-tag{top:10px;right:10px}
+  .kodawari{list-style:none;margin:1.4em auto 0;padding:0;display:grid;gap:9px;color:#3b3f45;
+    text-align:left;max-width:24em}
+  .kodawari li{position:relative;padding-left:22px}
+  .kodawari li::before{content:"";position:absolute;left:0;top:.95em;width:13px;height:1px;background:currentColor;opacity:.5}
+  .news .ct{display:inline-block;font-size:.7rem;padding:1px 9px;border-radius:11px;margin-right:10px;
+    border:1px solid currentColor;opacity:.7;vertical-align:1px}
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 </style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"寿司・和食①（Beacona 制作見本・架空）",
+  "description":"制作見本として作成した架空の寿司・和食店サイトです。実在しません。",
+  "image":"https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56",
+  "servesCuisine":["寿司","和食","日本料理"],
+  "priceRange":"¥¥¥¥",
+  "telephone":"+81-00-0000-0000",
+  "acceptsReservations":"True",
+  "address":{"@type":"PostalAddress","streetAddress":"うらやす 0-0-0","addressLocality":"浦安市","addressRegion":"千葉県","postalCode":"279-0000","addressCountry":"JP"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"17:30","closes":"22:30"}
+  ],
+  "disambiguatingDescription":"これは制作見本（デモ）です。実在しないお店の架空サイトです。"
+}
+</script>
 </head>
 <body>
 
-<header id="hd">
-  <div class="wrap nav">
-    <div class="logo">鮨・和食 <span>蒼</span></div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#craft">こだわり</a></li>
-      <li><a href="#course">お品書き</a></li>
-      <li><a href="#info">店舗情報</a></li>
-      <li><a href="#contact" class="nav-cta">ご予約</a></li>
-    </ul>
-    <button class="menu-toggle" id="mtoggle"><span></span><span></span><span></span></button>
+<div class="demo-bar">
+  これは制作見本です。<b>実在しないお店の架空サイト</b>です（Beaconaデモ）。　<a href="../Beacona 業務紹介HP - 案B 編集的.html#demos">← 制作例にもどる</a>
+</div>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top">店名①<span class="sub">SUSHI / 制作見本</span></a>
+    <nav class="main" aria-label="メニュー">
+      <a href="#concept">お店のこと</a>
+      <a href="#menu">お品書き</a>
+      <a href="#news">お知らせ</a>
+      <a href="#info">店舗情報</a>
+    </nav>
   </div>
 </header>
 
-<section class="hero">
-  <div class="vline"></div>
-  <div class="sun"></div>
-  <div class="wrap hero-inner">
-    <div class="mark">SUSHI ・ WASHOKU ・ 新浦安</div>
-    <h1>旬を、<span>そのまま</span>。</h1>
-    <p class="read">豊洲から届く、その日いちばんの鮮魚を。<br>季節の移ろいを、一皿に。</p>
-    <div class="btn-row">
-      <a href="#contact" class="btn btn-fill">ご予約</a>
-      <a href="#course" class="btn btn-line">お品書き</a>
-    </div>
-  </div>
-</section>
+<main id="top">
 
-<section class="craft" id="craft">
-  <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-en">Craftsmanship</span><h2 class="sec-jp">こだわり</h2></div>
-    <div class="craft-grid">
-      <div class="craft-img reveal"></div>
-      <div class="craft-text reveal">
-        <p class="lead">仕入れに、<br>妥協はいたしません。</p>
-        <p>毎朝、店主自らが豊洲市場で目利き。その日いちばんの魚だけを仕入れます。シャリは赤酢を合わせ、ネタの旨みを引き立てる温度で握ります。</p>
-        <p>お椀や煮物には、利尻昆布と本枯節の一番出汁を。静かなカウンターで、季節のおまかせを心ゆくまで。接待や慶事には、落ち着いた個室をご用意しています。</p>
+  <section class="hero" style="padding:0" aria-label="トップ">
+    <img class="ph" src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=1600&q=80&auto=format&fit=crop" alt="写真（差し替え可）" loading="eager">
+    <div class="tint"></div>
+    <span class="pix-tag" style="position:absolute;top:14px;right:14px;z-index:6">写真①（差し替え可）</span>
+    <div class="stage">
+      <div class="wrap">
+        <h1>キャッチコピー①<span class="g">サブコピー①</span></h1>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="course" id="course">
-  <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-en">Course</span><h2 class="sec-jp">お品書き<span class="dot">・</span>おまかせ</h2></div>
-    <div class="course-wrap">
-      <div class="course-card reveal">
-        <span class="badge">人気</span>
-        <div class="ttl"><h3>おまかせ握り 蒼</h3><span class="pr">¥8,800</span></div>
-        <p>店主おまかせの握り十二貫に、お椀・小鉢・玉子。その日の魚を存分に。</p>
-      </div>
-      <div class="course-card reveal">
-        <div class="ttl"><h3>季節の会席</h3><span class="pr">¥11,000</span></div>
-        <p>先付から始まる全八品。お造り、焼き物、煮物、握りまで。慶事・接待に。</p>
-      </div>
-      <div class="course-card reveal">
-        <div class="ttl"><h3>昼の握り膳</h3><span class="pr">¥3,300</span></div>
-        <p>ランチ限定。握り八貫・お椀・小鉢。気軽に本格の鮨を。</p>
-      </div>
+  </section>
+  <div class="hero-foot">
+    <div class="wrap">
+      <p class="ey">サブコピー②</p>
+      <span class="qk"><b>営業時間①</b>（定休日①）</span>
+      <span class="qk">住所①</span>
     </div>
   </div>
-</section>
 
-<section class="info" id="info">
-  <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-en">Information</span><h2 class="sec-jp">店舗情報</h2></div>
-    <div class="info-grid">
-      <div class="info-list reveal">
-        <div class="ir"><span class="l">住所</span><span>千葉県浦安市入船◯-◯-◯ 新浦安プラザ 2F</span></div>
-        <div class="ir"><span class="l">電話</span><span>047-XXX-XXXX（ご予約優先）</span></div>
-        <div class="ir"><span class="l">昼</span><span>11:30 - 14:00（L.O.13:30）</span></div>
-        <div class="ir"><span class="l">夜</span><span>17:30 - 22:00（L.O.21:00）</span></div>
-        <div class="ir"><span class="l">定休</span><span>日曜・月曜</span></div>
-        <div class="ir"><span class="l">席</span><span>カウンター8席・個室2室</span></div>
-      </div>
-      <div class="map reveal"><span class="pin">📍</span><span class="t">JR新浦安駅 徒歩5分</span></div>
+  <section class="concept" id="concept">
+    <div class="wrap narrow">
+      <p class="kicker">お店のこと</p>
+      <h2>紹介見出し①</h2>
+      <p class="lead">紹介文①</p>
+      <ul class="kodawari">
+        <li>こだわり①</li>
+        <li>こだわり②</li>
+        <li>こだわり③</li>
+      </ul>
     </div>
-  </div>
-</section>
+    <div class="wrap">
+      <span class="pix"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1300&q=80&auto=format&fit=crop" alt="写真（差し替え可）" loading="lazy"><span class="pix-tag">写真②（差し替え可）</span></span>
+    </div>
+  </section>
 
-<section class="cta" id="contact">
-  <div class="wrap reveal">
-    <span class="sec-en">Reservation</span>
-    <h2>ご予約</h2>
-    <p>カウンター・個室のご予約、慶事や接待のご相談も承ります。</p>
-    <a href="tel:047XXXXXXX" class="btn btn-fill">☎ 047-XXX-XXXX に電話する</a>
-  </div>
-</section>
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <p class="kicker">お品書き</p>
+      <h2>おまかせと、一品</h2>
+      <div class="cols">
+        <div class="group">
+          <h3>メニューカテゴリ①</h3>
+          <div class="mrow"><div><div class="nm">品名①</div><div class="ds">説明①</div></div><span class="dots"></span><span class="pr">価格①</span></div>
+          <div class="mrow"><div><div class="nm">品名②</div><div class="ds">説明②</div></div><span class="dots"></span><span class="pr">価格②</span></div>
+          <div class="mrow"><div><div class="nm">品名③</div><div class="ds">説明③</div></div><span class="dots"></span><span class="pr">価格③</span></div>
+        </div>
+        <div class="group">
+          <h3>メニューカテゴリ②</h3>
+          <div class="mrow"><div><div class="nm">品名④</div><div class="ds">説明④</div></div><span class="dots"></span><span class="pr">価格④</span></div>
+          <div class="mrow"><div><div class="nm">品名⑤</div><div class="ds">説明⑤</div></div><span class="dots"></span><span class="pr">価格⑤</span></div>
+          <div class="mrow"><div><div class="nm">品名⑥</div><div class="ds">説明⑥</div></div><span class="dots"></span><span class="pr">価格⑥</span></div>
+        </div>
+      </div>
+      <p class="fine">※ 価格はすべて税込の表示見本です。仕入れにより、内容が変わることがあります。</p>
+    </div>
+  </section>
 
-<footer>
+  <section class="news" id="news">
+    <div class="wrap narrow">
+      <p class="kicker">お知らせ</p>
+      <h2>最近のこと</h2>
+      <div style="margin-top:24px">
+        <div class="item"><span class="dt">日付①</span><span class="tx"><span class="ct">カテゴリ①</span>本文①</span></div>
+        <div class="item"><span class="dt">日付②</span><span class="tx"><span class="ct">カテゴリ②</span>本文②</span></div>
+        <div class="item"><span class="dt">日付③</span><span class="tx"><span class="ct">カテゴリ③</span>本文③</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info" id="info">
+    <div class="wrap">
+      <p class="kicker">店舗情報・アクセス</p>
+      <h2>ご来店の前に</h2>
+      <div class="grid">
+        <div>
+          <div class="row"><span class="k">店名</span><span class="v">店名①</span></div>
+          <div class="row"><span class="k">住所</span><span class="v">住所①</span></div>
+          <div class="row"><span class="k">電話</span><span class="v">電話番号①</span></div>
+          <div class="row"><span class="k">営業時間</span><span class="v">営業時間①</span></div>
+          <div class="row"><span class="k">定休日</span><span class="v">定休日①</span></div>
+          <div class="row"><span class="k">アクセス</span><span class="v">アクセス①</span></div>
+          <div class="row"><span class="k">予約</span><span class="v">予約①（電話/URL）</span></div>
+          <div class="row"><span class="k">メール</span><span class="v">問い合わせメール①</span></div>
+          <div class="row"><span class="k">SNS</span><span class="v">SNSリンク①</span></div>
+        </div>
+        <div>
+          <div class="map" role="img" aria-label="地図（差し替え可）">地図①（差し替え可）</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
   <div class="wrap">
-    <div class="logo">鮨・和食 蒼</div>
-    <p>千葉県浦安市入船◯-◯-◯ ／ 昼 11:30-14:00 / 夜 17:30-22:00 ／ 日・月定休</p>
-    <p style="margin-top:14px;opacity:.6;font-size:.78rem">© 鮨・和食 蒼 ｜ これは制作デモ用の架空店舗サイトです</p>
+    <p class="disc"><b>これは制作見本です。</b>実在しないお店の架空サイトです（Beaconaデモ）。掲載の店名・住所・電話番号・営業時間・お知らせ・写真はすべて見本用で、実在の店舗とは関係ありません。写真は著作権フリー素材を使用しており、実店舗の写真に差し替えできます。</p>
+    <div class="row">
+      <span class="brand">店名①</span>
+      <small>制作見本 ／ <a href="../Beacona 業務紹介HP - 案B 編集的.html#demos">Beaconaの制作例へ</a></small>
+    </div>
   </div>
 </footer>
 
-<script>
-  const hd=document.getElementById('hd');
-  addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>40));
-  const mt=document.getElementById('mtoggle'),nl=document.getElementById('navLinks');
-  mt.addEventListener('click',()=>nl.classList.toggle('open'));
-  nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.15});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
 </body>
 </html>

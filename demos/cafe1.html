@@ -2,324 +2,288 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ===== SEO基本メタ ===== -->
-<!-- title：「地名＋業種＋店名」を意識。検索結果の見出しになる -->
-<title>café hinata｜新浦安の自家焙煎コーヒー店・カフェ｜浦安市</title>
-<!-- description：検索結果に出る説明文。クリック率に直結。地名と特徴を入れる -->
-<meta name="description" content="新浦安駅徒歩7分の自家焙煎コーヒー店。毎朝焙煎する8種の豆と季節の焼き菓子を、ハンドドリップで。浦安市入船、12席の小さなカフェ。">
-<link rel="canonical" href="https://example.com/">
-<meta name="robots" content="index,follow">
-
-<!-- ===== OGP（SNSシェア時の見え方） ===== -->
-<meta property="og:type" content="restaurant.restaurant">
-<meta property="og:title" content="café hinata｜新浦安の自家焙煎コーヒー店">
-<meta property="og:description" content="新浦安駅徒歩7分。毎朝焙煎する8種の豆と季節の焼き菓子。12席の小さなカフェ。">
-<meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://example.com/ogp.jpg">
-<meta name="twitter:card" content="summary_large_image">
-
-<!-- ===== 構造化データ JSON-LD（LocalBusiness > Restaurant型） =====
-     Google/AI検索が「これは浦安のカフェ」と正確に理解する核。
-     SEOとGEO（AI検索最適化）の両方に効く。GBPのNAPと完全一致させること。 -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CafeOrCoffeeShop",
-  "@id": "https://example.com/#business",
-  "name": "café hinata",
-  "description": "新浦安の自家焙煎コーヒー店。毎朝焙煎する8種の豆と季節の焼き菓子。",
-  "image": "https://example.com/ogp.jpg",
-  "url": "https://example.com/",
-  "telephone": "+81-47-XXX-XXXX",
-  "priceRange": "¥",
-  "servesCuisine": ["コーヒー", "カフェ", "焼き菓子"],
-  "acceptsReservations": "True",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "入船◯-◯-◯ 新浦安ガーデンテラス1F",
-    "addressLocality": "浦安市",
-    "addressRegion": "千葉県",
-    "postalCode": "279-00XX",
-    "addressCountry": "JP"
-  },
-  "geo": { "@type": "GeoCoordinates", "latitude": "35.6470", "longitude": "139.9150" },
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens": "09:00", "closes": "18:00"
-  }]
-}
-</script>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<meta name="robots" content="noindex, nofollow">
+<title>カフェ①｜制作見本（Beaconaデモ・架空のお店）</title>
+<meta name="description" content="これは制作見本です。実在しないお店の架空サイトです（Beaconaデモ）。カフェのホームページの一例として制作しました。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#f7f3ec;
-    --bg-deep:#efe7d8;
-    --ink:#2c2620;
-    --ink-soft:#5d544a;
-    --accent:#a9602f;
-    --accent-deep:#7c421c;
-    --cream:#fffdf8;
-    --line:#ddd2bf;
-    --shadow:rgba(60,45,25,.12);
-    --serif:"Shippori Mincho",serif;
-    --sans:"Zen Kaku Gothic New",sans-serif;
+    --paper:#f6f1e6;
+    --paper-2:#efe7d6;
+    --ink:#34312a;
+    --ink-soft:#726b5c;
+    --ink-faint:#a39a86;
+    --sage:#6f7656;
+    --sage-d:#565c41;
+    --clay:#b06a45;
+    --line:rgba(52,49,42,.14);
+    --round:"Zen Maru Gothic",system-ui,sans-serif;
+    --sans:"Zen Kaku Gothic New",system-ui,sans-serif;
   }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:var(--sans);color:var(--ink);background:var(--bg);
-    line-height:1.9;font-size:16px;overflow-x:hidden;
-    -webkit-font-smoothing:antialiased;
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:16px;line-height:1.95;letter-spacing:.02em;
+    word-break:auto-phrase;line-break:normal;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere}
+  ::selection{background:rgba(111,118,86,.20)}
+  a:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+
+  .wrap{max-width:1040px;margin-inline:auto;padding-inline:22px}
+  .narrow{max-width:680px}
+
+  /* ── demo banner ── */
+  .demo-bar{background:#2c2922;color:#f3ecdd;font-size:.82rem;letter-spacing:.02em;
+    text-align:center;padding:9px 16px;line-height:1.6}
+  .demo-bar b{color:#e0b25b;font-weight:700}
+  .demo-bar a{color:#e0b25b;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+
+  /* ── header ── */
+  header.site{position:sticky;top:0;z-index:20;background:rgba(246,241,230,.92);
+    backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  header.site .bar{display:flex;align-items:center;justify-content:space-between;height:58px}
+  .brand{font-family:var(--round);font-weight:700;font-size:1.2rem;letter-spacing:.04em;text-decoration:none;display:flex;align-items:baseline;gap:9px}
+  .brand .sub{font-size:.66rem;color:var(--ink-faint);letter-spacing:.1em;font-family:var(--sans)}
+  nav.main{display:flex;gap:18px}
+  nav.main a{font-size:.82rem;color:var(--ink-soft);text-decoration:none}
+  nav.main a:hover{color:var(--sage)}
+  @media (max-width:600px){nav.main{display:none}}
+
+  /* ── hero ── */
+  .hero{position:relative}
+  .hero .ph{width:100%;height:64vh;min-height:380px;object-fit:cover}
+  .hero .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,36,28,.18),rgba(40,36,28,.42))}
+  .hero .cap{position:absolute;left:0;right:0;bottom:30px}
+  .hero .eyebrow{font-family:var(--round);font-size:.84rem;letter-spacing:.18em;color:#f3ecdd;margin:0 0 12px}
+  .hero h1{font-family:var(--round);font-weight:700;font-size:2.5rem;line-height:1.35;margin:0;color:#fdfaf2;
+    text-shadow:0 2px 20px rgba(0,0,0,.35)}
+  .hero .tag{margin:14px 0 0;color:#f3ecdd;font-size:1rem;max-width:24em}
+  .hero .quick{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 18px;color:#ece4d2;font-size:.86rem}
+  .hero .quick b{color:#fdfaf2;font-weight:500}
+
+  section{padding-block:60px}
+  .kicker{font-family:var(--round);font-size:.8rem;letter-spacing:.18em;color:var(--sage-d);margin:0 0 12px}
+  h2{font-family:var(--round);font-weight:700;font-size:1.55rem;line-height:1.5;margin:0}
+  .lead{margin:1em 0 0;color:#48453c;text-wrap:pretty}
+
+  /* ── concept ── */
+  .concept .grid{display:grid;gap:26px;margin-top:24px}
+  .concept img{width:100%;height:280px;object-fit:cover;border-radius:6px}
+  .concept p{color:#48453c}
+  .concept p+p{margin-top:1em}
+
+  /* ── menu ── */
+  .menu{background:var(--paper-2)}
+  .menu .group{margin-top:30px}
+  .menu .group:first-of-type{margin-top:24px}
+  .menu h3{font-family:var(--round);font-size:1.06rem;color:var(--sage-d);margin:0 0 6px;
+    display:flex;align-items:center;gap:10px}
+  .menu h3::after{content:"";flex:1;height:1px;background:var(--line)}
+  .mrow{display:flex;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .mrow .nm{font-weight:500}
+  .mrow .ds{font-size:.82rem;color:var(--ink-soft);margin-top:2px}
+  .mrow .dots{flex:1;border-bottom:1px dotted var(--ink-faint);transform:translateY(-4px)}
+  .mrow .pr{font-variant-numeric:tabular-nums;color:#48453c;white-space:nowrap}
+  .menu .fine{margin-top:18px;font-size:.8rem;color:var(--ink-soft)}
+
+  /* ── news ── */
+  .news .item{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+  .news .item:last-child{border-bottom:1px solid var(--line)}
+  .news .dt{font-variant-numeric:tabular-nums;color:var(--ink-faint);font-size:.84rem}
+  .news .tx{color:#48453c}
+
+  /* ── info ── */
+  .info{background:#26241d;color:#e9e2d2}
+  .info h2{color:#f4eedd}
+  .info .kicker{color:#cda35c}
+  .info .grid{display:grid;gap:30px;margin-top:26px}
+  .info .row{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:12px 0;border-top:1px solid rgba(255,255,255,.12)}
+  .info .row:last-child{border-bottom:1px solid rgba(255,255,255,.12)}
+  .info .k{color:#b3aa93;font-size:.86rem}
+  .info .v{color:#f1eadb}
+  .info .v a{color:#e0b25b}
+  .info .map{width:100%;height:220px;border-radius:6px;background:
+    repeating-linear-gradient(45deg,#2f2c24,#2f2c24 14px,#332f27 14px,#332f27 28px);
+    display:flex;align-items:center;justify-content:center;color:#9a9079;font-size:.84rem;border:1px solid rgba(255,255,255,.1)}
+
+  /* ── footer ── */
+  footer.site{background:#1f1d18;color:#9a9079;padding-block:34px}
+  footer.site .disc{background:rgba(224,178,91,.08);border:1px solid rgba(224,178,91,.28);
+    border-radius:6px;padding:16px 18px;color:#d8cdb2;font-size:.86rem;line-height:1.8;margin-bottom:22px}
+  footer.site .disc b{color:#e7c074}
+  footer.site .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline}
+  footer.site .brand{color:#e6dcc4;font-size:1.04rem}
+  footer.site small{font-size:.76rem}
+  footer.site a{color:#cda35c}
+
+  @media (min-width:760px){
+    .hero h1{font-size:3.2rem}
+    h2{font-size:1.9rem}
+    section{padding-block:84px}
+    .concept .grid{grid-template-columns:1fr 1fr;align-items:center;gap:44px}
+    .concept img{height:360px}
+    .menu .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 50px}
+    .info .grid{grid-template-columns:1fr 1fr;gap:50px;align-items:start}
   }
-  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-
-  /* ===== header ===== */
-  header{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    padding:18px 0;transition:.4s;
-    background:rgba(247,243,236,0);
-  }
-  header.scrolled{background:rgba(247,243,236,.92);backdrop-filter:blur(10px);box-shadow:0 2px 20px var(--shadow);padding:12px 0}
-  .nav{display:flex;align-items:center;justify-content:space-between}
-  .logo{font-family:var(--serif);font-size:1.4rem;font-weight:700;letter-spacing:.05em;color:var(--ink)}
-  .logo span{color:var(--accent)}
-  .nav-links{display:flex;gap:30px;list-style:none}
-  .nav-links a{text-decoration:none;color:var(--ink-soft);font-size:.9rem;font-weight:500;letter-spacing:.06em;position:relative;transition:.3s}
-  .nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--accent);transition:.3s}
-  .nav-links a:hover{color:var(--accent)}
-  .nav-links a:hover::after{width:100%}
-  .nav-cta{background:var(--accent);color:var(--cream)!important;padding:9px 20px;border-radius:30px;font-size:.85rem}
-  .nav-cta::after{display:none!important}
-  .nav-cta:hover{background:var(--accent-deep)}
-  .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
-  .menu-toggle span{width:24px;height:2px;background:var(--ink);transition:.3s}
-
-  /* ===== hero ===== */
-  .hero{
-    min-height:100vh;display:flex;align-items:center;position:relative;
-    background:
-      radial-gradient(circle at 75% 30%,rgba(169,96,47,.10),transparent 45%),
-      linear-gradient(160deg,var(--bg) 0%,var(--bg-deep) 100%);
-    overflow:hidden;
-  }
-  .hero::before{
-    content:"";position:absolute;inset:0;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='3' cy='3' r='1' fill='%23a9602f' opacity='0.06'/%3E%3C/svg%3E");
-  }
-  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;position:relative;z-index:2;width:100%}
-  .hero-copy{opacity:0;transform:translateY(30px);animation:rise 1s .2s forwards}
-  .hero-tag{display:inline-block;font-size:.8rem;letter-spacing:.25em;color:var(--accent);border:1px solid var(--accent);border-radius:30px;padding:5px 16px;margin-bottom:26px}
-  .hero h1{font-family:var(--serif);font-size:3.4rem;font-weight:700;line-height:1.45;letter-spacing:.02em;margin-bottom:24px}
-  .hero h1 em{font-style:normal;color:var(--accent);position:relative}
-  .hero p{font-size:1.05rem;color:var(--ink-soft);margin-bottom:34px;max-width:420px}
-  .btn-row{display:flex;gap:14px;flex-wrap:wrap}
-  .btn{padding:14px 30px;border-radius:34px;font-size:.95rem;font-weight:500;text-decoration:none;letter-spacing:.05em;transition:.3s;display:inline-block}
-  .btn-main{background:var(--accent);color:var(--cream);box-shadow:0 8px 24px rgba(169,96,47,.3)}
-  .btn-main:hover{background:var(--accent-deep);transform:translateY(-2px);box-shadow:0 12px 30px rgba(169,96,47,.4)}
-  .btn-ghost{border:1px solid var(--ink);color:var(--ink)}
-  .btn-ghost:hover{background:var(--ink);color:var(--cream)}
-  .hero-visual{opacity:0;transform:scale(.95);animation:fade 1.2s .5s forwards;position:relative}
-  .cup{
-    width:100%;aspect-ratio:1;border-radius:50%;
-    background:
-      radial-gradient(circle at 38% 35%,#c9824e,#7c421c 70%,#5c3014);
-    box-shadow:0 30px 70px rgba(80,45,15,.35),inset 0 -10px 30px rgba(0,0,0,.3),inset 0 12px 30px rgba(255,220,180,.25);
-    position:relative;display:flex;align-items:center;justify-content:center;
-  }
-  .cup::after{content:"";position:absolute;width:62%;height:62%;border-radius:50%;background:radial-gradient(circle at 42% 38%,#3a2010,#1d0f06);box-shadow:inset 0 6px 18px rgba(0,0,0,.6)}
-  .steam{position:absolute;top:-6%;left:50%;width:8px;height:60px;display:flex;gap:18px}
-  .steam i{display:block;width:6px;height:50px;border-radius:8px;background:linear-gradient(to top,transparent,rgba(255,255,255,.5));filter:blur(3px);animation:steam 3s infinite ease-in-out}
-  .steam i:nth-child(2){animation-delay:.6s;height:64px}
-  .steam i:nth-child(3){animation-delay:1.2s}
-
-  @keyframes rise{to{opacity:1;transform:translateY(0)}}
-  @keyframes fade{to{opacity:1;transform:scale(1)}}
-  @keyframes steam{0%,100%{opacity:0;transform:translateY(6px) scaleY(.9)}50%{opacity:1;transform:translateY(-12px) scaleY(1.1)}}
-
-  /* ===== sections ===== */
-  section{padding:110px 0}
-  .sec-head{text-align:center;margin-bottom:64px}
-  .sec-en{display:block;font-size:.78rem;letter-spacing:.35em;color:var(--accent);margin-bottom:12px;text-transform:uppercase}
-  .sec-jp{font-family:var(--serif);font-size:2rem;font-weight:600;letter-spacing:.05em}
-
-  .about{background:var(--cream)}
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  .about-text p{margin-bottom:20px;color:var(--ink-soft)}
-  .about-text .lead{font-family:var(--serif);font-size:1.3rem;color:var(--ink);line-height:1.8}
-  .about-img{aspect-ratio:4/5;border-radius:4px;background:linear-gradient(135deg,#d8b78c,#a9602f);position:relative;overflow:hidden;box-shadow:0 20px 50px var(--shadow)}
-  .about-img::before{content:"☕";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:5rem;opacity:.25}
-  .about-img::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.5)}
-
-  /* menu */
-  .menu-list{display:grid;grid-template-columns:1fr 1fr;gap:14px 50px;max-width:780px;margin:0 auto}
-  .menu-item{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px dashed var(--line)}
-  .menu-item .nm{font-family:var(--serif);font-size:1.1rem}
-  .menu-item .nm small{display:block;font-family:var(--sans);font-size:.75rem;color:var(--ink-soft);letter-spacing:.05em;margin-top:2px}
-  .menu-item .pr{font-family:var(--serif);color:var(--accent);font-size:1.05rem;white-space:nowrap;padding-left:14px}
-  .menu-note{text-align:center;margin-top:40px;font-size:.85rem;color:var(--ink-soft)}
-
-  /* info */
-  .info{background:linear-gradient(160deg,var(--bg-deep),var(--bg))}
-  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
-  .info-card{background:var(--cream);padding:40px;border-radius:6px;box-shadow:0 12px 34px var(--shadow)}
-  .info-card h3{font-family:var(--serif);font-size:1.25rem;margin-bottom:22px;padding-bottom:14px;border-bottom:2px solid var(--accent);display:inline-block}
-  .info-row{display:flex;gap:16px;padding:10px 0;font-size:.92rem}
-  .info-row .lbl{color:var(--accent);font-weight:700;min-width:64px}
-  .map-frame{aspect-ratio:16/10;border-radius:6px;background:repeating-linear-gradient(45deg,#e3dccb,#e3dccb 12px,#dcd4c0 12px,#dcd4c0 24px);position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 34px var(--shadow);overflow:hidden}
-  .map-pin{font-size:2.5rem;filter:drop-shadow(0 4px 6px rgba(0,0,0,.2));animation:bounce 2s infinite}
-  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-  .map-frame span.lbl2{position:absolute;bottom:14px;font-size:.8rem;color:var(--ink-soft);background:var(--cream);padding:4px 12px;border-radius:20px}
-
-  /* cta */
-  .cta{background:var(--accent);color:var(--cream);text-align:center}
-  .cta h2{font-family:var(--serif);font-size:2.2rem;margin-bottom:18px}
-  .cta p{opacity:.9;margin-bottom:32px}
-  .cta .btn-main{background:var(--cream);color:var(--accent-deep)}
-  .cta .btn-main:hover{background:#fff}
-
-  footer{background:var(--ink);color:#b6a997;text-align:center;padding:50px 0;font-size:.85rem}
-  footer .logo{color:var(--cream);margin-bottom:12px;display:inline-block}
-
-  /* reveal */
-  .reveal{opacity:0;transform:translateY(36px);transition:.9s cubic-bezier(.2,.7,.2,1)}
-  .reveal.in{opacity:1;transform:translateY(0)}
-
-  /* ===== responsive ===== */
-  @media(max-width:820px){
-    .hero-grid,.about-grid,.info-grid{grid-template-columns:1fr}
-    .hero h1{font-size:2.5rem}
-    .hero-visual{max-width:300px;margin:0 auto;order:-1}
-    .menu-list{grid-template-columns:1fr;gap:0}
-    .nav-links{position:fixed;inset:0 0 0 auto;width:70%;max-width:300px;background:var(--cream);flex-direction:column;justify-content:center;align-items:center;gap:34px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px var(--shadow)}
-    .nav-links.open{transform:translateX(0)}
-    .menu-toggle{display:flex;z-index:101}
-  }
+  /* ▼ テンプレ編集用ラベル（差し替え箇所） */
+  .pix{position:relative;display:block}
+  .pix-tag{position:absolute;z-index:6;font-size:.68rem;letter-spacing:.03em;line-height:1.4;
+    background:rgba(18,16,12,.74);color:#fff;padding:3px 9px;border-radius:4px;
+    font-family:var(--sans);pointer-events:none}
+  .pix>.pix-tag{top:10px;right:10px}
+  .kodawari{list-style:none;margin:1.3em 0 0;padding:0;display:grid;gap:9px;color:#48453c}
+  .kodawari li{position:relative;padding-left:22px}
+  .kodawari li::before{content:"";position:absolute;left:0;top:.9em;width:13px;height:1px;background:currentColor;opacity:.45}
+  .news .ct{display:inline-block;font-size:.7rem;padding:1px 9px;border-radius:11px;margin-right:10px;
+    border:1px solid currentColor;opacity:.7;vertical-align:1px}
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 </style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CafeOrCoffeeShop",
+  "name":"カフェ①（Beacona 制作見本・架空）",
+  "description":"制作見本として作成した架空のカフェサイトです。実在しません。",
+  "image":"https://images.unsplash.com/photo-1442512595331-e89e73853f31",
+  "servesCuisine":["コーヒー","焼き菓子","軽食"],
+  "priceRange":"¥¥",
+  "telephone":"+81-00-0000-0000",
+  "address":{"@type":"PostalAddress","streetAddress":"うらやす 0-0-0","addressLocality":"浦安市","addressRegion":"千葉県","postalCode":"279-0000","addressCountry":"JP"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"18:00"}
+  ],
+  "disambiguatingDescription":"これは制作見本（デモ）です。実在しないお店の架空サイトです。"
+}
+</script>
 </head>
 <body>
 
-<header id="hd">
-  <div class="wrap nav">
-    <div class="logo">café <span>hinata</span></div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">店について</a></li>
-      <li><a href="#menu">メニュー</a></li>
-      <li><a href="#info">店舗情報</a></li>
-      <li><a href="#contact" class="nav-cta">ご予約</a></li>
-    </ul>
-    <button class="menu-toggle" id="mtoggle"><span></span><span></span><span></span></button>
+<div class="demo-bar">
+  これは制作見本です。<b>実在しないお店の架空サイト</b>です（Beaconaデモ）。　<a href="../Beacona 業務紹介HP - 案B 編集的.html#demos">← 制作例にもどる</a>
+</div>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top">店名①<span class="sub">CAFE / 制作見本</span></a>
+    <nav class="main" aria-label="メニュー">
+      <a href="#concept">お店のこと</a>
+      <a href="#menu">メニュー</a>
+      <a href="#news">お知らせ</a>
+      <a href="#info">店舗情報</a>
+    </nav>
   </div>
 </header>
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <span class="hero-tag">SINCE 2014 ・ 新浦安</span>
-      <h1>一杯の珈琲が、<br><em>今日の小さな</em>ごほうび。</h1>
-      <p>新浦安の路地裏にある、12席だけの小さな珈琲店。自家焙煎の豆と、季節の焼き菓子で、ゆっくりした時間をどうぞ。</p>
-      <div class="btn-row">
-        <a href="#menu" class="btn btn-main">メニューを見る</a>
-        <a href="#info" class="btn btn-ghost">アクセス</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="cup">
-        <div class="steam"><i></i><i></i><i></i></div>
-      </div>
-    </div>
-  </div>
-</section>
+<main id="top">
 
-<section class="about" id="about">
+  <section class="hero" style="padding:0" aria-label="トップ">
+    <img class="ph" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1600&q=80&auto=format&fit=crop" alt="写真（差し替え可）" loading="eager">
+    <div class="tint"></div>
+    <span class="pix-tag" style="position:absolute;top:14px;right:14px;z-index:6">写真①（差し替え可）</span>
+    <div class="cap">
+      <div class="wrap">
+        <p class="eyebrow">サブコピー②</p>
+        <h1>キャッチコピー①</h1>
+        <p class="tag">サブコピー①</p>
+        <p class="quick"><span><b>営業時間①</b>（定休日①）</span><span>住所①</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="concept" id="concept">
+    <div class="wrap">
+      <p class="kicker">お店のこと</p>
+      <h2>紹介見出し①</h2>
+      <div class="grid">
+        <div>
+          <p>紹介文①</p>
+          <ul class="kodawari">
+            <li>こだわり①</li>
+            <li>こだわり②</li>
+            <li>こだわり③</li>
+          </ul>
+        </div>
+        <span class="pix"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1100&q=80&auto=format&fit=crop" alt="写真（差し替え可）" loading="lazy"><span class="pix-tag">写真②（差し替え可）</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <p class="kicker">メニュー</p>
+      <h2>おしながき</h2>
+      <div class="cols">
+        <div class="group">
+          <h3>メニューカテゴリ①</h3>
+          <div class="mrow"><div><div class="nm">品名①</div><div class="ds">説明①</div></div><span class="dots"></span><span class="pr">価格①</span></div>
+          <div class="mrow"><div><div class="nm">品名②</div><div class="ds">説明②</div></div><span class="dots"></span><span class="pr">価格②</span></div>
+          <div class="mrow"><div><div class="nm">品名③</div><div class="ds">説明③</div></div><span class="dots"></span><span class="pr">価格③</span></div>
+        </div>
+        <div class="group">
+          <h3>メニューカテゴリ②</h3>
+          <div class="mrow"><div><div class="nm">品名④</div><div class="ds">説明④</div></div><span class="dots"></span><span class="pr">価格④</span></div>
+          <div class="mrow"><div><div class="nm">品名⑤</div><div class="ds">説明⑤</div></div><span class="dots"></span><span class="pr">価格⑤</span></div>
+          <div class="mrow"><div><div class="nm">品名⑥</div><div class="ds">説明⑥</div></div><span class="dots"></span><span class="pr">価格⑥</span></div>
+        </div>
+      </div>
+      <p class="fine">※ 価格はすべて税込の表示見本です。仕入れにより内容が変わることがあります。</p>
+    </div>
+  </section>
+
+  <section class="news" id="news">
+    <div class="wrap narrow">
+      <p class="kicker">お知らせ</p>
+      <h2>最近のこと</h2>
+      <div style="margin-top:22px">
+        <div class="item"><span class="dt">日付①</span><span class="tx"><span class="ct">カテゴリ①</span>本文①</span></div>
+        <div class="item"><span class="dt">日付②</span><span class="tx"><span class="ct">カテゴリ②</span>本文②</span></div>
+        <div class="item"><span class="dt">日付③</span><span class="tx"><span class="ct">カテゴリ③</span>本文③</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info" id="info">
+    <div class="wrap">
+      <p class="kicker">店舗情報・アクセス</p>
+      <h2>ご来店の前に</h2>
+      <div class="grid">
+        <div>
+          <div class="row"><span class="k">店名</span><span class="v">店名①</span></div>
+          <div class="row"><span class="k">住所</span><span class="v">住所①</span></div>
+          <div class="row"><span class="k">電話</span><span class="v">電話番号①</span></div>
+          <div class="row"><span class="k">営業時間</span><span class="v">営業時間①</span></div>
+          <div class="row"><span class="k">定休日</span><span class="v">定休日①</span></div>
+          <div class="row"><span class="k">アクセス</span><span class="v">アクセス①</span></div>
+          <div class="row"><span class="k">予約</span><span class="v">予約①（電話/URL）</span></div>
+          <div class="row"><span class="k">メール</span><span class="v">問い合わせメール①</span></div>
+          <div class="row"><span class="k">SNS</span><span class="v">SNSリンク①</span></div>
+        </div>
+        <div>
+          <div class="map" role="img" aria-label="地図（差し替え可）">地図①（差し替え可）</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-en">About Us</span>
-      <h2 class="sec-jp">店について</h2>
+    <p class="disc"><b>これは制作見本です。</b>実在しないお店の架空サイトです（Beaconaデモ）。掲載の店名・住所・電話番号・営業時間・お知らせ・写真はすべて見本用で、実在の店舗とは関係ありません。写真は著作権フリー素材を使用しており、実店舗の写真に差し替えできます。</p>
+    <div class="row">
+      <span class="brand">店名①</span>
+      <small>制作見本 ／ <a href="../Beacona 業務紹介HP - 案B 編集的.html#demos">Beaconaの制作例へ</a></small>
     </div>
-    <div class="about-grid">
-      <div class="about-img reveal"></div>
-      <div class="about-text reveal">
-        <p class="lead">「いつもの一杯」のある暮らしを、この街で。</p>
-        <p>café hinata は、新浦安の住宅街にひっそりと佇む自家焙煎の珈琲店です。毎朝その日の分だけ焙煎する豆は、浅煎りから深煎りまで常時8種類。</p>
-        <p>店主が一杯ずつ丁寧にハンドドリップでお淹れします。窓辺の席で本を読む方、近所の常連さん、はじめてのお客さま。どなたにも、ほっとできる時間を。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="menu" id="menu">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-en">Menu</span>
-      <h2 class="sec-jp">メニュー</h2>
-    </div>
-    <div class="menu-list reveal">
-      <div class="menu-item"><span class="nm">本日の珈琲<small>HAND DRIP COFFEE</small></span><span class="pr">¥520</span></div>
-      <div class="menu-item"><span class="nm">カフェラテ<small>CAFÉ LATTE</small></span><span class="pr">¥580</span></div>
-      <div class="menu-item"><span class="nm">深煎りアイスコーヒー<small>ICED COFFEE</small></span><span class="pr">¥540</span></div>
-      <div class="menu-item"><span class="nm">季節のフルーツティー<small>SEASONAL TEA</small></span><span class="pr">¥620</span></div>
-      <div class="menu-item"><span class="nm">自家製チーズケーキ<small>CHEESE CAKE</small></span><span class="pr">¥480</span></div>
-      <div class="menu-item"><span class="nm">本日の焼き菓子<small>BAKED SWEETS</small></span><span class="pr">¥380</span></div>
-      <div class="menu-item"><span class="nm">モーニングセット<small>9:00-11:00</small></span><span class="pr">¥780</span></div>
-      <div class="menu-item"><span class="nm">珈琲豆 100g<small>BEANS / TAKE OUT</small></span><span class="pr">¥800〜</span></div>
-    </div>
-    <p class="menu-note reveal">※価格は税込みです。季節により内容が変わります。</p>
-  </div>
-</section>
-
-<section class="info" id="info">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-en">Information</span>
-      <h2 class="sec-jp">店舗情報</h2>
-    </div>
-    <div class="info-grid">
-      <div class="info-card reveal">
-        <h3>営業のご案内</h3>
-        <div class="info-row"><span class="lbl">住所</span><span>千葉県浦安市入船◯-◯-◯<br>新浦安ガーデンテラス 1F</span></div>
-        <div class="info-row"><span class="lbl">電話</span><span>047-XXX-XXXX</span></div>
-        <div class="info-row"><span class="lbl">営業</span><span>9:00 - 18:00</span></div>
-        <div class="info-row"><span class="lbl">定休</span><span>火曜・第2水曜</span></div>
-        <div class="info-row"><span class="lbl">席数</span><span>12席（カウンター・テーブル）</span></div>
-      </div>
-      <div class="map-frame reveal">
-        <span class="map-pin">📍</span>
-        <span class="lbl2">JR新浦安駅 徒歩7分</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta" id="contact">
-  <div class="wrap reveal">
-    <h2>席のご予約・お問い合わせ</h2>
-    <p>お電話、またはInstagramのDMからお気軽にどうぞ。</p>
-    <a href="tel:047XXXXXXX" class="btn btn-main">☎ 047-XXX-XXXX に電話する</a>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="logo">café hinata</div>
-    <p>千葉県浦安市入船◯-◯-◯ ／ 9:00-18:00 ／ 火曜・第2水曜定休</p>
-    <p style="margin-top:14px;opacity:.6;font-size:.78rem">© café hinata ｜ これは制作デモ用の架空店舗サイトです</p>
   </div>
 </footer>
 
-<script>
-  const hd=document.getElementById('hd');
-  addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>40));
-  const mt=document.getElementById('mtoggle'),nl=document.getElementById('navLinks');
-  mt.addEventListener('click',()=>nl.classList.toggle('open'));
-  nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.15});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
 </body>
 </html>
