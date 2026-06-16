@@ -55,7 +55,7 @@
   nav.main a:hover{color:var(--indigo)}
   @media (max-width:600px){nav.main{display:none}}
 
-  /* hero: vertical mincho headline */
+  /* ── hero: vertical headline ── */
   .hero{position:relative;background:#1c2127}
   .hero .ph{width:100%;height:78vh;min-height:440px;object-fit:cover;filter:brightness(.78)}
   .hero .tint{position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,22,27,.5),rgba(18,22,27,.05) 50%,rgba(18,22,27,.3))}
@@ -76,10 +76,36 @@
   h2{font-family:var(--serif);font-weight:600;font-size:1.55rem;line-height:1.6;margin:0;letter-spacing:.08em}
   .lead{margin:1.2em 0 0;color:#3b3f45;text-wrap:pretty}
 
+  /* ── concept ── */
   .concept{text-align:center}
   .concept .lead{margin-inline:auto;max-width:30em}
   .concept img{width:100%;height:300px;object-fit:cover;border-radius:2px;margin-top:36px}
+  .kodawari{list-style:none;margin:1.4em auto 0;padding:0;display:grid;gap:9px;color:#3b3f45;
+    text-align:left;max-width:24em}
+  .kodawari li{position:relative;padding-left:22px}
+  .kodawari li::before{content:"";position:absolute;left:0;top:.95em;width:13px;height:1px;background:currentColor;opacity:.5}
 
+  /* ── 沿革 ── */
+  .enkaku{background:var(--paper-2)}
+  .enkaku .inner{max-width:600px;margin:0 auto}
+  .enkaku .timeline{margin-top:34px;position:relative;padding-left:30px}
+  .enkaku .timeline::before{content:"";position:absolute;left:10px;top:6px;bottom:6px;width:1px;background:rgba(34,38,43,.18)}
+  .titem{position:relative;padding-bottom:28px}
+  .titem:last-child{padding-bottom:0}
+  .titem::before{content:"";position:absolute;left:-24px;top:9px;width:9px;height:9px;border-radius:50%;
+    background:var(--paper-2);border:2px solid var(--gold);opacity:.8}
+  .titem .yr{font-family:var(--serif);font-size:.86rem;color:var(--gold);letter-spacing:.12em;margin:0}
+  .titem .ev{color:#3b3f45;margin:3px 0 0;font-size:.94rem;line-height:1.7;letter-spacing:.03em}
+
+  /* ── こだわりの素材 ── */
+  .sozai .grid{display:grid;gap:24px;margin-top:32px}
+  .sozai-card{display:flex;gap:18px;align-items:flex-start}
+  .sozai-card img{width:96px;height:96px;object-fit:cover;border-radius:2px;flex-shrink:0}
+  .sozai-card .body{}
+  .sozai-card .nm{font-family:var(--serif);font-size:1rem;letter-spacing:.1em;color:var(--ink);margin:0 0 6px;line-height:1.4}
+  .sozai-card .ds{font-size:.84rem;color:var(--ink-soft);line-height:1.75;margin:0}
+
+  /* ── menu ── */
   .menu{background:var(--paper-2)}
   .menu .group{margin-top:34px}.menu .group:first-of-type{margin-top:26px}
   .menu h3{font-family:var(--serif);font-size:1.1rem;color:var(--indigo);margin:0 0 8px;letter-spacing:.14em;
@@ -92,11 +118,15 @@
   .mrow .pr{font-variant-numeric:tabular-nums;color:var(--indigo);white-space:nowrap}
   .menu .fine{margin-top:20px;font-size:.8rem;color:var(--ink-soft)}
 
+  /* ── news ── */
   .news .item{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
   .news .item:last-child{border-bottom:1px solid var(--line)}
   .news .dt{font-variant-numeric:tabular-nums;color:var(--ink-faint);font-size:.84rem}
   .news .tx{color:#3b3f45}
+  .news .ct{display:inline-block;font-size:.7rem;padding:1px 9px;border-radius:11px;margin-right:10px;
+    border:1px solid currentColor;opacity:.7;vertical-align:1px}
 
+  /* ── info ── */
   .info{background:#1f242a;color:#dde1e0}
   .info h2{color:#f0f2ee}.info .kicker{color:#cdb079}
   .info .grid{display:grid;gap:30px;margin-top:26px}
@@ -122,6 +152,7 @@
     h2{font-size:1.95rem}
     section{padding-block:96px}
     .concept img{height:420px;max-width:860px;margin-inline:auto}
+    .sozai .grid{grid-template-columns:1fr 1fr;gap:30px 46px}
     .menu .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 54px}
     .info .grid{grid-template-columns:1fr 1fr;gap:50px;align-items:start}
   }
@@ -131,26 +162,20 @@
     background:rgba(16,18,22,.74);color:#fff;padding:3px 9px;border-radius:4px;
     font-family:var(--sans);pointer-events:none}
   .pix>.pix-tag{top:10px;right:10px}
-  .kodawari{list-style:none;margin:1.4em auto 0;padding:0;display:grid;gap:9px;color:#3b3f45;
-    text-align:left;max-width:24em}
-  .kodawari li{position:relative;padding-left:22px}
-  .kodawari li::before{content:"";position:absolute;left:0;top:.95em;width:13px;height:1px;background:currentColor;opacity:.5}
-  .news .ct{display:inline-block;font-size:.7rem;padding:1px 9px;border-radius:11px;margin-right:10px;
-    border:1px solid currentColor;opacity:.7;vertical-align:1px}
   @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 </style>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"Restaurant",
-  "name":"寿司・和食①（Beacona 制作見本・架空）",
+  "name":"鮨 海胤（Beacona 制作見本・架空）",
   "description":"制作見本として作成した架空の寿司・和食店サイトです。実在しません。",
   "image":"https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56",
   "servesCuisine":["寿司","和食","日本料理"],
   "priceRange":"¥¥¥¥",
   "telephone":"+81-00-0000-0000",
   "acceptsReservations":"True",
-  "address":{"@type":"PostalAddress","streetAddress":"うらやす 0-0-0","addressLocality":"浦安市","addressRegion":"千葉県","postalCode":"279-0000","addressCountry":"JP"},
+  "address":{"@type":"PostalAddress","streetAddress":"○○町 4-1-2","addressLocality":"浦安市","addressRegion":"千葉県","postalCode":"279-0000","addressCountry":"JP"},
   "openingHoursSpecification":[
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"17:30","closes":"22:30"}
   ],
@@ -166,11 +191,12 @@
 
 <header class="site">
   <div class="wrap bar">
-    <a class="brand" href="#top">店名①<span class="sub">SUSHI / 制作見本</span></a>
+    <a class="brand" href="#top">鮨 海胤<span class="sub">SUSHI / 制作見本</span></a>
     <nav class="main" aria-label="メニュー">
       <a href="#concept">お店のこと</a>
+      <a href="#enkaku">沿革</a>
+      <a href="#sozai">素材</a>
       <a href="#menu">お品書き</a>
-      <a href="#news">お知らせ</a>
       <a href="#info">店舗情報</a>
     </nav>
   </div>
@@ -178,92 +204,173 @@
 
 <main id="top">
 
+  <!-- ヒーロー -->
   <section class="hero" style="padding:0" aria-label="トップ">
-    <img class="ph" src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=1600&q=80&auto=format&fit=crop" alt="写真（差し替え可）" loading="eager">
+    <img class="ph" src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=1600&q=80&auto=format&fit=crop" alt="寿司（差し替え可）" loading="eager">
     <div class="tint"></div>
     <span class="pix-tag" style="position:absolute;top:14px;right:14px;z-index:6">写真①（差し替え可）</span>
     <div class="stage">
       <div class="wrap">
-        <h1>キャッチコピー①<span class="g">サブコピー①</span></h1>
+        <h1>余白を生かした<br>静かな一夜<span class="g">。</span></h1>
       </div>
     </div>
   </section>
   <div class="hero-foot">
     <div class="wrap">
-      <p class="ey">サブコピー②</p>
-      <span class="qk"><b>営業時間①</b>（定休日①）</span>
-      <span class="qk">住所①</span>
+      <p class="ey">おまかせ一本、仕入れに誠実に。</p>
+      <span class="qk"><b>火〜土 17:30–22:30</b>（日・月曜定休）</span>
+      <span class="qk">浦安市○○町 4-1-2</span>
     </div>
   </div>
 
+  <!-- コンセプト -->
   <section class="concept" id="concept">
     <div class="wrap narrow">
       <p class="kicker">お店のこと</p>
-      <h2>紹介見出し①</h2>
-      <p class="lead">紹介文①</p>
+      <h2>仕入れが決まれば、<br>あとは手が動く。</h2>
+      <p class="lead">豊洲から届く鮪、近海の貝、農家直送の米。その日の最良を選んで、おまかせ一本で握ります。決まったコースはなく、仕入れが献立を決める。それが私たちのやり方です。</p>
       <ul class="kodawari">
-        <li>こだわり①</li>
-        <li>こだわり②</li>
-        <li>こだわり③</li>
+        <li>豊洲市場から直送（差し替え可）</li>
+        <li>シャリは地場産こしひかり・赤酢仕上げ（差し替え可）</li>
+        <li>おまかせのみ・完全予約制（差し替え可）</li>
       </ul>
     </div>
     <div class="wrap">
-      <span class="pix"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1300&q=80&auto=format&fit=crop" alt="写真（差し替え可）" loading="lazy"><span class="pix-tag">写真②（差し替え可）</span></span>
+      <span class="pix"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1300&q=80&auto=format&fit=crop" alt="寿司（差し替え可）" loading="lazy"><span class="pix-tag">写真②（差し替え可）</span></span>
     </div>
   </section>
 
+  <!-- 沿革 -->
+  <section class="enkaku" id="enkaku">
+    <div class="wrap">
+      <p class="kicker">沿革</p>
+      <h2>歩みのこと</h2>
+      <div class="inner">
+        <div class="timeline">
+          <div class="titem">
+            <p class="yr">1988年（差し替え可）</p>
+            <p class="ev">初代・○○が○○市内に小さな鮨屋を構える。カウンター6席から始まる（差し替え可）。</p>
+          </div>
+          <div class="titem">
+            <p class="yr">1998年（差し替え可）</p>
+            <p class="ev">現在地に移転。12席に拡張し、完全予約制・おまかせ一本に絞った営業へ転換（差し替え可）。</p>
+          </div>
+          <div class="titem">
+            <p class="yr">2007年（差し替え可）</p>
+            <p class="ev">地場の農家と提携。シャリに使う米の直接契約栽培を開始（差し替え可）。</p>
+          </div>
+          <div class="titem">
+            <p class="yr">2018年（差し替え可）</p>
+            <p class="ev">内装を全面刷新。ヒノキのカウンターと間接照明で、より静かな空間に（差し替え可）。</p>
+          </div>
+          <div class="titem">
+            <p class="yr">2023年（差し替え可）</p>
+            <p class="ev">二代目・○○が主人に就任。仕入れのスタンスを継承しながら、新しい一皿に挑戦を続けている（差し替え可）。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- こだわりの素材 -->
+  <section class="sozai" id="sozai">
+    <div class="wrap">
+      <p class="kicker">こだわりの素材</p>
+      <h2>選んだもので、握る。</h2>
+      <p class="lead">毎朝の仕入れで、その日のネタが決まります。妥協しない素材選びが、おまかせの根拠です。</p>
+      <div class="grid">
+
+        <div class="sozai-card">
+          <img src="https://images.unsplash.com/photo-1534482421-64566f976cfa?w=200&q=80&auto=format&fit=crop" alt="まぐろ（差し替え可）" loading="lazy">
+          <div class="body">
+            <p class="nm">豊洲直送の鮪（差し替え可）</p>
+            <p class="ds">青森・大間産と宮城産を中心に、本鮪・メバチを季節で使い分けます。大トロから赤身まで、仕入れた日の状態で判断します（差し替え可）。</p>
+          </div>
+        </div>
+
+        <div class="sozai-card">
+          <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=200&q=80&auto=format&fit=crop" alt="地魚（差し替え可）" loading="lazy">
+          <div class="body">
+            <p class="nm">近海の地魚（差し替え可）</p>
+            <p class="ds">千葉・銚子港で水揚げされたヒラメ・カツオ・サバなどを中心に使います。季節と漁獲量によって、その日のネタが変わります（差し替え可）。</p>
+          </div>
+        </div>
+
+        <div class="sozai-card">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=200&q=80&auto=format&fit=crop" alt="米（差し替え可）" loading="lazy">
+          <div class="body">
+            <p class="nm">地場産こしひかり（差し替え可）</p>
+            <p class="ds">○○市内の農家と直接契約した特別栽培米を使用。赤酢と白酢をブレンドしたシャリは、ネタを邪魔しない控えめな酸みに仕上げます（差し替え可）。</p>
+          </div>
+        </div>
+
+        <div class="sozai-card">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&q=80&auto=format&fit=crop" alt="つまみ（差し替え可）" loading="lazy">
+          <div class="body">
+            <p class="nm">旬のつまみ（差し替え可）</p>
+            <p class="ds">握りの前に、季節の素材を使った一皿をお出しします。蛤の酒蒸し、白子ポン酢、雲丹の茶碗蒸しなど、仕入れにより毎日変わります（差し替え可）。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- お品書き -->
   <section class="menu" id="menu">
     <div class="wrap">
       <p class="kicker">お品書き</p>
       <h2>おまかせと、一品</h2>
       <div class="cols">
         <div class="group">
-          <h3>メニューカテゴリ①</h3>
-          <div class="mrow"><div><div class="nm">品名①</div><div class="ds">説明①</div></div><span class="dots"></span><span class="pr">価格①</span></div>
-          <div class="mrow"><div><div class="nm">品名②</div><div class="ds">説明②</div></div><span class="dots"></span><span class="pr">価格②</span></div>
-          <div class="mrow"><div><div class="nm">品名③</div><div class="ds">説明③</div></div><span class="dots"></span><span class="pr">価格③</span></div>
+          <h3>おまかせコース</h3>
+          <div class="mrow"><div><div class="nm">おまかせ（おひとり様）</div><div class="ds">つまみ数種＋にぎり10〜12貫（差し替え可）</div></div><span class="dots"></span><span class="pr">¥18,000</span></div>
+          <div class="mrow"><div><div class="nm">おまかせ（軽め）</div><div class="ds">つまみ数種＋にぎり8貫（差し替え可）</div></div><span class="dots"></span><span class="pr">¥12,000</span></div>
+          <div class="mrow"><div><div class="nm">追い鮪</div><div class="ds">コース後の追加 1貫から（差し替え可）</div></div><span class="dots"></span><span class="pr">¥600〜</span></div>
         </div>
         <div class="group">
-          <h3>メニューカテゴリ②</h3>
-          <div class="mrow"><div><div class="nm">品名④</div><div class="ds">説明④</div></div><span class="dots"></span><span class="pr">価格④</span></div>
-          <div class="mrow"><div><div class="nm">品名⑤</div><div class="ds">説明⑤</div></div><span class="dots"></span><span class="pr">価格⑤</span></div>
-          <div class="mrow"><div><div class="nm">品名⑥</div><div class="ds">説明⑥</div></div><span class="dots"></span><span class="pr">価格⑥</span></div>
+          <h3>お酒・飲み物</h3>
+          <div class="mrow"><div><div class="nm">日本酒（グラス）</div><div class="ds">純米・大吟醸など4〜6種（差し替え可）</div></div><span class="dots"></span><span class="pr">¥800〜</span></div>
+          <div class="mrow"><div><div class="nm">ビール</div><div class="ds">瓶ビール（差し替え可）</div></div><span class="dots"></span><span class="pr">¥700</span></div>
+          <div class="mrow"><div><div class="nm">お茶・ノンアル</div><div class="ds">煎茶・ウーロン茶（差し替え可）</div></div><span class="dots"></span><span class="pr">¥400</span></div>
         </div>
       </div>
-      <p class="fine">※ 価格はすべて税込の表示見本です。仕入れにより、内容が変わることがあります。</p>
+      <p class="fine">※ 価格はすべて税込の表示見本です。仕入れにより内容・価格が変わることがあります。完全予約制・おまかせのみ（差し替え可）。</p>
     </div>
   </section>
 
+  <!-- お知らせ -->
   <section class="news" id="news">
     <div class="wrap narrow">
       <p class="kicker">お知らせ</p>
       <h2>最近のこと</h2>
       <div style="margin-top:24px">
-        <div class="item"><span class="dt">日付①</span><span class="tx"><span class="ct">カテゴリ①</span>本文①</span></div>
-        <div class="item"><span class="dt">日付②</span><span class="tx"><span class="ct">カテゴリ②</span>本文②</span></div>
-        <div class="item"><span class="dt">日付③</span><span class="tx"><span class="ct">カテゴリ③</span>本文③</span></div>
+        <div class="item"><span class="dt">2025年○月</span><span class="tx"><span class="ct">お知らせ</span>○月よりランチ営業を試験的に開始します（月・火を除く）。ご予約はお電話で（差し替え可）。</span></div>
+        <div class="item"><span class="dt">2025年○月</span><span class="tx"><span class="ct">素材</span>大間産の本鮪が入荷しました。今月いっぱいはおまかせでお出しします（差し替え可）。</span></div>
+        <div class="item"><span class="dt">2025年○月</span><span class="tx"><span class="ct">営業</span>○月○日（○）は貸切のため一般予約をお断りしています（差し替え可）。</span></div>
       </div>
     </div>
   </section>
 
+  <!-- 店舗情報 -->
   <section class="info" id="info">
     <div class="wrap">
       <p class="kicker">店舗情報・アクセス</p>
       <h2>ご来店の前に</h2>
       <div class="grid">
         <div>
-          <div class="row"><span class="k">店名</span><span class="v">店名①</span></div>
-          <div class="row"><span class="k">住所</span><span class="v">住所①</span></div>
-          <div class="row"><span class="k">電話</span><span class="v">電話番号①</span></div>
-          <div class="row"><span class="k">営業時間</span><span class="v">営業時間①</span></div>
-          <div class="row"><span class="k">定休日</span><span class="v">定休日①</span></div>
-          <div class="row"><span class="k">アクセス</span><span class="v">アクセス①</span></div>
-          <div class="row"><span class="k">予約</span><span class="v">予約①（電話/URL）</span></div>
-          <div class="row"><span class="k">メール</span><span class="v">問い合わせメール①</span></div>
-          <div class="row"><span class="k">SNS</span><span class="v">SNSリンク①</span></div>
+          <div class="row"><span class="k">店名</span><span class="v">鮨 海胤（差し替え可）</span></div>
+          <div class="row"><span class="k">住所</span><span class="v">千葉県浦安市○○町 4-1-2（差し替え可）</span></div>
+          <div class="row"><span class="k">電話</span><span class="v">047-000-0000（差し替え可）</span></div>
+          <div class="row"><span class="k">営業時間</span><span class="v">火〜土 17:30〜22:30（L.O. 21:00）（差し替え可）</span></div>
+          <div class="row"><span class="k">定休日</span><span class="v">日・月曜日（差し替え可）</span></div>
+          <div class="row"><span class="k">アクセス</span><span class="v">○○駅 徒歩6分（差し替え可）</span></div>
+          <div class="row"><span class="k">ご予約</span><span class="v">完全予約制 ／ <a href="#">お電話のみ（差し替え可）</a></span></div>
+          <div class="row"><span class="k">席数</span><span class="v">カウンター12席（差し替え可）</span></div>
+          <div class="row"><span class="k">Instagram</span><span class="v"><a href="#">@sushi.kaitane（差し替え可）</a></span></div>
         </div>
         <div>
-          <div class="map" role="img" aria-label="地図（差し替え可）">地図①（差し替え可）</div>
+          <div class="map" role="img" aria-label="地図（差し替え可）">地図（Googleマップ埋め込み・差し替え可）</div>
         </div>
       </div>
     </div>
@@ -273,9 +380,9 @@
 
 <footer class="site">
   <div class="wrap">
-    <p class="disc"><b>これは制作見本です。</b>実在しないお店の架空サイトです（Beaconaデモ）。掲載の店名・住所・電話番号・営業時間・お知らせ・写真はすべて見本用で、実在の店舗とは関係ありません。写真は著作権フリー素材を使用しており、実店舗の写真に差し替えできます。</p>
+    <p class="disc"><b>これは制作見本です。</b>実在しないお店の架空サイトです（Beaconaデモ）。掲載の店名・住所・電話番号・営業時間・沿革・お知らせ・写真はすべて見本用で、実在の店舗とは関係ありません。写真は著作権フリー素材を使用しており、実店舗の写真に差し替えできます。</p>
     <div class="row">
-      <span class="brand">店名①</span>
+      <span class="brand">鮨 海胤</span>
       <small>制作見本 ／ <a href="../Beacona 業務紹介HP - 案B 編集的.html#demos">Beaconaの制作例へ</a></small>
     </div>
   </div>

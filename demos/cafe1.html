@@ -60,12 +60,12 @@
   /* ── hero ── */
   .hero{position:relative}
   .hero .ph{width:100%;height:64vh;min-height:380px;object-fit:cover}
-  .hero .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,36,28,.18),rgba(40,36,28,.42))}
-  .hero .cap{position:absolute;left:0;right:0;bottom:30px}
+  .hero .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,36,28,.18),rgba(40,36,28,.48))}
+  .hero .cap{position:absolute;left:0;right:0;bottom:34px}
   .hero .eyebrow{font-family:var(--round);font-size:.84rem;letter-spacing:.18em;color:#f3ecdd;margin:0 0 12px}
   .hero h1{font-family:var(--round);font-weight:700;font-size:2.5rem;line-height:1.35;margin:0;color:#fdfaf2;
     text-shadow:0 2px 20px rgba(0,0,0,.35)}
-  .hero .tag{margin:14px 0 0;color:#f3ecdd;font-size:1rem;max-width:24em}
+  .hero .tag{margin:14px 0 0;color:#f3ecdd;font-size:1rem;max-width:26em}
   .hero .quick{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 18px;color:#ece4d2;font-size:.86rem}
   .hero .quick b{color:#fdfaf2;font-weight:500}
 
@@ -79,6 +79,16 @@
   .concept img{width:100%;height:280px;object-fit:cover;border-radius:6px}
   .concept p{color:#48453c}
   .concept p+p{margin-top:1em}
+  .kodawari{list-style:none;margin:1.3em 0 0;padding:0;display:grid;gap:9px;color:#48453c}
+  .kodawari li{position:relative;padding-left:22px}
+  .kodawari li::before{content:"";position:absolute;left:0;top:.9em;width:13px;height:1px;background:currentColor;opacity:.45}
+
+  /* ── gallery ── */
+  .gallery{padding-block:0}
+  .gallery .g3{display:grid;gap:4px;grid-template-columns:1fr 1fr}
+  .gallery .g3 img{width:100%;height:200px;object-fit:cover}
+  .gallery .g3 .wide{grid-column:1/-1}
+  .gallery .g3 .wide img{height:260px}
 
   /* ── menu ── */
   .menu{background:var(--paper-2)}
@@ -99,6 +109,8 @@
   .news .item:last-child{border-bottom:1px solid var(--line)}
   .news .dt{font-variant-numeric:tabular-nums;color:var(--ink-faint);font-size:.84rem}
   .news .tx{color:#48453c}
+  .news .ct{display:inline-block;font-size:.7rem;padding:1px 9px;border-radius:11px;margin-right:10px;
+    border:1px solid currentColor;opacity:.7;vertical-align:1px}
 
   /* ── info ── */
   .info{background:#26241d;color:#e9e2d2}
@@ -132,6 +144,10 @@
     .concept img{height:360px}
     .menu .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 50px}
     .info .grid{grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+    .gallery .g3{grid-template-columns:1fr 1fr 1fr}
+    .gallery .g3 .wide{grid-column:auto}
+    .gallery .g3 img{height:240px}
+    .gallery .g3 .wide img{height:240px}
   }
   /* ▼ テンプレ編集用ラベル（差し替え箇所） */
   .pix{position:relative;display:block}
@@ -139,26 +155,21 @@
     background:rgba(18,16,12,.74);color:#fff;padding:3px 9px;border-radius:4px;
     font-family:var(--sans);pointer-events:none}
   .pix>.pix-tag{top:10px;right:10px}
-  .kodawari{list-style:none;margin:1.3em 0 0;padding:0;display:grid;gap:9px;color:#48453c}
-  .kodawari li{position:relative;padding-left:22px}
-  .kodawari li::before{content:"";position:absolute;left:0;top:.9em;width:13px;height:1px;background:currentColor;opacity:.45}
-  .news .ct{display:inline-block;font-size:.7rem;padding:1px 9px;border-radius:11px;margin-right:10px;
-    border:1px solid currentColor;opacity:.7;vertical-align:1px}
   @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 </style>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"CafeOrCoffeeShop",
-  "name":"カフェ①（Beacona 制作見本・架空）",
+  "name":"喫茶 ことり（Beacona 制作見本・架空）",
   "description":"制作見本として作成した架空のカフェサイトです。実在しません。",
   "image":"https://images.unsplash.com/photo-1442512595331-e89e73853f31",
   "servesCuisine":["コーヒー","焼き菓子","軽食"],
   "priceRange":"¥¥",
   "telephone":"+81-00-0000-0000",
-  "address":{"@type":"PostalAddress","streetAddress":"うらやす 0-0-0","addressLocality":"浦安市","addressRegion":"千葉県","postalCode":"279-0000","addressCountry":"JP"},
+  "address":{"@type":"PostalAddress","streetAddress":"○○町 1-2-3","addressLocality":"市川市","addressRegion":"千葉県","postalCode":"272-0000","addressCountry":"JP"},
   "openingHoursSpecification":[
-    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"18:00"}
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"17:00"}
   ],
   "disambiguatingDescription":"これは制作見本（デモ）です。実在しないお店の架空サイトです。"
 }
@@ -172,7 +183,7 @@
 
 <header class="site">
   <div class="wrap bar">
-    <a class="brand" href="#top">店名①<span class="sub">CAFE / 制作見本</span></a>
+    <a class="brand" href="#top">喫茶 ことり<span class="sub">CAFE / 制作見本</span></a>
     <nav class="main" aria-label="メニュー">
       <a href="#concept">お店のこと</a>
       <a href="#menu">メニュー</a>
@@ -184,90 +195,111 @@
 
 <main id="top">
 
+  <!-- ヒーロー -->
   <section class="hero" style="padding:0" aria-label="トップ">
-    <img class="ph" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1600&q=80&auto=format&fit=crop" alt="写真（差し替え可）" loading="eager">
+    <img class="ph" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1600&q=80&auto=format&fit=crop" alt="カフェの朝（差し替え可）" loading="eager">
     <div class="tint"></div>
     <span class="pix-tag" style="position:absolute;top:14px;right:14px;z-index:6">写真①（差し替え可）</span>
     <div class="cap">
       <div class="wrap">
-        <p class="eyebrow">サブコピー②</p>
-        <h1>キャッチコピー①</h1>
-        <p class="tag">サブコピー①</p>
-        <p class="quick"><span><b>営業時間①</b>（定休日①）</span><span>住所①</span></p>
+        <p class="eyebrow">CAFE / 制作見本</p>
+        <h1>朝の光と、<br>こだわりのコーヒー。</h1>
+        <p class="tag">一杯ずつ丁寧に淹れる、街の小さな喫茶店。<br>メニューと営業時間、店内の空気が一枚で伝わる構成です。</p>
+        <p class="quick">
+          <span><b>火〜日 8:00–17:00</b>（月曜定休）</span>
+          <span>市川市○○町 1-2-3</span>
+        </p>
       </div>
     </div>
   </section>
 
+  <!-- 店内写真ギャラリー -->
+  <section class="gallery" aria-label="店内の様子">
+    <div class="g3">
+      <span class="pix wide"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&q=80&auto=format&fit=crop" alt="店内（差し替え可）" loading="lazy"><span class="pix-tag">写真②（差し替え可）</span></span>
+      <span class="pix"><img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=800&q=80&auto=format&fit=crop" alt="店内（差し替え可）" loading="lazy"><span class="pix-tag">写真③（差し替え可）</span></span>
+      <span class="pix"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80&auto=format&fit=crop" alt="コーヒー（差し替え可）" loading="lazy"><span class="pix-tag">写真④（差し替え可）</span></span>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
   <section class="concept" id="concept">
     <div class="wrap">
       <p class="kicker">お店のこと</p>
-      <h2>紹介見出し①</h2>
+      <h2>ゆっくりできる場所を、<br>作りたかった。</h2>
       <div class="grid">
         <div>
-          <p>紹介文①</p>
+          <p>2008年の開業以来、変わらず一杯ずつハンドドリップで淹れています。豆は長野の自家農園から直送。焙煎は週に2回、店主が自ら行います。</p>
+          <p>窓際のカウンターは、朝の読書にちょうどいい光が差し込みます。ゆっくりとした時間を、どうぞ。</p>
           <ul class="kodawari">
-            <li>こだわり①</li>
-            <li>こだわり②</li>
-            <li>こだわり③</li>
+            <li>長野産シングルオリジン豆を週2回焙煎</li>
+            <li>地元パン屋「むぎのね」のトーストを毎朝仕入れ</li>
+            <li>週替わりの焼き菓子は手作り（差し替え可）</li>
           </ul>
         </div>
-        <span class="pix"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1100&q=80&auto=format&fit=crop" alt="写真（差し替え可）" loading="lazy"><span class="pix-tag">写真②（差し替え可）</span></span>
+        <span class="pix"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1100&q=80&auto=format&fit=crop" alt="コーヒーを淹れる（差し替え可）" loading="lazy"><span class="pix-tag">写真⑤（差し替え可）</span></span>
       </div>
     </div>
   </section>
 
+  <!-- メニュー -->
   <section class="menu" id="menu">
     <div class="wrap">
       <p class="kicker">メニュー</p>
       <h2>おしながき</h2>
       <div class="cols">
         <div class="group">
-          <h3>メニューカテゴリ①</h3>
-          <div class="mrow"><div><div class="nm">品名①</div><div class="ds">説明①</div></div><span class="dots"></span><span class="pr">価格①</span></div>
-          <div class="mrow"><div><div class="nm">品名②</div><div class="ds">説明②</div></div><span class="dots"></span><span class="pr">価格②</span></div>
-          <div class="mrow"><div><div class="nm">品名③</div><div class="ds">説明③</div></div><span class="dots"></span><span class="pr">価格③</span></div>
+          <h3>コーヒー・ドリンク</h3>
+          <div class="mrow"><div><div class="nm">本日のブレンド</div><div class="ds">深煎り・中煎りから選べます（差し替え可）</div></div><span class="dots"></span><span class="pr">¥550</span></div>
+          <div class="mrow"><div><div class="nm">カフェラテ</div><div class="ds">エスプレッソに泡立てたミルク（差し替え可）</div></div><span class="dots"></span><span class="pr">¥650</span></div>
+          <div class="mrow"><div><div class="nm">カプチーノ</div><div class="ds">イタリア式のきめ細かい泡（差し替え可）</div></div><span class="dots"></span><span class="pr">¥650</span></div>
+          <div class="mrow"><div><div class="nm">アイスコーヒー</div><div class="ds">急冷して旨みを閉じ込めた一杯（差し替え可）</div></div><span class="dots"></span><span class="pr">¥600</span></div>
+          <div class="mrow"><div><div class="nm">ハーブティー</div><div class="ds">農家直送のドライハーブ使用（差し替え可）</div></div><span class="dots"></span><span class="pr">¥600</span></div>
         </div>
         <div class="group">
-          <h3>メニューカテゴリ②</h3>
-          <div class="mrow"><div><div class="nm">品名④</div><div class="ds">説明④</div></div><span class="dots"></span><span class="pr">価格④</span></div>
-          <div class="mrow"><div><div class="nm">品名⑤</div><div class="ds">説明⑤</div></div><span class="dots"></span><span class="pr">価格⑤</span></div>
-          <div class="mrow"><div><div class="nm">品名⑥</div><div class="ds">説明⑥</div></div><span class="dots"></span><span class="pr">価格⑥</span></div>
+          <h3>フード・焼き菓子</h3>
+          <div class="mrow"><div><div class="nm">トースト</div><div class="ds">地元パン屋の食パン、バター添え（差し替え可）</div></div><span class="dots"></span><span class="pr">¥420</span></div>
+          <div class="mrow"><div><div class="nm">スコーン</div><div class="ds">週替わり2種（プレーン・チョコ等）（差し替え可）</div></div><span class="dots"></span><span class="pr">¥400</span></div>
+          <div class="mrow"><div><div class="nm">本日のケーキ</div><div class="ds">旬のフルーツを使った手作り（差し替え可）</div></div><span class="dots"></span><span class="pr">¥500</span></div>
+          <div class="mrow"><div><div class="nm">サンドイッチ</div><div class="ds">ハムとチーズの定番セット（差し替え可）</div></div><span class="dots"></span><span class="pr">¥700</span></div>
+          <div class="mrow"><div><div class="nm">モーニングセット</div><div class="ds">10:00まで／トースト＋ドリンク（差し替え可）</div></div><span class="dots"></span><span class="pr">¥800</span></div>
         </div>
       </div>
-      <p class="fine">※ 価格はすべて税込の表示見本です。仕入れにより内容が変わることがあります。</p>
+      <p class="fine">※ 価格はすべて税込の表示見本です。仕入れにより内容が変わることがあります。テイクアウト可（差し替え可）。</p>
     </div>
   </section>
 
+  <!-- お知らせ -->
   <section class="news" id="news">
     <div class="wrap narrow">
       <p class="kicker">お知らせ</p>
       <h2>最近のこと</h2>
       <div style="margin-top:22px">
-        <div class="item"><span class="dt">日付①</span><span class="tx"><span class="ct">カテゴリ①</span>本文①</span></div>
-        <div class="item"><span class="dt">日付②</span><span class="tx"><span class="ct">カテゴリ②</span>本文②</span></div>
-        <div class="item"><span class="dt">日付③</span><span class="tx"><span class="ct">カテゴリ③</span>本文③</span></div>
+        <div class="item"><span class="dt">2025年○月</span><span class="tx"><span class="ct">お知らせ</span>夏の新ブレンドが入荷しました。爽やかなエチオピア産です（差し替え可）。</span></div>
+        <div class="item"><span class="dt">2025年○月</span><span class="tx"><span class="ct">営業</span>○月○日（○）は店主の都合により臨時休業させていただきます（差し替え可）。</span></div>
+        <div class="item"><span class="dt">2025年○月</span><span class="tx"><span class="ct">メニュー</span>週替わりスコーンに「黒糖くるみ」が登場。土日限定です（差し替え可）。</span></div>
       </div>
     </div>
   </section>
 
+  <!-- 店舗情報 -->
   <section class="info" id="info">
     <div class="wrap">
       <p class="kicker">店舗情報・アクセス</p>
       <h2>ご来店の前に</h2>
       <div class="grid">
         <div>
-          <div class="row"><span class="k">店名</span><span class="v">店名①</span></div>
-          <div class="row"><span class="k">住所</span><span class="v">住所①</span></div>
-          <div class="row"><span class="k">電話</span><span class="v">電話番号①</span></div>
-          <div class="row"><span class="k">営業時間</span><span class="v">営業時間①</span></div>
-          <div class="row"><span class="k">定休日</span><span class="v">定休日①</span></div>
-          <div class="row"><span class="k">アクセス</span><span class="v">アクセス①</span></div>
-          <div class="row"><span class="k">予約</span><span class="v">予約①（電話/URL）</span></div>
-          <div class="row"><span class="k">メール</span><span class="v">問い合わせメール①</span></div>
-          <div class="row"><span class="k">SNS</span><span class="v">SNSリンク①</span></div>
+          <div class="row"><span class="k">店名</span><span class="v">喫茶 ことり（差し替え可）</span></div>
+          <div class="row"><span class="k">住所</span><span class="v">千葉県市川市○○町 1-2-3（差し替え可）</span></div>
+          <div class="row"><span class="k">電話</span><span class="v">047-000-0000（差し替え可）</span></div>
+          <div class="row"><span class="k">営業時間</span><span class="v">火〜日 8:00〜17:00（差し替え可）</span></div>
+          <div class="row"><span class="k">定休日</span><span class="v">月曜日（差し替え可）</span></div>
+          <div class="row"><span class="k">アクセス</span><span class="v">○○駅 徒歩3分（差し替え可）</span></div>
+          <div class="row"><span class="k">席数</span><span class="v">18席（差し替え可）</span></div>
+          <div class="row"><span class="k">Instagram</span><span class="v"><a href="#">@kotori.cafe（差し替え可）</a></span></div>
         </div>
         <div>
-          <div class="map" role="img" aria-label="地図（差し替え可）">地図①（差し替え可）</div>
+          <div class="map" role="img" aria-label="地図（差し替え可）">地図（Googleマップ埋め込み・差し替え可）</div>
         </div>
       </div>
     </div>
@@ -279,7 +311,7 @@
   <div class="wrap">
     <p class="disc"><b>これは制作見本です。</b>実在しないお店の架空サイトです（Beaconaデモ）。掲載の店名・住所・電話番号・営業時間・お知らせ・写真はすべて見本用で、実在の店舗とは関係ありません。写真は著作権フリー素材を使用しており、実店舗の写真に差し替えできます。</p>
     <div class="row">
-      <span class="brand">店名①</span>
+      <span class="brand">喫茶 ことり</span>
       <small>制作見本 ／ <a href="../Beacona 業務紹介HP - 案B 編集的.html#demos">Beaconaの制作例へ</a></small>
     </div>
   </div>

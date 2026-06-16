@@ -72,28 +72,44 @@
   .h2jp{font-size:.92rem;color:var(--ink-soft);margin:.5em 0 0;font-family:var(--sans);letter-spacing:.1em}
   .lead{margin:1.1em 0 0;color:#54422f;text-wrap:pretty}
 
+  /* ── concept ── */
   .concept .grid{display:grid;gap:26px;margin-top:24px}
   .concept img{width:100%;height:290px;object-fit:cover;border-radius:6px}
   .concept p{color:#54422f}.concept p+p{margin-top:1em}
+  .kodawari{list-style:none;margin:1.3em 0 0;padding:0;display:grid;gap:9px;color:#54422f}
+  .kodawari li{position:relative;padding-left:22px}
+  .kodawari li::before{content:"";position:absolute;left:0;top:.9em;width:13px;height:1px;background:currentColor;opacity:.45}
 
+  /* ── photo menu ── */
   .menu{background:var(--paper-2)}
-  .menu .group{margin-top:30px}.menu .group:first-of-type{margin-top:24px}
+  .menu .cat-head{margin-top:40px}
+  .menu .cat-head:first-of-type{margin-top:28px}
   .menu h3{font-family:var(--display);font-size:1.16rem;color:var(--terra-d);margin:0 0 4px;
     display:flex;align-items:center;gap:12px}
   .menu h3 .jp{font-family:var(--sans);font-size:.74rem;color:var(--ink-soft);letter-spacing:.08em}
   .menu h3::after{content:"";flex:1;height:1px;background:var(--line)}
-  .mrow{display:flex;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}
-  .mrow .nm{font-weight:500}
-  .mrow .ds{font-size:.82rem;color:var(--ink-soft);margin-top:2px}
-  .mrow .dots{flex:1;border-bottom:1px dotted var(--ink-faint);transform:translateY(-4px)}
-  .mrow .pr{font-variant-numeric:tabular-nums;color:var(--terra-d);white-space:nowrap}
-  .menu .fine{margin-top:18px;font-size:.8rem;color:var(--ink-soft)}
 
+  /* フォトカードグリッド */
+  .dish-grid{display:grid;gap:2px;background:var(--line);margin-top:10px}
+  .dish-card{display:grid;grid-template-columns:120px 1fr;background:var(--paper-2);overflow:hidden;min-height:100px}
+  .dish-card img{width:120px;height:100%;min-height:100px;object-fit:cover;display:block}
+  .dish-card .body{padding:14px 16px;display:flex;flex-direction:column}
+  .dish-card .nm{font-weight:500;font-size:.96rem;line-height:1.4;margin:0}
+  .dish-card .it{font-family:var(--display);font-style:italic;font-size:.8rem;color:var(--terra);margin:2px 0 0}
+  .dish-card .ds{font-size:.8rem;color:var(--ink-soft);margin-top:4px;flex:1}
+  .dish-card .pr{font-size:.9rem;color:var(--terra-d);margin-top:8px;font-variant-numeric:tabular-nums;font-weight:500}
+
+  .menu .fine{margin-top:20px;font-size:.8rem;color:var(--ink-soft)}
+
+  /* ── news ── */
   .news .item{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
   .news .item:last-child{border-bottom:1px solid var(--line)}
   .news .dt{font-variant-numeric:tabular-nums;color:var(--ink-faint);font-size:.84rem}
   .news .tx{color:#54422f}
+  .news .ct{display:inline-block;font-size:.7rem;padding:1px 9px;border-radius:11px;margin-right:10px;
+    border:1px solid currentColor;opacity:.7;vertical-align:1px}
 
+  /* ── info ── */
   .info{background:#3a2d22;color:#efe2cf}
   .info h2{color:#fbeede}.info .kicker{color:#eab87a}
   .info .grid{display:grid;gap:30px;margin-top:24px}
@@ -113,13 +129,17 @@
   footer.site .brand{color:#f0e0c8;font-size:1.1rem}
   footer.site small{font-size:.76rem}footer.site a{color:#eab87a}
 
+  @media (min-width:680px){
+    .dish-grid{grid-template-columns:1fr 1fr}
+    .dish-card img{width:130px}
+    .dish-card .body{padding:16px 18px}
+  }
   @media (min-width:760px){
     .hero h1{font-size:3.4rem}
     h2{font-size:2.1rem}
     section{padding-block:88px}
     .concept .grid{grid-template-columns:1fr 1fr;align-items:center;gap:46px}
     .concept img{height:380px}
-    .menu .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 52px}
     .info .grid{grid-template-columns:1fr 1fr;gap:50px;align-items:start}
   }
   /* ▼ テンプレ編集用ラベル（差し替え箇所） */
@@ -128,25 +148,20 @@
     background:rgba(40,24,14,.74);color:#fff;padding:3px 9px;border-radius:4px;
     font-family:var(--sans);pointer-events:none}
   .pix>.pix-tag{top:10px;right:10px}
-  .kodawari{list-style:none;margin:1.3em 0 0;padding:0;display:grid;gap:9px;color:#54422f}
-  .kodawari li{position:relative;padding-left:22px}
-  .kodawari li::before{content:"";position:absolute;left:0;top:.9em;width:13px;height:1px;background:currentColor;opacity:.45}
-  .news .ct{display:inline-block;font-size:.7rem;padding:1px 9px;border-radius:11px;margin-right:10px;
-    border:1px solid currentColor;opacity:.7;vertical-align:1px}
   @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 </style>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"Restaurant",
-  "name":"イタリアン①（Beacona 制作見本・架空）",
+  "name":"Trattoria Sole（Beacona 制作見本・架空）",
   "description":"制作見本として作成した架空のイタリアンレストランサイトです。実在しません。",
   "image":"https://images.unsplash.com/photo-1481931098730-318b6f776db0",
   "servesCuisine":["イタリアン","パスタ","ピッツァ"],
   "priceRange":"¥¥¥",
   "telephone":"+81-00-0000-0000",
   "acceptsReservations":"True",
-  "address":{"@type":"PostalAddress","streetAddress":"うらやす 0-0-0","addressLocality":"市川市","addressRegion":"千葉県","postalCode":"272-0000","addressCountry":"JP"},
+  "address":{"@type":"PostalAddress","streetAddress":"○○町 3-4-5","addressLocality":"市川市","addressRegion":"千葉県","postalCode":"272-0000","addressCountry":"JP"},
   "openingHoursSpecification":[
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"11:30","closes":"22:00"}
   ],
@@ -162,7 +177,7 @@
 
 <header class="site">
   <div class="wrap bar">
-    <a class="brand" href="#top">店名①<span class="sub">イタリアン / 制作見本</span></a>
+    <a class="brand" href="#top">Trattoria Sole<span class="sub">イタリアン / 制作見本</span></a>
     <nav class="main" aria-label="メニュー">
       <a href="#concept">お店のこと</a>
       <a href="#menu">メニュー</a>
@@ -174,91 +189,207 @@
 
 <main id="top">
 
+  <!-- ヒーロー -->
   <section class="hero" style="padding:0" aria-label="トップ">
-    <img class="ph" src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=1600&q=80&auto=format&fit=crop" alt="写真（差し替え可）" loading="eager">
+    <img class="ph" src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=1600&q=80&auto=format&fit=crop" alt="料理（差し替え可）" loading="eager">
     <div class="tint"></div>
     <span class="pix-tag" style="position:absolute;top:14px;right:14px;z-index:6">写真①（差し替え可）</span>
     <div class="cap">
       <div class="wrap">
-        <p class="eyebrow">サブコピー②</p>
-        <h1>キャッチコピー①</h1>
-        <p class="jp">サブコピー①</p>
-        <p class="quick"><span><b>営業時間①</b>（定休日①）</span><span>住所①</span></p>
+        <p class="eyebrow">Trattoria · 制作見本</p>
+        <h1>料理の写真が、<br>メニューになる。</h1>
+        <p class="jp">一品一品のフード写真が、メニューに彩りを添えます。写真はお店のものに差し替え可能です。</p>
+        <p class="quick">
+          <span><b>火〜日 11:30–22:00</b>（月曜定休）</span>
+          <span>市川市○○町 3-4-5</span>
+        </p>
       </div>
     </div>
   </section>
 
+  <!-- コンセプト -->
   <section class="concept" id="concept">
     <div class="wrap">
       <p class="kicker">La nostra cucina</p>
-      <h2>紹介見出し①</h2>
-      <p class="h2jp">紹介見出し（補足）</p>
+      <h2>素材の声を聞いて、<br>皿の上に並べる。</h2>
+      <p class="h2jp">イタリアの食卓から、地元の食材へ。</p>
       <div class="grid">
         <div>
-          <p>紹介文①</p>
+          <p>産地から直接仕入れた野菜と、漁港直送の魚介。その日の市場で決まる素材を、シンプルなイタリア料理の手法で仕上げます。難しいことはしない。いい素材を、正直に。</p>
+          <p>ランチからディナーまで、気軽に来てもらえる場所を目指しています。</p>
           <ul class="kodawari">
-            <li>こだわり①</li>
-            <li>こだわり②</li>
-            <li>こだわり③</li>
+            <li>農家直送の季節野菜を使用（差し替え可）</li>
+            <li>自家製パスタは毎朝仕込み（差し替え可）</li>
+            <li>ワインは南イタリア中心に20種以上（差し替え可）</li>
           </ul>
         </div>
-        <span class="pix"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=1100&q=80&auto=format&fit=crop" alt="写真（差し替え可）" loading="lazy"><span class="pix-tag">写真②（差し替え可）</span></span>
+        <span class="pix"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=1100&q=80&auto=format&fit=crop" alt="パスタ（差し替え可）" loading="lazy"><span class="pix-tag">写真②（差し替え可）</span></span>
       </div>
     </div>
   </section>
 
+  <!-- フォトメニュー -->
   <section class="menu" id="menu">
     <div class="wrap">
       <p class="kicker">Menu</p>
       <h2>おしながき</h2>
-      <div class="cols">
-        <div class="group">
-          <h3>メニューカテゴリ①</h3>
-          <div class="mrow"><div><div class="nm">品名①</div><div class="ds">説明①</div></div><span class="dots"></span><span class="pr">価格①</span></div>
-          <div class="mrow"><div><div class="nm">品名②</div><div class="ds">説明②</div></div><span class="dots"></span><span class="pr">価格②</span></div>
-          <div class="mrow"><div><div class="nm">品名③</div><div class="ds">説明③</div></div><span class="dots"></span><span class="pr">価格③</span></div>
+
+      <div class="cat-head">
+        <h3>Antipasto <span class="jp">前菜</span></h3>
+      </div>
+      <div class="dish-grid">
+        <div class="dish-card">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80&auto=format&fit=crop" alt="前菜（差し替え可）" loading="lazy">
+          <div class="body">
+            <p class="nm">アンティパスト・ミスト</p>
+            <p class="it">Antipasto Misto</p>
+            <p class="ds">生ハム・サラミ・マリネ野菜の盛り合わせ（差し替え可）</p>
+            <p class="pr">¥1,400</p>
+          </div>
         </div>
-        <div class="group">
-          <h3>メニューカテゴリ②</h3>
-          <div class="mrow"><div><div class="nm">品名④</div><div class="ds">説明④</div></div><span class="dots"></span><span class="pr">価格④</span></div>
-          <div class="mrow"><div><div class="nm">品名⑤</div><div class="ds">説明⑤</div></div><span class="dots"></span><span class="pr">価格⑤</span></div>
-          <div class="mrow"><div><div class="nm">品名⑥</div><div class="ds">説明⑥</div></div><span class="dots"></span><span class="pr">価格⑥</span></div>
+        <div class="dish-card">
+          <img src="https://images.unsplash.com/photo-1572441640616-a4e2cc6f9a41?w=400&q=80&auto=format&fit=crop" alt="ブルスケッタ（差し替え可）" loading="lazy">
+          <div class="body">
+            <p class="nm">ブルスケッタ・アル・ポモドーロ</p>
+            <p class="it">Bruschetta al Pomodoro</p>
+            <p class="ds">完熟トマトとバジルのシンプルな前菜（差し替え可）</p>
+            <p class="pr">¥900</p>
+          </div>
         </div>
       </div>
-      <p class="fine">※ 価格はすべて税込の表示見本です。ディナーは別途お席料を頂戴する場合があります。</p>
+
+      <div class="cat-head">
+        <h3>Pasta <span class="jp">パスタ</span></h3>
+      </div>
+      <div class="dish-grid">
+        <div class="dish-card">
+          <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400&q=80&auto=format&fit=crop" alt="カルボナーラ（差し替え可）" loading="lazy">
+          <div class="body">
+            <p class="nm">スパゲッティ カルボナーラ</p>
+            <p class="it">Spaghetti alla Carbonara</p>
+            <p class="ds">自家製麺・グアンチャーレ・卵黄（差し替え可）</p>
+            <p class="pr">¥1,650</p>
+          </div>
+        </div>
+        <div class="dish-card">
+          <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=400&q=80&auto=format&fit=crop" alt="アラビアータ（差し替え可）" loading="lazy">
+          <div class="body">
+            <p class="nm">ペンネ アラビアータ</p>
+            <p class="it">Penne all'Arrabbiata</p>
+            <p class="ds">唐辛子の効いたトマトソース（差し替え可）</p>
+            <p class="pr">¥1,480</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cat-head">
+        <h3>Pizza <span class="jp">ピッツァ</span></h3>
+      </div>
+      <div class="dish-grid">
+        <div class="dish-card">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80&auto=format&fit=crop" alt="マルゲリータ（差し替え可）" loading="lazy">
+          <div class="body">
+            <p class="nm">マルゲリータ</p>
+            <p class="it">Pizza Margherita</p>
+            <p class="ds">トマト・モッツァレラ・バジル（差し替え可）</p>
+            <p class="pr">¥1,580</p>
+          </div>
+        </div>
+        <div class="dish-card">
+          <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=400&q=80&auto=format&fit=crop" alt="ディアヴォラ（差し替え可）" loading="lazy">
+          <div class="body">
+            <p class="nm">ディアヴォラ</p>
+            <p class="it">Pizza Diavola</p>
+            <p class="ds">サラミ・唐辛子の辛口ピッツァ（差し替え可）</p>
+            <p class="pr">¥1,680</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cat-head">
+        <h3>Secondi <span class="jp">メイン</span></h3>
+      </div>
+      <div class="dish-grid">
+        <div class="dish-card">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80&auto=format&fit=crop" alt="ビステッカ（差し替え可）" loading="lazy">
+          <div class="body">
+            <p class="nm">ビステッカ アッラ フィオレンティーナ</p>
+            <p class="it">Bistecca alla Fiorentina</p>
+            <p class="ds">Tボーンステーキを炭火でシンプルに（差し替え可）</p>
+            <p class="pr">¥3,200</p>
+          </div>
+        </div>
+        <div class="dish-card">
+          <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&q=80&auto=format&fit=crop" alt="魚料理（差し替え可）" loading="lazy">
+          <div class="body">
+            <p class="nm">本日の魚のアクア パッツァ</p>
+            <p class="it">Acqua Pazza del giorno</p>
+            <p class="ds">漁港直送の白身魚をトマトと白ワインで（差し替え可）</p>
+            <p class="pr">¥2,400</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cat-head">
+        <h3>Dolci <span class="jp">デザート</span></h3>
+      </div>
+      <div class="dish-grid">
+        <div class="dish-card">
+          <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&q=80&auto=format&fit=crop" alt="ティラミスゥ（差し替え可）" loading="lazy">
+          <div class="body">
+            <p class="nm">ティラミスゥ</p>
+            <p class="it">Tiramisù</p>
+            <p class="ds">マスカルポーネとエスプレッソの自家製（差し替え可）</p>
+            <p class="pr">¥780</p>
+          </div>
+        </div>
+        <div class="dish-card">
+          <img src="https://images.unsplash.com/photo-1488477304112-4944851de03d?w=400&q=80&auto=format&fit=crop" alt="パンナコッタ（差し替え可）" loading="lazy">
+          <div class="body">
+            <p class="nm">パンナコッタ</p>
+            <p class="it">Panna Cotta</p>
+            <p class="ds">季節のベリーソースとともに（差し替え可）</p>
+            <p class="pr">¥720</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="fine">※ 価格はすべて税込の表示見本です。ランチは別メニューをご用意しています。写真は著作権フリー素材を使用しており、実際の料理写真に差し替えできます。</p>
     </div>
   </section>
 
+  <!-- お知らせ -->
   <section class="news" id="news">
     <div class="wrap narrow">
       <p class="kicker">Notizie</p>
       <h2>お知らせ</h2>
       <div style="margin-top:22px">
-        <div class="item"><span class="dt">日付①</span><span class="tx"><span class="ct">カテゴリ①</span>本文①</span></div>
-        <div class="item"><span class="dt">日付②</span><span class="tx"><span class="ct">カテゴリ②</span>本文②</span></div>
-        <div class="item"><span class="dt">日付③</span><span class="tx"><span class="ct">カテゴリ③</span>本文③</span></div>
+        <div class="item"><span class="dt">2025年○月</span><span class="tx"><span class="ct">メニュー</span>夏の新作「トマトの冷製カッペリーニ」がランチに登場しました（差し替え可）。</span></div>
+        <div class="item"><span class="dt">2025年○月</span><span class="tx"><span class="ct">お知らせ</span>○月○日（○）は店内メンテナンスのためお休みします（差し替え可）。</span></div>
+        <div class="item"><span class="dt">2025年○月</span><span class="tx"><span class="ct">ワイン</span>シチリアの新着白ワインが入荷しました。グラスでどうぞ（差し替え可）。</span></div>
       </div>
     </div>
   </section>
 
+  <!-- 店舗情報 -->
   <section class="info" id="info">
     <div class="wrap">
       <p class="kicker">Accesso</p>
       <h2>店舗情報・アクセス</h2>
       <div class="grid">
         <div>
-          <div class="row"><span class="k">店名</span><span class="v">店名①</span></div>
-          <div class="row"><span class="k">住所</span><span class="v">住所①</span></div>
-          <div class="row"><span class="k">電話</span><span class="v">電話番号①</span></div>
-          <div class="row"><span class="k">営業時間</span><span class="v">営業時間①</span></div>
-          <div class="row"><span class="k">定休日</span><span class="v">定休日①</span></div>
-          <div class="row"><span class="k">アクセス</span><span class="v">アクセス①</span></div>
-          <div class="row"><span class="k">予約</span><span class="v">予約①（電話/URL）</span></div>
-          <div class="row"><span class="k">メール</span><span class="v">問い合わせメール①</span></div>
-          <div class="row"><span class="k">SNS</span><span class="v">SNSリンク①</span></div>
+          <div class="row"><span class="k">店名</span><span class="v">Trattoria Sole（差し替え可）</span></div>
+          <div class="row"><span class="k">住所</span><span class="v">千葉県市川市○○町 3-4-5（差し替え可）</span></div>
+          <div class="row"><span class="k">電話</span><span class="v">047-000-0000（差し替え可）</span></div>
+          <div class="row"><span class="k">営業時間</span><span class="v">ランチ 11:30–14:30 ／ ディナー 17:30–22:00（差し替え可）</span></div>
+          <div class="row"><span class="k">定休日</span><span class="v">月曜日（差し替え可）</span></div>
+          <div class="row"><span class="k">アクセス</span><span class="v">○○駅 徒歩4分（差し替え可）</span></div>
+          <div class="row"><span class="k">ご予約</span><span class="v"><a href="#">お電話またはInstagramのDM</a>（差し替え可）</span></div>
+          <div class="row"><span class="k">席数</span><span class="v">30席（差し替え可）</span></div>
+          <div class="row"><span class="k">Instagram</span><span class="v"><a href="#">@trattoria.sole（差し替え可）</a></span></div>
         </div>
         <div>
-          <div class="map" role="img" aria-label="地図（差し替え可）">地図①（差し替え可）</div>
+          <div class="map" role="img" aria-label="地図（差し替え可）">地図（Googleマップ埋め込み・差し替え可）</div>
         </div>
       </div>
     </div>
@@ -268,9 +399,9 @@
 
 <footer class="site">
   <div class="wrap">
-    <p class="disc"><b>これは制作見本です。</b>実在しないお店の架空サイトです（Beaconaデモ）。掲載の店名・住所・電話番号・営業時間・お知らせ・写真はすべて見本用で、実在の店舗とは関係ありません。写真は著作権フリー素材を使用しており、実店舗の写真に差し替えできます。</p>
+    <p class="disc"><b>これは制作見本です。</b>実在しないお店の架空サイトです（Beaconaデモ）。掲載の店名・住所・電話番号・営業時間・お知らせ・写真はすべて見本用で、実在の店舗とは関係ありません。料理写真はUnsplashの著作権フリー素材を使用しており、実際の料理写真に差し替えできます。</p>
     <div class="row">
-      <span class="brand">店名①</span>
+      <span class="brand">Trattoria Sole</span>
       <small>制作見本 ／ <a href="../Beacona 業務紹介HP - 案B 編集的.html#demos">Beaconaの制作例へ</a></small>
     </div>
   </div>
