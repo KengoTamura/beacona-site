@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO基本メタ ===== -->
+<title>炭火ダイニング 結（ゆい）｜新浦安の居酒屋・ダイニングバー｜浦安市</title>
+<meta name="description" content="新浦安駅徒歩4分の炭火ダイニング。炭火焼きと旬の魚、厳選日本酒・クラフトビール。デートや接待、宴会個室も。浦安市美浜の大人の隠れ家。">
+<link rel="canonical" href="https://example.com/">
+<meta name="robots" content="index,follow">
+
+<!-- ===== OGP ===== -->
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:title" content="炭火ダイニング 結｜新浦安の大人の隠れ家">
+<meta property="og:description" content="炭火焼きと旬の魚、厳選日本酒。新浦安駅徒歩4分。個室あり。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://example.com/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- ===== 構造化データ JSON-LD（Restaurant型 / 居酒屋）===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://example.com/#business",
+  "name": "炭火ダイニング 結",
+  "description": "新浦安の炭火ダイニング・居酒屋。炭火焼きと旬の魚、厳選日本酒。",
+  "image": "https://example.com/ogp.jpg",
+  "url": "https://example.com/",
+  "telephone": "+81-47-XXX-XXXX",
+  "priceRange": "¥¥¥",
+  "servesCuisine": ["居酒屋", "日本料理", "炭火焼き"],
+  "acceptsReservations": "True",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "美浜◯-◯-◯ 新浦安センタービル B1F",
+    "addressLocality": "浦安市",
+    "addressRegion": "千葉県",
+    "postalCode": "279-00XX",
+    "addressCountry": "JP"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "35.6475", "longitude": "139.9165" },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "17:00", "closes": "23:30"
+  }]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#13110f;
+    --bg-2:#1c1916;
+    --panel:#211d19;
+    --ink:#f0e9df;
+    --ink-soft:#b3a692;
+    --ember:#d8742f;
+    --ember-glow:#f0974a;
+    --gold:#c9a050;
+    --line:#3a332b;
+    --serif:"Shippori Mincho B1",serif;
+    --sans:"Zen Kaku Gothic New",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.9;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:.4s}
+  header.scrolled{background:rgba(19,17,15,.9);backdrop-filter:blur(10px);padding:13px 0;box-shadow:0 2px 30px rgba(0,0,0,.5)}
+  .nav{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--serif);font-size:1.5rem;font-weight:800;letter-spacing:.12em;color:var(--ink)}
+  .logo span{color:var(--ember)}
+  .nav-links{display:flex;gap:32px;list-style:none}
+  .nav-links a{text-decoration:none;color:var(--ink-soft);font-size:.88rem;letter-spacing:.08em;transition:.3s}
+  .nav-links a:hover{color:var(--gold)}
+  .nav-cta{border:1px solid var(--gold);color:var(--gold)!important;padding:9px 20px;border-radius:2px;font-size:.82rem}
+  .nav-cta:hover{background:var(--gold);color:var(--bg)!important}
+  .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+  .menu-toggle span{width:24px;height:2px;background:var(--ink);transition:.3s}
+
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;
+    background:radial-gradient(ellipse at 70% 60%,rgba(216,116,47,.22),transparent 55%),linear-gradient(180deg,#0d0b0a,#1c1916)}
+  .embers{position:absolute;inset:0;z-index:1;pointer-events:none}
+  .embers i{position:absolute;bottom:-10px;width:4px;height:4px;border-radius:50%;background:var(--ember-glow);box-shadow:0 0 8px var(--ember-glow);opacity:0;animation:ember linear infinite}
+  @keyframes ember{0%{opacity:0;transform:translateY(0) scale(1)}10%{opacity:.9}100%{opacity:0;transform:translateY(-90vh) translateX(40px) scale(.3)}}
+  .hero-inner{position:relative;z-index:3;width:100%;text-align:center}
+  .hero .mark{font-family:var(--serif);font-size:.85rem;letter-spacing:.5em;color:var(--gold);margin-bottom:28px;opacity:0;animation:fadeUp 1s .2s forwards;padding-left:.5em}
+  .hero h1{font-family:var(--serif);font-size:5rem;font-weight:800;letter-spacing:.1em;line-height:1.3;margin-bottom:10px;opacity:0;animation:fadeUp 1s .4s forwards;text-shadow:0 4px 30px rgba(216,116,47,.4)}
+  .hero h1 .y{color:var(--ember);display:inline-block}
+  .hero .read{font-family:var(--serif);font-size:1.2rem;color:var(--ink-soft);letter-spacing:.15em;margin-bottom:40px;opacity:0;animation:fadeUp 1s .6s forwards}
+  .hero .btn-row{opacity:0;animation:fadeUp 1s .8s forwards}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  .btn{display:inline-block;text-decoration:none;letter-spacing:.1em;font-size:.92rem;padding:15px 38px;transition:.35s;border-radius:2px}
+  .btn-fill{background:linear-gradient(135deg,var(--ember),var(--ember-glow));color:#fff;box-shadow:0 8px 30px rgba(216,116,47,.4)}
+  .btn-fill:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(216,116,47,.55)}
+  .btn-line{border:1px solid var(--ink-soft);color:var(--ink);margin-left:12px}
+  .btn-line:hover{border-color:var(--gold);color:var(--gold)}
+
+  section{padding:120px 0}
+  .sec-head{text-align:center;margin-bottom:64px}
+  .sec-en{display:block;font-size:.75rem;letter-spacing:.4em;color:var(--ember);margin-bottom:14px;text-transform:uppercase}
+  .sec-jp{font-family:var(--serif);font-size:2.1rem;font-weight:700;letter-spacing:.12em}
+
+  .story{background:var(--bg-2);position:relative}
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .story-text .lead{font-family:var(--serif);font-size:1.5rem;line-height:1.8;margin-bottom:24px;color:var(--gold)}
+  .story-text p{color:var(--ink-soft);margin-bottom:18px;font-size:.96rem}
+  .story-img{aspect-ratio:4/5;background:radial-gradient(circle at 50% 40%,#3a2415,#1a1109);position:relative;overflow:hidden;border:1px solid var(--line)}
+  .story-img::before{content:"🔥";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4.5rem;filter:drop-shadow(0 0 30px rgba(216,116,47,.6))}
+
+  .menu{background:var(--bg)}
+  .menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px 56px;max-width:840px;margin:0 auto}
+  .m-cat{grid-column:1/-1;font-family:var(--serif);font-size:1.2rem;color:var(--gold);letter-spacing:.15em;margin:24px 0 6px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .m-cat:first-child{margin-top:0}
+  .m-item{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px dotted var(--line)}
+  .m-item .n{font-size:.98rem}
+  .m-item .n small{display:block;color:var(--ink-soft);font-size:.76rem;margin-top:2px}
+  .m-item .p{font-family:var(--serif);color:var(--ember-glow);white-space:nowrap;padding-left:14px}
+
+  .info{background:linear-gradient(180deg,var(--bg-2),var(--bg))}
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+  .info-card{background:var(--panel);padding:42px;border:1px solid var(--line);border-radius:4px}
+  .info-card h3{font-family:var(--serif);font-size:1.2rem;color:var(--gold);margin-bottom:22px;letter-spacing:.1em}
+  .info-row{display:flex;gap:16px;padding:11px 0;font-size:.92rem;border-bottom:1px solid var(--line)}
+  .info-row:last-child{border:none}
+  .info-row .l{color:var(--ember);min-width:72px;font-weight:700}
+  .map{aspect-ratio:16/11;background:repeating-linear-gradient(45deg,#1f1b17,#1f1b17 12px,#252019 12px,#252019 24px);border:1px solid var(--line);border-radius:4px;display:flex;align-items:center;justify-content:center;position:relative}
+  .map .pin{font-size:2.6rem;animation:b 2.2s infinite}
+  @keyframes b{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  .map .t{position:absolute;bottom:16px;background:var(--panel);color:var(--ink-soft);padding:5px 14px;font-size:.78rem;border-radius:20px;border:1px solid var(--line)}
+
+  .cta{background:radial-gradient(ellipse at center,rgba(216,116,47,.18),transparent 65%),var(--bg);text-align:center}
+  .cta h2{font-family:var(--serif);font-size:2.3rem;margin-bottom:16px;letter-spacing:.08em}
+  .cta p{color:var(--ink-soft);margin-bottom:34px}
+
+  footer{background:#0c0a09;color:#7a6f5e;text-align:center;padding:50px 0;font-size:.84rem;border-top:1px solid var(--line)}
+  footer .logo{color:var(--ink);margin-bottom:12px;display:inline-block}
+
+  .reveal{opacity:0;transform:translateY(34px);transition:.95s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  @media(max-width:820px){
+    .hero h1{font-size:3.2rem}
+    .story-grid,.info-grid{grid-template-columns:1fr;gap:40px}
+    .menu-cols{grid-template-columns:1fr;gap:0}
+    .btn-line{margin-left:0;margin-top:12px}
+    .nav-links{position:fixed;inset:0 0 0 auto;width:72%;max-width:300px;background:var(--panel);flex-direction:column;justify-content:center;align-items:center;gap:34px;transform:translateX(100%);transition:.4s}
+    .nav-links.open{transform:translateX(0)}
+    .menu-toggle{display:flex;z-index:101}
+  }
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap nav">
+    <div class="logo">炭火ダイニング <span>結</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#story">こだわり</a></li>
+      <li><a href="#menu">お品書き</a></li>
+      <li><a href="#info">店舗情報</a></li>
+      <li><a href="#contact" class="nav-cta">ご予約</a></li>
+    </ul>
+    <button class="menu-toggle" id="mtoggle"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="embers" id="embers"></div>
+  <div class="wrap hero-inner">
+    <div class="mark">SUMIBI DINING ・ 新浦安</div>
+    <h1>炭火と、<span class="y">旬</span>と、<br>いい酒と。</h1>
+    <p class="read">一日の終わりに、ちょっといい時間を。</p>
+    <div class="btn-row">
+      <a href="#contact" class="btn btn-fill">ご予約はこちら</a>
+      <a href="#menu" class="btn btn-line">お品書きを見る</a>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-en">Our Story</span><h2 class="sec-jp">こだわり</h2></div>
+    <div class="story-grid">
+      <div class="story-text reveal">
+        <p class="lead">炭火が引き出す、<br>素材そのものの旨み。</p>
+        <p>備長炭で一気に焼き上げる肉と魚は、外は香ばしく、中はふっくら。その日仕入れた旬の食材を、いちばん美味しい火加減で。</p>
+        <p>全国から取り寄せた日本酒と、地元クラフトビール。料理に寄り添う一杯を、スタッフがご提案します。接待やデート、ご宴会には個室も。</p>
+      </div>
+      <div class="story-img reveal"></div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-en">Menu</span><h2 class="sec-jp">お品書き</h2></div>
+    <div class="menu-cols reveal">
+      <div class="m-cat">炭火焼き</div>
+      <div class="m-item"><span class="n">本日の鮮魚 炭火焼<small>仕入れにより変動</small></span><span class="p">¥1,280</span></div>
+      <div class="m-item"><span class="n">黒毛和牛 炙り<small>わさび醤油で</small></span><span class="p">¥1,680</span></div>
+      <div class="m-item"><span class="n">地鶏もも 炭火焼<small></small></span><span class="p">¥980</span></div>
+      <div class="m-item"><span class="n">旬野菜の炭火グリル<small></small></span><span class="p">¥780</span></div>
+      <div class="m-cat">一品・お造り</div>
+      <div class="m-item"><span class="n">本日の刺身盛り合わせ<small>三種/五種</small></span><span class="p">¥1,180〜</span></div>
+      <div class="m-item"><span class="n">出汁巻き玉子<small></small></span><span class="p">¥680</span></div>
+      <div class="m-cat">お飲み物</div>
+      <div class="m-item"><span class="n">厳選日本酒<small>全国の蔵元から</small></span><span class="p">¥680〜</span></div>
+      <div class="m-item"><span class="n">クラフトビール<small>地元醸造所</small></span><span class="p">¥780</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="info" id="info">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-en">Information</span><h2 class="sec-jp">店舗情報</h2></div>
+    <div class="info-grid">
+      <div class="info-card reveal">
+        <h3>ご利用案内</h3>
+        <div class="info-row"><span class="l">住所</span><span>千葉県浦安市美浜◯-◯-◯ 新浦安センタービル B1F</span></div>
+        <div class="info-row"><span class="l">電話</span><span>047-XXX-XXXX</span></div>
+        <div class="info-row"><span class="l">営業</span><span>17:00 - 23:30（L.O. 23:00）</span></div>
+        <div class="info-row"><span class="l">定休</span><span>日曜</span></div>
+        <div class="info-row"><span class="l">席数</span><span>42席（カウンター・個室・座敷）</span></div>
+      </div>
+      <div class="map reveal"><span class="pin">📍</span><span class="t">JR新浦安駅 徒歩4分</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap reveal">
+    <h2>ご予約・お問い合わせ</h2>
+    <p>個室・ご宴会のご相談もお気軽に。お電話またはネット予約から。</p>
+    <a href="tel:047XXXXXXX" class="btn btn-fill">☎ 047-XXX-XXXX に電話する</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">炭火ダイニング 結</div>
+    <p>千葉県浦安市美浜◯-◯-◯ ／ 17:00-23:30 ／ 日曜定休</p>
+    <p style="margin-top:14px;opacity:.6;font-size:.78rem">© 炭火ダイニング 結 ｜ これは制作デモ用の架空店舗サイトです</p>
+  </div>
+</footer>
+
+<script>
+  const hd=document.getElementById('hd');
+  addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>40));
+  const mt=document.getElementById('mtoggle'),nl=document.getElementById('navLinks');
+  mt.addEventListener('click',()=>nl.classList.toggle('open'));
+  nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // 火の粉アニメーション
+  const ec=document.getElementById('embers');
+  for(let i=0;i<26;i++){const e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.animationDuration=(4+Math.random()*5)+'s';e.style.animationDelay=Math.random()*6+'s';const s=.5+Math.random()*1.5;e.style.width=e.style.height=s*4+'px';ec.appendChild(e)}
+</script>
+</body>
+</html>

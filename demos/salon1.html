@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO基本メタ ===== -->
+<title>LUCE（ルーチェ）｜新浦安の完全予約制ヘアサロン・美容室｜浦安市</title>
+<meta name="description" content="新浦安駅徒歩5分、完全予約制のプライベートヘアサロン。おひとりずつ丁寧に、お手入れしやすいスタイルをご提案。浦安市明海のカット・カラー・パーマ。">
+<link rel="canonical" href="https://example.com/">
+<meta name="robots" content="index,follow">
+
+<!-- ===== OGP ===== -->
+<meta property="og:type" content="business.business">
+<meta property="og:title" content="LUCE｜新浦安の完全予約制ヘアサロン">
+<meta property="og:description" content="新浦安駅徒歩5分。完全予約制のプライベートサロン。おひとりずつ、ゆっくりと。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://example.com/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- ===== 構造化データ JSON-LD（LocalBusiness > HairSalon型） =====
+     美容室は HairSalon サブタイプ。Google/AI検索が「浦安の美容室」と正確に理解する。
+     SEOとGEOの両方に効く。GBPのNAPと完全一致させること。 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "@id": "https://example.com/#business",
+  "name": "LUCE",
+  "description": "新浦安の完全予約制プライベートヘアサロン。カット・カラー・パーマ・髪質改善。",
+  "image": "https://example.com/ogp.jpg",
+  "url": "https://example.com/",
+  "telephone": "+81-47-XXX-XXXX",
+  "priceRange": "¥¥",
+  "acceptsReservations": "True",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "明海◯-◯-◯ シーサイドコート2F",
+    "addressLocality": "浦安市",
+    "addressRegion": "千葉県",
+    "postalCode": "279-00XX",
+    "addressCountry": "JP"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "35.6480", "longitude": "139.9220" },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "10:00", "closes": "19:00"
+  }]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbfaf8;
+    --ink:#33312e;
+    --ink-soft:#7a766f;
+    --sage:#9aa68c;
+    --sage-deep:#76836a;
+    --blush:#e7ccc4;
+    --gold:#b89b6e;
+    --line:#ece8e1;
+    --white:#ffffff;
+    --shadow:rgba(90,80,65,.10);
+    --serif:"Cormorant Garamond",serif;
+    --sans:"Zen Maru Gothic",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);font-weight:400;line-height:2;font-size:15.5px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 0;transition:.4s}
+  header.scrolled{background:rgba(251,250,248,.9);backdrop-filter:blur(12px);padding:14px 0;box-shadow:0 1px 30px var(--shadow)}
+  .nav{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--serif);font-size:1.7rem;font-weight:500;letter-spacing:.3em;padding-left:.3em}
+  .nav-links{display:flex;gap:36px;list-style:none}
+  .nav-links a{text-decoration:none;color:var(--ink-soft);font-size:.82rem;letter-spacing:.12em;transition:.3s}
+  .nav-links a:hover{color:var(--sage-deep)}
+  .nav-cta{border:1px solid var(--sage);color:var(--sage-deep)!important;padding:8px 22px;border-radius:2px;font-size:.78rem}
+  .nav-cta:hover{background:var(--sage);color:#fff!important}
+  .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+  .menu-toggle span{width:24px;height:1.5px;background:var(--ink);transition:.3s}
+
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(105deg,var(--bg) 55%,var(--blush) 55%)}
+  .hero-inner{position:relative;z-index:2;max-width:620px}
+  .hero .eyebrow{font-family:var(--serif);font-size:1rem;letter-spacing:.3em;color:var(--gold);margin-bottom:20px;opacity:0;animation:up .9s .2s forwards}
+  .hero h1{font-family:var(--serif);font-size:4.6rem;font-weight:400;line-height:1.15;letter-spacing:.02em;margin-bottom:8px;opacity:0;animation:up .9s .35s forwards}
+  .hero .sub{font-size:1.5rem;letter-spacing:.18em;font-weight:300;color:var(--ink-soft);margin-bottom:30px;opacity:0;animation:up .9s .5s forwards}
+  .hero p{max-width:380px;color:var(--ink-soft);margin-bottom:38px;font-size:.95rem;opacity:0;animation:up .9s .65s forwards}
+  .hero .btn-row{opacity:0;animation:up .9s .8s forwards}
+  @keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+  .btn{display:inline-block;text-decoration:none;letter-spacing:.1em;font-size:.85rem;padding:15px 38px;transition:.35s}
+  .btn-fill{background:var(--sage-deep);color:#fff;border-radius:2px}
+  .btn-fill:hover{background:var(--ink);transform:translateY(-2px)}
+  .hero-deco{position:absolute;right:7%;top:50%;transform:translateY(-50%);width:300px;height:300px;z-index:1}
+  .hero-deco .ring{position:absolute;inset:0;border:1px solid rgba(255,255,255,.6);border-radius:50%}
+  .hero-deco .ring:nth-child(2){inset:34px;border-color:rgba(184,155,110,.5)}
+  .hero-deco .ring:nth-child(3){inset:70px;background:rgba(255,255,255,.35);backdrop-filter:blur(2px)}
+  .hero-deco .scissor{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3.4rem;opacity:.5}
+
+  section{padding:120px 0}
+  .sec-head{margin-bottom:70px}
+  .sec-head.center{text-align:center}
+  .sec-en{display:block;font-family:var(--serif);font-size:.95rem;letter-spacing:.32em;color:var(--gold);margin-bottom:10px}
+  .sec-jp{font-size:1.6rem;font-weight:500;letter-spacing:.14em}
+
+  .concept{background:var(--white)}
+  .concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+  .concept-text .big{font-family:var(--serif);font-size:2rem;line-height:1.6;margin-bottom:24px;color:var(--ink)}
+  .concept-text p{color:var(--ink-soft);font-size:.95rem;margin-bottom:18px}
+  .concept-img{aspect-ratio:3/4;background:linear-gradient(160deg,var(--blush),var(--sage));position:relative;overflow:hidden}
+  .concept-img::before{content:"";position:absolute;inset:18px;border:1px solid rgba(255,255,255,.6)}
+  .concept-img::after{content:"✦";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(255,255,255,.7)}
+
+  .menu-wrap{max-width:760px;margin:0 auto}
+  .menu-cat{margin-bottom:46px}
+  .menu-cat h3{font-family:var(--serif);font-size:1.5rem;letter-spacing:.1em;color:var(--sage-deep);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .m-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0}
+  .m-row .mn{font-size:.98rem}
+  .m-row .mn small{color:var(--ink-soft);font-size:.8rem;margin-left:8px}
+  .m-row .mp{font-family:var(--serif);font-size:1.2rem;color:var(--gold);white-space:nowrap;padding-left:18px}
+
+  .info{background:linear-gradient(180deg,var(--white),var(--bg))}
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+  .info-list .ir{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+  .info-list .ir .l{font-family:var(--serif);letter-spacing:.1em;color:var(--sage-deep);min-width:90px;font-size:1rem}
+  .map{aspect-ratio:1;background:repeating-linear-gradient(0deg,#eee9e0,#eee9e0 14px,#e8e2d7 14px,#e8e2d7 28px);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .map .pin{font-size:2.6rem;animation:fl 2.4s infinite}
+  @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  .map .tag{position:absolute;bottom:18px;background:var(--white);padding:5px 16px;font-size:.78rem;letter-spacing:.08em;color:var(--ink-soft)}
+
+  .cta{background:var(--sage-deep);color:#fff;text-align:center}
+  .cta .sec-en{color:rgba(255,255,255,.7)}
+  .cta h2{font-family:var(--serif);font-size:2.6rem;font-weight:400;margin-bottom:16px}
+  .cta p{opacity:.85;margin-bottom:34px;font-size:.95rem}
+  .cta .btn-fill{background:#fff;color:var(--sage-deep)}
+  .cta .btn-fill:hover{background:var(--blush);color:var(--ink)}
+
+  footer{background:var(--ink);color:#a09a90;text-align:center;padding:54px 0;font-size:.82rem;letter-spacing:.06em}
+  footer .logo{color:#fff;display:inline-block;margin-bottom:14px}
+
+  .reveal{opacity:0;transform:translateY(34px);transition:.95s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  @media(max-width:820px){
+    .hero{background:linear-gradient(180deg,var(--bg) 60%,var(--blush) 60%)}
+    .hero h1{font-size:3.2rem}
+    .hero-deco{display:none}
+    .concept-grid,.info-grid{grid-template-columns:1fr;gap:44px}
+    .nav-links{position:fixed;inset:0 0 0 auto;width:72%;max-width:300px;background:var(--white);flex-direction:column;justify-content:center;align-items:center;gap:36px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px var(--shadow)}
+    .nav-links.open{transform:translateX(0)}
+    .menu-toggle{display:flex;z-index:101}
+  }
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap nav">
+    <div class="logo">LUCE</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#concept">コンセプト</a></li>
+      <li><a href="#menu">メニュー</a></li>
+      <li><a href="#info">サロン情報</a></li>
+      <li><a href="#contact" class="nav-cta">ご予約</a></li>
+    </ul>
+    <button class="menu-toggle" id="mtoggle"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Private Hair Salon</div>
+    <h1>LUCE</h1>
+    <div class="sub">ルーチェ</div>
+    <p>新浦安の、完全予約制プライベートサロン。おひとりずつ、ゆっくりと。あなたの「なりたい」に、丁寧に寄り添います。</p>
+    <div class="btn-row"><a href="#contact" class="btn btn-fill">ご予約・空き状況</a></div>
+  </div>
+  <div class="hero-deco">
+    <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+    <div class="scissor">✂</div>
+  </div>
+</section>
+
+<section class="concept" id="concept">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-en">Concept</span><h2 class="sec-jp">コンセプト</h2></div>
+    <div class="concept-grid">
+      <div class="concept-text reveal">
+        <p class="big">髪を整える時間は、<br>自分をいたわる時間。</p>
+        <p>LUCE は、1日に施術するお客さまの数を限定した、完全予約制のプライベートサロンです。周りを気にせず、ゆったりとした時間をお過ごしいただけます。</p>
+        <p>髪質やライフスタイルを丁寧にカウンセリングし、お手入れのしやすい、あなただけのスタイルをご提案します。</p>
+      </div>
+      <div class="concept-img reveal"></div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="sec-head center reveal"><span class="sec-en">Menu</span><h2 class="sec-jp">メニュー</h2></div>
+    <div class="menu-wrap">
+      <div class="menu-cat reveal">
+        <h3>Cut & Care</h3>
+        <div class="m-row"><span class="mn">カット<small>シャンプー・ブロー込</small></span><span class="mp">¥5,500</span></div>
+        <div class="m-row"><span class="mn">前髪カット<small></small></span><span class="mp">¥1,100</span></div>
+        <div class="m-row"><span class="mn">トリートメント<small>髪質改善</small></span><span class="mp">¥3,300〜</span></div>
+      </div>
+      <div class="menu-cat reveal">
+        <h3>Color & Perm</h3>
+        <div class="m-row"><span class="mn">カラー<small>カット込</small></span><span class="mp">¥9,900〜</span></div>
+        <div class="m-row"><span class="mn">白髪染め<small>カット込</small></span><span class="mp">¥9,350〜</span></div>
+        <div class="m-row"><span class="mn">デジタルパーマ<small>カット込</small></span><span class="mp">¥13,200〜</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="info" id="info">
+  <div class="wrap">
+    <div class="sec-head center reveal"><span class="sec-en">Salon Information</span><h2 class="sec-jp">サロン情報</h2></div>
+    <div class="info-grid">
+      <div class="info-list reveal">
+        <div class="ir"><span class="l">Address</span><span>千葉県浦安市明海◯-◯-◯<br>シーサイドコート 2F</span></div>
+        <div class="ir"><span class="l">Tel</span><span>047-XXX-XXXX（完全予約制）</span></div>
+        <div class="ir"><span class="l">Open</span><span>10:00 - 19:00</span></div>
+        <div class="ir"><span class="l">Closed</span><span>月曜・火曜</span></div>
+        <div class="ir"><span class="l">Access</span><span>JR新浦安駅 徒歩5分</span></div>
+      </div>
+      <div class="map reveal"><span class="pin">📍</span><span class="tag">新浦安駅 徒歩5分</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap reveal">
+    <span class="sec-en">Reservation</span>
+    <h2>ご予約</h2>
+    <p>お電話、またはInstagram・LINEからご予約いただけます。</p>
+    <a href="tel:047XXXXXXX" class="btn btn-fill">☎ 047-XXX-XXXX</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">LUCE</div>
+    <p>千葉県浦安市明海◯-◯-◯ ／ 10:00-19:00 ／ 月・火定休</p>
+    <p style="margin-top:14px;opacity:.6;font-size:.76rem">© LUCE ｜ これは制作デモ用の架空サロンサイトです</p>
+  </div>
+</footer>
+
+<script>
+  const hd=document.getElementById('hd');
+  addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>40));
+  const mt=document.getElementById('mtoggle'),nl=document.getElementById('navLinks');
+  mt.addEventListener('click',()=>nl.classList.toggle('open'));
+  nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

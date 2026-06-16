@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO基本メタ ===== -->
+<title>鮨・和食 蒼（あおい）｜新浦安の寿司・日本料理｜浦安市</title>
+<meta name="description" content="新浦安駅徒歩5分の鮨・和食店。豊洲直送の鮮魚と旬の会席。カウンターのおまかせ、接待・慶事の個室も。浦安市入船、静かな大人の和の空間。">
+<link rel="canonical" href="https://example.com/">
+<meta name="robots" content="index,follow">
+
+<!-- ===== OGP ===== -->
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:title" content="鮨・和食 蒼｜新浦安の寿司・日本料理">
+<meta property="og:description" content="豊洲直送の鮮魚と旬の会席。新浦安駅徒歩5分。個室・カウンターあり。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://example.com/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- ===== 構造化データ JSON-LD（Restaurant型 / 寿司・和食）===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://example.com/#business",
+  "name": "鮨・和食 蒼",
+  "description": "新浦安の鮨・和食店。豊洲直送の鮮魚と旬の会席料理。",
+  "image": "https://example.com/ogp.jpg",
+  "url": "https://example.com/",
+  "telephone": "+81-47-XXX-XXXX",
+  "priceRange": "¥¥¥¥",
+  "servesCuisine": ["寿司", "日本料理", "会席"],
+  "acceptsReservations": "True",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "入船◯-◯-◯ 新浦安プラザ 2F",
+    "addressLocality": "浦安市",
+    "addressRegion": "千葉県",
+    "postalCode": "279-00XX",
+    "addressCountry": "JP"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "35.6468", "longitude": "139.9148" },
+  "openingHoursSpecification": [
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"11:30","closes":"14:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"17:30","closes":"22:00"}
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --washi:#f4f1ea;
+    --washi-2:#eae5da;
+    --sumi:#1f1c18;
+    --sumi-soft:#4a453d;
+    --ink-soft:#6b6458;
+    --ai:#2d4a5c;        /* 藍 */
+    --ai-deep:#1f3644;
+    --shu:#a4453a;       /* 朱 */
+    --kin:#9c843f;       /* 金 */
+    --line:#d8d0c2;
+    --serif:"Shippori Mincho",serif;
+    --sans:"Zen Kaku Gothic New",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--washi);color:var(--sumi);line-height:2;font-size:15.5px;font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 0;transition:.4s}
+  header.scrolled{background:rgba(244,241,234,.93);backdrop-filter:blur(10px);padding:14px 0;box-shadow:0 1px 24px rgba(60,50,30,.1)}
+  .nav{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--serif);font-size:1.5rem;font-weight:700;letter-spacing:.22em;color:var(--sumi);padding-left:.22em}
+  .logo span{color:var(--shu)}
+  .nav-links{display:flex;gap:34px;list-style:none}
+  .nav-links a{text-decoration:none;color:var(--ink-soft);font-size:.86rem;letter-spacing:.1em;transition:.3s}
+  .nav-links a:hover{color:var(--shu)}
+  .nav-cta{border:1px solid var(--ai);color:var(--ai)!important;padding:8px 22px;font-size:.8rem}
+  .nav-cta:hover{background:var(--ai);color:var(--washi)!important}
+  .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+  .menu-toggle span{width:24px;height:1.5px;background:var(--sumi);transition:.3s}
+
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--washi)}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    linear-gradient(90deg,rgba(45,74,92,.05),transparent 40%),
+    radial-gradient(circle at 82% 28%,rgba(164,69,58,.07),transparent 38%)}
+  /* 縦書き風の装飾ライン */
+  .hero .vline{position:absolute;top:0;bottom:0;left:14%;width:1px;background:linear-gradient(180deg,transparent,var(--line) 20%,var(--line) 80%,transparent)}
+  .sun{position:absolute;right:12%;top:50%;transform:translateY(-50%);width:240px;height:240px;border-radius:50%;background:radial-gradient(circle at 50% 50%,var(--shu),#8a3530);box-shadow:0 0 80px rgba(164,69,58,.3);opacity:0;animation:rise 1.4s .5s forwards}
+  @keyframes rise{from{opacity:0;transform:translateY(-30%) scale(.85)}to{opacity:.92;transform:translateY(-50%) scale(1)}}
+  .hero-inner{position:relative;z-index:3;width:100%}
+  .hero .mark{font-family:var(--serif);font-size:.82rem;letter-spacing:.5em;color:var(--ai);margin-bottom:30px;opacity:0;animation:fu 1s .2s forwards;padding-left:.5em}
+  .hero h1{font-family:var(--serif);font-size:4.4rem;font-weight:600;letter-spacing:.16em;line-height:1.5;margin-bottom:22px;opacity:0;animation:fu 1s .4s forwards}
+  .hero h1 span{color:var(--shu)}
+  .hero .read{font-family:var(--serif);font-size:1.1rem;color:var(--ink-soft);letter-spacing:.18em;line-height:2;margin-bottom:42px;opacity:0;animation:fu 1s .6s forwards}
+  .hero .btn-row{opacity:0;animation:fu 1s .8s forwards}
+  @keyframes fu{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+  .btn{display:inline-block;text-decoration:none;letter-spacing:.12em;font-size:.88rem;padding:15px 40px;transition:.35s}
+  .btn-fill{background:var(--ai);color:var(--washi)}
+  .btn-fill:hover{background:var(--ai-deep)}
+  .btn-line{border:1px solid var(--sumi-soft);color:var(--sumi);margin-left:12px}
+  .btn-line:hover{border-color:var(--shu);color:var(--shu)}
+
+  section{padding:124px 0}
+  .sec-head{text-align:center;margin-bottom:66px}
+  .sec-en{display:block;font-size:.72rem;letter-spacing:.42em;color:var(--kin);margin-bottom:14px;text-transform:uppercase}
+  .sec-jp{font-family:var(--serif);font-size:1.9rem;font-weight:600;letter-spacing:.2em}
+  .sec-jp .dot{color:var(--shu)}
+
+  .craft{background:var(--washi-2)}
+  .craft-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
+  .craft-img{aspect-ratio:3/4;background:linear-gradient(160deg,var(--ai),var(--ai-deep));position:relative;overflow:hidden}
+  .craft-img::before{content:"";position:absolute;inset:16px;border:1px solid rgba(244,241,234,.3)}
+  .craft-img::after{content:"🍣";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4.5rem}
+  .craft-text .lead{font-family:var(--serif);font-size:1.6rem;line-height:1.7;color:var(--ai);margin-bottom:26px}
+  .craft-text p{color:var(--ink-soft);margin-bottom:18px;font-size:.94rem}
+
+  .course{background:var(--washi)}
+  .course-wrap{max-width:760px;margin:0 auto}
+  .course-card{background:var(--washi-2);border:1px solid var(--line);padding:38px 42px;margin-bottom:22px;position:relative;transition:.4s}
+  .course-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(60,50,30,.1)}
+  .course-card .ttl{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+  .course-card .ttl h3{font-family:var(--serif);font-size:1.35rem;font-weight:600;letter-spacing:.1em}
+  .course-card .ttl .pr{font-family:var(--serif);font-size:1.4rem;color:var(--shu);white-space:nowrap;padding-left:16px}
+  .course-card p{color:var(--ink-soft);font-size:.9rem}
+  .course-card .badge{position:absolute;top:-11px;left:32px;background:var(--shu);color:var(--washi);font-size:.72rem;letter-spacing:.1em;padding:3px 14px}
+
+  .info{background:var(--washi-2)}
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .info-list .ir{display:flex;gap:20px;padding:15px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+  .info-list .ir .l{font-family:var(--serif);color:var(--ai);min-width:80px;letter-spacing:.08em}
+  .map{aspect-ratio:1;background:repeating-linear-gradient(0deg,#e6e0d4,#e6e0d4 14px,#e0d9cb 14px,#e0d9cb 28px);position:relative;display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}
+  .map .pin{font-size:2.6rem;animation:fl 2.4s infinite}
+  @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+  .map .t{position:absolute;bottom:16px;background:var(--washi);padding:5px 16px;font-size:.78rem;color:var(--ink-soft);border:1px solid var(--line)}
+
+  .cta{background:var(--ai-deep);color:var(--washi);text-align:center;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;width:200px;height:200px;border-radius:50%;background:var(--shu);opacity:.18;top:-60px;right:10%}
+  .cta .sec-en{color:rgba(244,241,234,.6)}
+  .cta h2{font-family:var(--serif);font-size:2.2rem;letter-spacing:.14em;margin-bottom:16px;position:relative}
+  .cta p{opacity:.85;margin-bottom:34px;position:relative}
+  .cta .btn-fill{background:var(--washi);color:var(--ai-deep)}
+  .cta .btn-fill:hover{background:#fff}
+
+  footer{background:var(--sumi);color:#9b9384;text-align:center;padding:52px 0;font-size:.82rem;letter-spacing:.06em}
+  footer .logo{color:var(--washi);display:inline-block;margin-bottom:12px}
+
+  .reveal{opacity:0;transform:translateY(34px);transition:.95s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  @media(max-width:820px){
+    .hero h1{font-size:3rem}
+    .sun{width:160px;height:160px;right:6%;opacity:.5}
+    .hero .vline{display:none}
+    .craft-grid,.info-grid{grid-template-columns:1fr;gap:40px}
+    .btn-line{margin-left:0;margin-top:12px}
+    .nav-links{position:fixed;inset:0 0 0 auto;width:72%;max-width:300px;background:var(--washi);flex-direction:column;justify-content:center;align-items:center;gap:36px;transform:translateX(100%);transition:.4s}
+    .nav-links.open{transform:translateX(0)}
+    .menu-toggle{display:flex;z-index:101}
+  }
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap nav">
+    <div class="logo">鮨・和食 <span>蒼</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#craft">こだわり</a></li>
+      <li><a href="#course">お品書き</a></li>
+      <li><a href="#info">店舗情報</a></li>
+      <li><a href="#contact" class="nav-cta">ご予約</a></li>
+    </ul>
+    <button class="menu-toggle" id="mtoggle"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="vline"></div>
+  <div class="sun"></div>
+  <div class="wrap hero-inner">
+    <div class="mark">SUSHI ・ WASHOKU ・ 新浦安</div>
+    <h1>旬を、<span>そのまま</span>。</h1>
+    <p class="read">豊洲から届く、その日いちばんの鮮魚を。<br>季節の移ろいを、一皿に。</p>
+    <div class="btn-row">
+      <a href="#contact" class="btn btn-fill">ご予約</a>
+      <a href="#course" class="btn btn-line">お品書き</a>
+    </div>
+  </div>
+</section>
+
+<section class="craft" id="craft">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-en">Craftsmanship</span><h2 class="sec-jp">こだわり</h2></div>
+    <div class="craft-grid">
+      <div class="craft-img reveal"></div>
+      <div class="craft-text reveal">
+        <p class="lead">仕入れに、<br>妥協はいたしません。</p>
+        <p>毎朝、店主自らが豊洲市場で目利き。その日いちばんの魚だけを仕入れます。シャリは赤酢を合わせ、ネタの旨みを引き立てる温度で握ります。</p>
+        <p>お椀や煮物には、利尻昆布と本枯節の一番出汁を。静かなカウンターで、季節のおまかせを心ゆくまで。接待や慶事には、落ち着いた個室をご用意しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="course" id="course">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-en">Course</span><h2 class="sec-jp">お品書き<span class="dot">・</span>おまかせ</h2></div>
+    <div class="course-wrap">
+      <div class="course-card reveal">
+        <span class="badge">人気</span>
+        <div class="ttl"><h3>おまかせ握り 蒼</h3><span class="pr">¥8,800</span></div>
+        <p>店主おまかせの握り十二貫に、お椀・小鉢・玉子。その日の魚を存分に。</p>
+      </div>
+      <div class="course-card reveal">
+        <div class="ttl"><h3>季節の会席</h3><span class="pr">¥11,000</span></div>
+        <p>先付から始まる全八品。お造り、焼き物、煮物、握りまで。慶事・接待に。</p>
+      </div>
+      <div class="course-card reveal">
+        <div class="ttl"><h3>昼の握り膳</h3><span class="pr">¥3,300</span></div>
+        <p>ランチ限定。握り八貫・お椀・小鉢。気軽に本格の鮨を。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="info" id="info">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-en">Information</span><h2 class="sec-jp">店舗情報</h2></div>
+    <div class="info-grid">
+      <div class="info-list reveal">
+        <div class="ir"><span class="l">住所</span><span>千葉県浦安市入船◯-◯-◯ 新浦安プラザ 2F</span></div>
+        <div class="ir"><span class="l">電話</span><span>047-XXX-XXXX（ご予約優先）</span></div>
+        <div class="ir"><span class="l">昼</span><span>11:30 - 14:00（L.O.13:30）</span></div>
+        <div class="ir"><span class="l">夜</span><span>17:30 - 22:00（L.O.21:00）</span></div>
+        <div class="ir"><span class="l">定休</span><span>日曜・月曜</span></div>
+        <div class="ir"><span class="l">席</span><span>カウンター8席・個室2室</span></div>
+      </div>
+      <div class="map reveal"><span class="pin">📍</span><span class="t">JR新浦安駅 徒歩5分</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap reveal">
+    <span class="sec-en">Reservation</span>
+    <h2>ご予約</h2>
+    <p>カウンター・個室のご予約、慶事や接待のご相談も承ります。</p>
+    <a href="tel:047XXXXXXX" class="btn btn-fill">☎ 047-XXX-XXXX に電話する</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">鮨・和食 蒼</div>
+    <p>千葉県浦安市入船◯-◯-◯ ／ 昼 11:30-14:00 / 夜 17:30-22:00 ／ 日・月定休</p>
+    <p style="margin-top:14px;opacity:.6;font-size:.78rem">© 鮨・和食 蒼 ｜ これは制作デモ用の架空店舗サイトです</p>
+  </div>
+</footer>
+
+<script>
+  const hd=document.getElementById('hd');
+  addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>40));
+  const mt=document.getElementById('mtoggle'),nl=document.getElementById('navLinks');
+  mt.addEventListener('click',()=>nl.classList.toggle('open'));
+  nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
