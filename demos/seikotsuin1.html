@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<meta name="robots" content="noindex, nofollow">
+<title>あおぞら整骨院｜制作見本（Beaconaデモ・架空のお店）浦安・市川</title>
+<meta name="description" content="これは制作見本です。実在しないお店の架空サイトです（Beaconaデモ）。浦安・市川エリアの整骨院ホームページの一例として制作しました。肩こり・腰痛・スポーツ障害・交通事故など、お身体のお悩みに対応。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f7f4ee;
+    --paper-2:#eeeae0;
+    --ink:#302e28;
+    --ink-soft:#7a7568;
+    --ink-faint:#b0a995;
+    --teal:#3a7d74;
+    --teal-d:#2d6159;
+    --amber:#9a6b2f;
+    --amber-l:#c9903f;
+    --line:rgba(48,46,40,.12);
+    --display:"Shippori Mincho",serif;
+    --sans:"Zen Kaku Gothic New",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:16px;line-height:1.95;letter-spacing:.03em;
+    word-break:auto-phrase;line-break:normal;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h2,h3{word-break:keep-all;overflow-wrap:anywhere}
+  ::selection{background:rgba(58,125,116,.18)}
+  a:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+
+  .wrap{max-width:1000px;margin-inline:auto;padding-inline:22px}
+  .narrow{max-width:660px}
+
+  /* --- デモバー --- */
+  .demo-bar{background:#302e28;color:#f0e9de;font-size:.82rem;text-align:center;padding:9px 16px;line-height:1.6}
+  .demo-bar b{color:#d4a76a;font-weight:700}
+  .demo-bar a{color:#d4a76a;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+
+  /* --- ヘッダー --- */
+  header.site{position:sticky;top:0;z-index:20;background:rgba(247,244,238,.93);
+    backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  header.site .bar{display:flex;align-items:center;justify-content:space-between;height:62px;gap:14px}
+  .brand{font-family:var(--display);font-weight:600;font-size:1.45rem;letter-spacing:.06em;text-decoration:none;
+    display:flex;align-items:baseline;gap:10px}
+  .brand .sub{font-size:.6rem;color:var(--ink-faint);letter-spacing:.16em;font-family:var(--sans)}
+  .head-r{display:flex;align-items:center;gap:18px}
+  nav.main{display:flex;gap:18px}
+  nav.main a{font-size:.82rem;color:var(--ink-soft);text-decoration:none}
+  nav.main a:hover{color:var(--teal-d)}
+  .btn-book{background:var(--teal);color:#fff;font-size:.82rem;letter-spacing:.04em;
+    padding:9px 16px;border-radius:24px;text-decoration:none;white-space:nowrap;transition:background .16s}
+  .btn-book:hover{background:var(--teal-d)}
+  @media (max-width:640px){nav.main{display:none}}
+
+  /* --- ヒーロー --- */
+  .hero{position:relative}
+  .hero .ph{width:100%;height:62vh;min-height:380px;object-fit:cover}
+  .hero .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,40,35,.1),rgba(30,40,35,.52))}
+  .hero .cap{position:absolute;left:0;right:0;bottom:32px}
+  .hero .eyebrow{font-family:var(--display);font-size:1rem;letter-spacing:.14em;color:#d6ede9;margin:0 0 8px}
+  .hero h1{font-family:var(--display);font-weight:600;font-size:2.4rem;line-height:1.3;margin:0;color:#f5faf8;
+    letter-spacing:.05em;text-shadow:0 2px 22px rgba(0,0,0,.3)}
+  .hero .jp{font-family:var(--sans);font-size:.97rem;color:#cce6e1;margin:12px 0 0;max-width:26em}
+  .hero .quick{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 22px;color:#b0d8d2;font-size:.84rem}
+  .hero .quick b{color:#f0faf8;font-weight:500}
+
+  /* --- セクション共通 --- */
+  section{padding-block:60px}
+  .kicker{font-family:var(--display);font-size:1rem;letter-spacing:.16em;color:var(--teal-d);margin:0 0 6px}
+  h2{font-family:var(--display);font-weight:600;font-size:1.85rem;line-height:1.4;margin:0;letter-spacing:.04em}
+  .h2jp{font-size:.88rem;color:var(--ink-soft);margin:.4em 0 0;letter-spacing:.1em}
+  .lead{margin:1.1em 0 0;color:#4a4840;text-wrap:pretty}
+
+  /* --- 院の紹介・こだわり --- */
+  .concept .grid{display:grid;gap:26px;margin-top:24px}
+  .concept img{width:100%;height:290px;object-fit:cover;border-radius:6px}
+  .concept p{color:#4a4840}.concept p+p{margin-top:1em}
+  .kodawari{list-style:none;margin:1.3em 0 0;padding:0;display:grid;gap:9px;color:#4a4840}
+  .kodawari li{position:relative;padding-left:22px}
+  .kodawari li::before{content:"";position:absolute;left:0;top:.9em;width:13px;height:1px;background:currentColor;opacity:.4}
+
+  /* --- よくある症状 --- */
+  .symptoms{background:var(--paper-2)}
+  .symptoms .grid{display:grid;gap:14px;margin-top:24px}
+  .symp-card{background:#fff;border-radius:8px;padding:20px 22px;border:1px solid var(--line)}
+  .symp-card h3{font-family:var(--display);font-size:1.05rem;color:var(--teal-d);margin:0 0 6px}
+  .symp-card p{font-size:.9rem;color:var(--ink-soft);margin:0;line-height:1.75}
+
+  /* --- 施術メニュー --- */
+  .menu{background:#fff}
+  .menu .group{margin-top:28px}.menu .group:first-of-type{margin-top:24px}
+  .menu h3{font-family:var(--display);font-size:1.25rem;color:var(--teal-d);margin:0 0 4px;
+    display:flex;align-items:center;gap:12px}
+  .menu h3 .jp{font-family:var(--sans);font-size:.74rem;color:var(--ink-soft);letter-spacing:.08em}
+  .menu h3::after{content:"";flex:1;height:1px;background:var(--line)}
+  .mrow{display:flex;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .mrow .nm{font-weight:500}
+  .mrow .ds{font-size:.82rem;color:var(--ink-soft);margin-top:2px}
+  .mrow .dots{flex:1;border-bottom:1px dotted var(--ink-faint);transform:translateY(-4px)}
+  .mrow .pr{font-variant-numeric:tabular-nums;color:var(--teal-d);white-space:nowrap}
+  .menu .fine{margin-top:18px;font-size:.8rem;color:var(--ink-soft)}
+  .menu .caution{margin-top:14px;padding:14px 16px;background:#fffbf2;border-left:3px solid var(--amber-l);
+    border-radius:0 6px 6px 0;font-size:.82rem;color:#5c4b28;line-height:1.8}
+
+  /* --- 予約帯 --- */
+  .book{background:var(--teal);color:#fff;text-align:center}
+  .book .wrap{padding-block:54px}
+  .book .kicker{color:#b8e4de;letter-spacing:.16em}
+  .book h2{color:#fff}
+  .book p{margin:1em auto 0;max-width:26em;color:#cff0eb}
+  .book .actions{margin-top:26px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .book .b1{background:#fff;color:var(--teal-d);padding:13px 28px;border-radius:26px;text-decoration:none;font-weight:500;letter-spacing:.04em;transition:transform .16s}
+  .book .b1:hover{transform:translateY(-1px)}
+  .book .b2{border:1px solid rgba(255,255,255,.65);color:#fff;padding:13px 28px;border-radius:26px;text-decoration:none;letter-spacing:.04em}
+  .book .b2:hover{background:rgba(255,255,255,.12)}
+  .book .note{margin-top:18px;font-size:.8rem;color:#9fd6cf}
+
+  /* --- 院情報・アクセス --- */
+  .info{background:#2a3330;color:#dae8e4}
+  .info h2{color:#eef6f4}.info .kicker{color:#7ec9be}
+  .info .grid{display:grid;gap:30px;margin-top:24px}
+  .info .row{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:12px 0;border-top:1px solid rgba(255,255,255,.1)}
+  .info .row:last-child{border-bottom:1px solid rgba(255,255,255,.1)}
+  .info .k{color:#8daea9;font-size:.86rem}
+  .info .v{color:#eef6f4}.info .v a{color:#7ec9be}
+  .info .map{width:100%;height:240px;border-radius:8px;
+    background:repeating-linear-gradient(45deg,#303d39,#303d39 14px,#364540 14px,#364540 28px);
+    display:flex;align-items:center;justify-content:center;color:#7ea6a0;font-size:.84rem;
+    border:1px solid rgba(255,255,255,.09);flex-direction:column;gap:8px;text-align:center;line-height:1.6}
+
+  /* --- フッター --- */
+  footer.site{background:#1f2823;color:#8da09b;padding-block:34px}
+  footer.site .disc{background:rgba(126,201,190,.08);border:1px solid rgba(126,201,190,.28);
+    border-radius:8px;padding:16px 18px;color:#c4dcd8;font-size:.86rem;line-height:1.8;margin-bottom:22px}
+  footer.site .disc b{color:#7ec9be}
+  footer.site .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline}
+  footer.site .brand{color:#c8e8e4;font-size:1.2rem}
+  footer.site small{font-size:.76rem}footer.site a{color:#7ec9be}
+
+  /* --- レスポンシブ --- */
+  @media (min-width:760px){
+    .hero h1{font-size:3.2rem}
+    h2{font-size:2.2rem}
+    section{padding-block:84px}
+    .concept .grid{grid-template-columns:1fr 1fr;align-items:center;gap:50px}
+    .concept img{height:380px}
+    .symptoms .grid{grid-template-columns:repeat(2,1fr)}
+    .menu .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 52px}
+    .info .grid{grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+  }
+  @media (min-width:900px){
+    .symptoms .grid{grid-template-columns:repeat(4,1fr)}
+  }
+
+  /* --- テンプレ差し替えラベル --- */
+  .pix{position:relative;display:block}
+  .pix-tag{position:absolute;z-index:6;font-size:.68rem;letter-spacing:.03em;line-height:1.4;
+    background:rgba(30,40,35,.74);color:#fff;padding:3px 9px;border-radius:4px;
+    font-family:var(--sans);pointer-events:none}
+  .pix>.pix-tag{top:10px;right:10px}
+
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "あおぞら整骨院（Beacona 制作見本・架空）",
+  "description": "制作見本として作成した架空の整骨院サイトです。実在しません。肩こり・腰痛・スポーツ障害・交通事故施術に対応（見本）。",
+  "image": "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1200&q=80",
+  "priceRange": "¥¥",
+  "telephone": "+81-00-0000-0000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "浦安 0-0-0",
+    "addressLocality": "浦安市",
+    "addressRegion": "千葉県",
+    "postalCode": "279-0000",
+    "addressCountry": "JP"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 35.665,
+    "longitude": 139.900
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Friday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Thursday","Saturday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": "#book"
+  },
+  "disambiguatingDescription": "これは制作見本（デモ）です。実在しないお店の架空サイトです。"
+}
+</script>
+</head>
+<body>
+
+<div class="demo-bar">
+  これは制作見本です。<b>実在しないお店の架空サイト</b>です（Beaconaデモ）。　<a href="../Beacona 業務紹介HP - 案B 編集的.html#demos">← 制作例にもどる</a>
+</div>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top">あおぞら整骨院<span class="sub">SEIKOTSUIN / 制作見本</span></a>
+    <div class="head-r">
+      <nav class="main" aria-label="メニュー">
+        <a href="#concept">院のこと</a>
+        <a href="#symptoms">よくある症状</a>
+        <a href="#menu">施術メニュー</a>
+        <a href="#info">院情報・アクセス</a>
+      </nav>
+      <a class="btn-book" href="#book">ご予約</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ヒーロー -->
+  <section class="hero" style="padding:0" aria-label="トップ">
+    <span class="pix-tag" style="position:absolute;top:14px;right:14px;z-index:6">写真①（差し替え可）</span>
+    <img class="ph"
+      src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1600&q=80&auto=format&fit=crop"
+      alt="明るい施術室のイメージ写真（差し替え可）"
+      loading="eager">
+    <div class="tint"></div>
+    <div class="cap">
+      <div class="wrap">
+        <p class="eyebrow">浦安・市川の地域密着整骨院</p>
+        <h1>お身体のつらさを、<br>丁寧にほぐします。</h1>
+        <p class="jp">肩こり・腰痛・スポーツ障害・交通事故など、<br>お気軽にご相談ください。</p>
+        <p class="quick">
+          <span><b>月・火・水・金</b>&thinsp;9:00 〜 20:00　<b>木・土</b>&thinsp;9:00 〜 18:00</span>
+          <span>千葉県浦安市 0-0-0</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 院の紹介・こだわり -->
+  <section class="concept" id="concept">
+    <div class="wrap">
+      <p class="kicker">About</p>
+      <h2>地元に寄り添う、丁寧な施術</h2>
+      <p class="h2jp">院のこだわりについて</p>
+      <div class="grid">
+        <div>
+          <p class="lead">あおぞら整骨院は浦安・市川エリアの方々に長くご利用いただいている地域密着の整骨院です。初回のカウンセリングでお身体の状態を丁寧に確認し、おひとりおひとりに合った施術を心がけています。</p>
+          <p>「なんとなく続く重だるさ」「同じところが繰り返し痛む」など、ご不安な症状があればどうぞお気軽にご相談ください。日常生活での姿勢や動作のアドバイスも合わせてお伝えしています。</p>
+          <ul class="kodawari">
+            <li>初回カウンセリングで身体の状態をしっかり確認</li>
+            <li>手技・電気療法・テーピングなど、状態に合わせた対応</li>
+            <li>平日夜間・土曜診療あり。仕事帰りでも通いやすい</li>
+            <li>駐車場あり（2台）。近隣駅からも徒歩圏内</li>
+          </ul>
+        </div>
+        <span class="pix">
+          <img
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1100&q=80&auto=format&fit=crop"
+            alt="施術の様子（差し替え可）"
+            loading="lazy">
+          <span class="pix-tag">写真②（差し替え可）</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- よくある症状 -->
+  <section class="symptoms" id="symptoms">
+    <div class="wrap">
+      <p class="kicker">Symptoms</p>
+      <h2>このようなお悩みに</h2>
+      <p class="h2jp">よくあるご相談の例</p>
+      <p class="lead" style="margin-top:1em">「こんな症状も相談していい？」と思ったら、まずはお声がけください。お身体の状態をお聞きしながら、できることをご提案します。</p>
+      <div class="grid" style="margin-top:28px">
+        <div class="symp-card">
+          <h3>肩こり・首のこり</h3>
+          <p>デスクワークやスマートフォンの使用が続いて、肩まわりが重くなりやすい方へ。日常の姿勢についてもあわせてご相談いただけます。</p>
+        </div>
+        <div class="symp-card">
+          <h3>腰痛・腰まわりの不調</h3>
+          <p>長時間の座り仕事や立ち仕事による腰の重さ・痛み。急な動作での痛みなど、腰まわりのお悩みをお気軽にご相談ください。</p>
+        </div>
+        <div class="symp-card">
+          <h3>スポーツによる痛み</h3>
+          <p>練習後の筋肉疲労や、繰り返し使うことで生じる関節・筋肉の不調など。お身体の状態に合わせてご対応します。</p>
+        </div>
+        <div class="symp-card">
+          <h3>交通事故後のケア</h3>
+          <p>むちうちや身体の痛みなど、交通事故後の不調への対応も行っています。保険適用についてはご来院時にご確認ください。</p>
+        </div>
+      </div>
+      <p style="margin-top:20px;font-size:.82rem;color:var(--ink-soft)">※ 掲載は対応の一例です。症状・状態によって対応できる内容が異なります。詳しくはご来院・お電話でご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- 施術メニュー -->
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <p class="kicker">Menu</p>
+      <h2>施術メニュー</h2>
+      <p class="h2jp">料金・所要時間の目安</p>
+      <div class="cols">
+        <div class="group">
+          <h3>手技・整体<span class="jp">手技施術</span></h3>
+          <div class="mrow">
+            <div><div class="nm">整体（全身）</div><div class="ds">約50〜60分　お身体の状態に合わせて</div></div>
+            <span class="dots"></span><span class="pr">¥3,800〜</span>
+          </div>
+          <div class="mrow">
+            <div><div class="nm">整体（部分）</div><div class="ds">約30分　肩・腰など気になる部位を中心に</div></div>
+            <span class="dots"></span><span class="pr">¥2,200〜</span>
+          </div>
+          <div class="mrow">
+            <div><div class="nm">骨盤矯正</div><div class="ds">約40分　骨盤まわりのバランスを確認しながら</div></div>
+            <span class="dots"></span><span class="pr">¥3,300〜</span>
+          </div>
+        </div>
+        <div class="group">
+          <h3>電気・テーピング<span class="jp">物理療法ほか</span></h3>
+          <div class="mrow">
+            <div><div class="nm">電気療法</div><div class="ds">約20〜30分　状態に合わせた機器を使用</div></div>
+            <span class="dots"></span><span class="pr">¥1,500〜</span>
+          </div>
+          <div class="mrow">
+            <div><div class="nm">テーピング処置</div><div class="ds">部位・用途により異なります</div></div>
+            <span class="dots"></span><span class="pr">¥500〜</span>
+          </div>
+          <div class="mrow">
+            <div><div class="nm">交通事故施術</div><div class="ds">自賠責・任意保険の適用について要確認</div></div>
+            <span class="dots"></span><span class="pr">要相談</span>
+          </div>
+        </div>
+      </div>
+      <div class="caution">
+        ※ 掲載料金はすべて見本の目安です。初回カウンセリングの結果によって内容・時間が変わる場合があります。症状の改善を保証するものではありません。詳細はご来院またはお電話でご確認ください。
+      </div>
+      <p class="fine">※ 価格はすべて税込の表示見本です。健康保険の適用可否については窓口にてご相談ください。</p>
+    </div>
+  </section>
+
+  <!-- 予約導線 -->
+  <section class="book" id="book">
+    <div class="wrap">
+      <p class="kicker">Reservation</p>
+      <h2>ご予約・お問い合わせ</h2>
+      <p>お電話またはLINE・Web予約でお気軽にどうぞ。<br>初めての方もお気軽にご相談ください。</p>
+      <div class="actions">
+        <a class="b1" href="#book" aria-label="Web予約（見本リンク）">Web予約はこちら</a>
+        <a class="b2" href="tel:000-0000-0000">00-0000-0000（架空）</a>
+      </div>
+      <p class="note">※ 予約ボタン・電話番号は見本です。公開時に実際の予約システム・番号へ差し替えます。</p>
+    </div>
+  </section>
+
+  <!-- 院情報・アクセス -->
+  <section class="info" id="info">
+    <div class="wrap">
+      <p class="kicker">Access</p>
+      <h2>院情報・アクセス</h2>
+      <div class="grid">
+        <div>
+          <div class="row"><span class="k">院名</span><span class="v">あおぞら整骨院（架空・見本）</span></div>
+          <div class="row"><span class="k">住所</span><span class="v">千葉県浦安市 0-0-0（架空）</span></div>
+          <div class="row"><span class="k">電話</span><span class="v">00-0000-0000（架空）</span></div>
+          <div class="row">
+            <span class="k">営業時間</span>
+            <span class="v">
+              月・火・水・金&ensp;9:00 〜 20:00<br>
+              木・土&ensp;9:00 〜 18:00
+            </span>
+          </div>
+          <div class="row"><span class="k">定休日</span><span class="v">日曜・祝日（見本）</span></div>
+          <div class="row"><span class="k">最寄駅</span><span class="v">浦安駅（東京メトロ東西線）徒歩〇分（見本）</span></div>
+          <div class="row"><span class="k">駐車場</span><span class="v">あり（2台・見本）</span></div>
+          <div class="row"><span class="k">保険</span><span class="v">健康保険・自賠責保険（詳細は窓口にて）</span></div>
+        </div>
+        <div>
+          <div class="map" role="img" aria-label="地図（差し替え可）">
+            <span>地図①（Googleマップ埋め込みに差し替え可）</span>
+            <span style="font-size:.78rem">— 架空の住所のため現在はプレースホルダー表示 —</span>
+          </div>
+          <span class="pix" style="margin-top:16px">
+            <img
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80&auto=format&fit=crop"
+              alt="明るい受付カウンターのイメージ（差し替え可）"
+              loading="lazy"
+              style="width:100%;height:180px;object-fit:cover;border-radius:6px">
+            <span class="pix-tag">写真③（差し替え可）</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p class="disc"><b>これは制作見本です。</b>実在しないお店の架空サイトです（Beaconaデモ）。掲載の院名・住所・電話番号・営業時間・料金・写真はすべて見本用で、実在の施設とは一切関係ありません。写真はUnsplash（商用可ライセンス）の素材を使用しており、実店舗の写真に差し替えできます。掲載内容は施術効果を保証するものではありません。</p>
+    <div class="row">
+      <span class="brand">あおぞら整骨院</span>
+      <small>制作見本 ／ <a href="../Beacona 業務紹介HP - 案B 編集的.html#demos">Beaconaの制作例へ</a></small>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
