@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<meta name="robots" content="noindex, nofollow">
+<title>hair salon LIN｜制作見本（Beaconaデモ・架空のお店）</title>
+<meta name="description" content="これは制作見本です。実在しないお店の架空サイトです（Beaconaデモ）。美容室・ヘアサロンのホームページの一例として制作しました。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  p, li, dt, dd, blockquote, figcaption { text-wrap: pretty; word-break: auto-phrase; line-break: strict; overflow-wrap: break-word; }
+  h1, h2, h3, h4 { text-wrap: balance; word-break: auto-phrase; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+  img { max-width: 100%; display: block; }
+  ::selection { background: var(--accent, #C9A8A0); color: #fff; }
+  section[id] { scroll-margin-top: 84px; }
+  a { color: inherit; }
+  a:focus-visible, label:focus-visible { outline: 2px solid var(--accent, #C9A8A0); outline-offset: 3px; }
+
+  /* skip link (a11y) */
+  .skip-link { position: absolute; left: 12px; top: -48px; z-index: 100; background: #1A1A1A; color: #fff; font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.08em; padding: 10px 18px; text-decoration: none; transition: top 0.2s ease; }
+  .skip-link:focus { top: 12px; }
+
+  @keyframes linDrop { 0% { transform: translateY(-120%); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(120%); opacity: 0; } }
+  @keyframes linFadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:none; } }
+
+  /* ② scroll fade-up */
+  [data-lin-fade] { opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.25,.46,.45,.94), transform .8s cubic-bezier(.25,.46,.45,.94); }
+  [data-lin-fade].vis { opacity:1; transform:none; }
+  [data-lin-fade][data-d="1"] { transition-delay:.12s; }
+  [data-lin-fade][data-d="2"] { transition-delay:.24s; }
+  [data-lin-fade][data-d="3"] { transition-delay:.36s; }
+
+  /* ③ gallery hover: grayscale → color + zoom */
+  .gal-zoom { filter: saturate(0.55) brightness(0.96); transition: transform .8s cubic-bezier(.2,.6,.2,1), filter .6s ease; }
+  .gal-cell:hover .gal-zoom { transform: scale(1.07); filter: saturate(1.0) brightness(1.0); }
+
+  /* ④ stylist card hover lift */
+  .lin-stylist-card { transition: transform .4s cubic-bezier(.25,.46,.45,.94); }
+  .lin-stylist-card:hover { transform: translateY(-6px); }
+  .lin-stylist-accent { width:0; height:1px; background: var(--accent,#C9A8A0); transition: width .5s cubic-bezier(.25,.46,.45,.94); margin: 8px auto 0; }
+  .lin-stylist-card:hover .lin-stylist-accent { width:40px; }
+
+  /* ⑤ text reveal chars */
+  .lin-reveal-char { opacity:0; transform:translateY(12px); display:inline-block; transition:opacity .5s ease, transform .5s ease; }
+  .lin-reveal-char.vis { opacity:1; transform:none; }
+
+  /* nav shrink */
+  header[data-scrolled="true"] { box-shadow: 0 2px 20px rgba(26,26,26,.08); }
+
+  @media (prefers-reduced-motion:reduce) {
+    [data-lin-fade] { opacity:1!important; transform:none!important; }
+    .gal-zoom { filter:none!important; }
+    .lin-reveal-char { opacity:1!important; transform:none!important; }
+  }
+  #galGrid { grid-template-columns: repeat(var(--gal-cols, 3), 1fr); }
+
+  /* ---- hover states (CSS-only, CSP-safe) ---- */
+  #navLinks a:hover { opacity: 1 !important; }
+  .hdr-reserve:hover { background: #1A1A1A; color: #fff; }
+  .lnk-underline:hover { opacity: 1 !important; }
+  .gal-cell:hover .gal-zoom { transform: scale(1.05); }
+  .stylist-btn:hover { background: var(--accent, #C9A8A0); border-color: var(--accent, #C9A8A0); color: #fff; }
+  .btn-web:hover { opacity: 0.85; }
+  .btn-line:hover { background: #fff; color: #1A1A1A; }
+  .cap-link:hover { opacity: 0.7; }
+  footer a:hover { opacity: 1 !important; }
+
+  @media (max-width: 820px) { #navLinks { display: none !important; } #galGrid { grid-template-columns: repeat(2, 1fr) !important; } }
+  @media (max-width: 760px) { #mobileCta { display: grid !important; } body { padding-bottom: 62px; } }
+  @media (max-width: 820px) { #stylistGrid { grid-template-columns: 1fr !important; max-width: 360px; margin: 0 auto; gap: 56px; } #accessGrid { grid-template-columns: 1fr !important; } }
+  @media (max-width: 520px) { #galGrid { grid-template-columns: 1fr !important; } }
+  @media (prefers-reduced-motion: reduce) { #scrollDot { animation: none !important; } html { scroll-behavior: auto; } }
+
+  /* gallery CSS-only category filter */
+  .galfilter { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; clip: rect(0 0 0 0); }
+  #f-short:checked  ~ #galGrid [data-cat]:not([data-cat~="short"])  { display: none; }
+  #f-medium:checked ~ #galGrid [data-cat]:not([data-cat~="medium"]) { display: none; }
+  #f-long:checked   ~ #galGrid [data-cat]:not([data-cat~="long"])   { display: none; }
+  #f-color:checked  ~ #galGrid [data-cat]:not([data-cat~="color"])  { display: none; }
+  #f-mens:checked   ~ #galGrid [data-cat]:not([data-cat~="mens"])   { display: none; }
+  #f-all:checked    ~ .galtabs label[for="f-all"],
+  #f-short:checked  ~ .galtabs label[for="f-short"],
+  #f-medium:checked ~ .galtabs label[for="f-medium"],
+  #f-long:checked   ~ .galtabs label[for="f-long"],
+  #f-color:checked  ~ .galtabs label[for="f-color"],
+  #f-mens:checked   ~ .galtabs label[for="f-mens"] { color: #1A1A1A !important; border-color: var(--accent, #C9A8A0) !important; opacity: 1 !important; }
+  .galfilter:focus-visible ~ .galtabs label[for="f-all"] { outline: 2px solid var(--accent, #C9A8A0); outline-offset: 3px; }
+  .galtabs label:hover { color: #1A1A1A !important; }
+</style>
+</head>
+<body>
+
+<div style="--accent: #C9A8A0; --gal-cols: 3; background: #FFFFFF; color: #1A1A1A; font-family: 'Zen Kaku Gothic New', 'Jost', sans-serif; font-weight: 300; line-height: 1.85; letter-spacing: 0.02em; overflow-x: hidden;">
+
+  <a href="#top" class="skip-link">本文へスキップ</a>
+
+  <!-- ============ HEADER ============ -->
+  <header data-scrolled="false" style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px clamp(20px, 5vw, 56px); background: rgba(255,255,255,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(26,26,26,0.07);">
+    <nav id="navLinks" aria-label="メインナビゲーション" style="display: flex; gap: 28px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.22em; font-weight: 400;">
+      <a href="#concept" style="text-decoration: none; opacity: 0.7;">CONCEPT</a>
+      <a href="#gallery" style="text-decoration: none; opacity: 0.7;">GALLERY</a>
+      <a href="#menu" style="text-decoration: none; opacity: 0.7;">MENU</a>
+      <a href="#stylist" style="text-decoration: none; opacity: 0.7;">STYLIST</a>
+      <a href="#access" style="text-decoration: none; opacity: 0.7;">ACCESS</a>
+    </nav>
+    <a href="#top" aria-label="hair salon LIN ホーム" style="text-align: center; text-decoration: none; line-height: 1;">
+      <div style="font-family: 'Jost', sans-serif; font-weight: 300; font-size: 26px; letter-spacing: 0.5em; padding-left: 0.5em;">LIN</div>
+      <div style="font-family: 'Jost', sans-serif; font-size: 8px; letter-spacing: 0.42em; opacity: 0.5; margin-top: 4px; padding-left: 0.42em;">HAIR&nbsp;SALON</div>
+    </a>
+    <div style="display: flex; justify-content: flex-end;">
+      <a href="#reserve" class="hdr-reserve" style="font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.26em; font-weight: 400; text-decoration: none; padding: 13px 26px; border: 1px solid #1A1A1A; transition: background 0.4s ease, color 0.4s ease;">RESERVE</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" style="position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px clamp(20px, 5vw, 56px) 80px; overflow: hidden;">
+    <img src="/assets/images/demos/salon/hero.jpg" alt="やわらかな光のサロンでヘアカットを受ける様子（イメージ）" width="1920" height="1282" fetchpriority="high" decoding="async" style="position: absolute; top:-15%; left:0; right:0; width: 100%; height: 130%; object-fit: cover; object-position: center 35%; filter: saturate(0.78) brightness(0.96) contrast(1.04);">
+    <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(236,232,226,.45) 0%, rgba(236,232,226,.18) 40%, rgba(236,232,226,.52) 100%);"></div>
+    <div style="position: relative; text-align: center; max-width: 900px;">
+      <div style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.42em; opacity: 0.6; text-transform: uppercase; margin-bottom: 30px;">余白と、静けさ</div>
+      <h1 style="font-family: 'Jost', sans-serif; font-weight: 200; font-size: clamp(54px, 12vw, 158px); line-height: 0.96; letter-spacing: 0.04em; margin: 0;">stillness.</h1>
+      <p style="font-size: clamp(13px, 1.6vw, 16px); letter-spacing: 0.12em; margin: 34px auto 0; max-width: 460px; opacity: 0.78;">髪をととのえることは、自分をととのえること。<br>静かな時間のなかで、あなたの素を引き出します。</p>
+    </div>
+    <a href="#concept" aria-label="次のセクションへスクロール" style="position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 14px; text-decoration: none;">
+      <span style="font-family: 'Jost', sans-serif; font-size: 9px; letter-spacing: 0.32em; opacity: 0.55;">SCROLL</span>
+      <span style="position: relative; display: block; width: 1px; height: 56px; background: rgba(26,26,26,0.22); overflow: hidden;"><span id="scrollDot" style="position: absolute; top: 0; left: 0; width: 1px; height: 18px; background: #1A1A1A; animation: linDrop 2.4s ease-in-out infinite;"></span></span>
+    </a>
+  </section>
+
+  <!-- sample-notice strip -->
+  <div role="note" style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 11px 20px; background: #1A1A1A; color: #fff; font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.24em; text-align: center;">
+    <span aria-hidden="true" style="display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent, #C9A8A0);"></span>
+    制作見本 / FICTIONAL SAMPLE — 架空の店舗です。掲載内容・写真はすべてイメージです。
+  </div>
+
+  <!-- ============ CONCEPT ============ -->
+  <section id="concept" style="padding: clamp(96px, 14vh, 170px) clamp(20px, 6vw, 90px); max-width: 1240px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: 1fr; gap: clamp(48px, 6vw, 80px); align-items: center;">
+      <div style="max-width: 620px;">
+        <div data-lin-fade style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.34em; color: var(--accent, #C9A8A0); margin-bottom: 26px;">01 — CONCEPT</div>
+        <h2 data-lin-reveal style="font-weight: 300; font-size: clamp(24px, 3.4vw, 40px); line-height: 1.55; letter-spacing: 0.04em; margin: 0;">削ぎ落とした空間で、<br>静かに、自分と向き合う。</h2>
+        <p style="font-size: clamp(14px, 1.5vw, 16px); line-height: 2.1; opacity: 0.72; margin: 30px 0 0; max-width: 480px;">流行を追うのではなく、その人の素材を活かす。<br>装飾を減らし、所作をていねいに。<br>LIN は、髪を通して日々のリズムをととのえる<br>時間をお届けします。</p>
+      </div>
+      <div style="position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid rgba(26,26,26,0.10);">
+        <img src="/assets/images/demos/salon/concept.jpg" alt="落ち着いた雰囲気のサロンでの施術の様子（イメージ）" width="1600" height="1067" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 100%; filter: saturate(0.80) brightness(0.98) contrast(1.03);">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" style="background: #EDE9E3; padding: clamp(96px, 14vh, 170px) clamp(20px, 6vw, 90px);">
+    <div style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(48px, 6vw, 90px); align-items: center;" id="aboutGrid">
+      <div style="position: relative; width: 100%; aspect-ratio: 4 / 5; background: #EDE9E3; border: 1px solid rgba(26,26,26,0.10); display: flex; align-items: flex-end; justify-content: center; overflow: hidden;">
+        <img src="/assets/images/demos/salon/owner-silhouette.png" alt="" aria-hidden="true" width="900" height="900" loading="lazy" decoding="async" style="width: 75%; height: auto;">
+      </div>
+      <div style="max-width: 540px;">
+        <div data-lin-fade style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.34em; color: var(--accent, #C9A8A0); margin-bottom: 26px;">02 — ABOUT</div>
+        <h2 style="font-weight: 300; font-size: clamp(22px, 3vw, 36px); line-height: 1.6; letter-spacing: 0.04em; margin: 0;">店の想い</h2>
+        <p style="font-size: clamp(14px, 1.5vw, 16px); line-height: 2.15; opacity: 0.78; margin: 28px 0 0;">「また、ここに帰ってきたい」。<br>そう思っていただける場所でありたい。<br>私たちが大切にしているのは、技術はもちろん、<br>お客様一人ひとりとの静かな対話です。</p>
+        <p style="font-size: clamp(14px, 1.5vw, 16px); line-height: 2.15; opacity: 0.78; margin: 20px 0 0;">少席・完全予約制で、ゆとりのある時間をご用意しています。<br>日常から少し離れ、自分をいたわるひとときを。</p>
+        <div style="font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.2em; margin-top: 34px; opacity: 0.85;">— Owner / 結城 凛</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURE ============ -->
+  <section id="feature" style="padding: clamp(96px, 14vh, 170px) clamp(20px, 6vw, 90px); max-width: 1240px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: clamp(44px, 6vw, 72px);">
+      <div data-lin-fade style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.34em; color: var(--accent, #C9A8A0); margin-bottom: 18px;">03 — WHY LIN</div>
+      <h2 data-lin-reveal style="font-weight: 300; font-size: clamp(22px, 3vw, 36px); letter-spacing: 0.04em; margin: 0;">選ばれる理由</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: clamp(28px, 4vw, 48px);">
+      <div style="border-top: 1px solid rgba(26,26,26,0.18); padding-top: 24px;">
+        <div style="font-family: 'Jost', sans-serif; font-weight: 200; font-size: 32px; letter-spacing: 0.05em; color: var(--accent, #C9A8A0); margin-bottom: 16px;">01</div>
+        <h3 style="font-weight: 400; font-size: 16px; letter-spacing: 0.04em; margin: 0 0 12px;">完全予約・少席制</h3>
+        <p style="font-size: 13px; line-height: 1.95; opacity: 0.68; margin: 0;">おひとりずつ、ゆとりのある時間を。<br>待ち時間のない静かな空間です。</p>
+      </div>
+      <div style="border-top: 1px solid rgba(26,26,26,0.18); padding-top: 24px;">
+        <div style="font-family: 'Jost', sans-serif; font-weight: 200; font-size: 32px; letter-spacing: 0.05em; color: var(--accent, #C9A8A0); margin-bottom: 16px;">02</div>
+        <h3 style="font-weight: 400; font-size: 16px; letter-spacing: 0.04em; margin: 0 0 12px;">マンツーマン施術</h3>
+        <p style="font-size: 13px; line-height: 1.95; opacity: 0.68; margin: 0;"><span style="display:block;">担当が最初から最後まで一貫して。</span><span style="display:block;">仕上がりにムラを残しません。</span></p>
+      </div>
+      <div style="border-top: 1px solid rgba(26,26,26,0.18); padding-top: 24px;">
+        <div style="font-family: 'Jost', sans-serif; font-weight: 200; font-size: 32px; letter-spacing: 0.05em; color: var(--accent, #C9A8A0); margin-bottom: 16px;">03</div>
+        <h3 style="font-weight: 400; font-size: 16px; letter-spacing: 0.04em; margin: 0 0 12px;">髪質改善・低刺激</h3>
+        <p style="font-size: 13px; line-height: 1.95; opacity: 0.68; margin: 0;"><span style="display:block;">低刺激のオーガニック系薬剤。</span><span style="display:block;">続けるほど扱いやすい髪へ。</span></p>
+      </div>
+      <div style="border-top: 1px solid rgba(26,26,26,0.18); padding-top: 24px;">
+        <div style="font-family: 'Jost', sans-serif; font-weight: 200; font-size: 32px; letter-spacing: 0.05em; color: var(--accent, #C9A8A0); margin-bottom: 16px;">04</div>
+        <h3 style="font-weight: 400; font-size: 16px; letter-spacing: 0.04em; margin: 0 0 12px;">駅近・夜まで営業</h3>
+        <p style="font-size: 13px; line-height: 1.95; opacity: 0.68; margin: 0;">浦安駅 徒歩5分／19時まで営業。<br>お仕事帰りにも通いやすい立地です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section id="gallery" style="padding: clamp(96px, 14vh, 170px) clamp(20px, 6vw, 90px); max-width: 1240px; margin: 0 auto;">
+    <input class="galfilter" type="radio" name="galcat" id="f-all" checked aria-label="すべて表示">
+    <input class="galfilter" type="radio" name="galcat" id="f-short" aria-label="ショートで絞り込み">
+    <input class="galfilter" type="radio" name="galcat" id="f-medium" aria-label="ミディアムで絞り込み">
+    <input class="galfilter" type="radio" name="galcat" id="f-long" aria-label="ロングで絞り込み">
+    <input class="galfilter" type="radio" name="galcat" id="f-color" aria-label="カラーで絞り込み">
+    <input class="galfilter" type="radio" name="galcat" id="f-mens" aria-label="メンズで絞り込み">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: clamp(26px, 3vw, 36px);">
+      <div>
+        <div data-lin-fade style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.34em; color: var(--accent, #C9A8A0); margin-bottom: 18px;">04 — GALLERY</div>
+        <h2 style="font-weight: 300; font-size: clamp(22px, 3vw, 36px); letter-spacing: 0.04em; margin: 0;">スタイルギャラリー</h2>
+      </div>
+      <a href="#" class="lnk-underline" aria-label="Instagramを見る（架空・サンプル）" style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-decoration: none; border-bottom: 1px solid rgba(26,26,26,0.3); padding-bottom: 4px; opacity: 0.8;">VIEW INSTAGRAM →</a>
+    </div>
+    <div class="galtabs" role="group" aria-label="ギャラリーのカテゴリ" style="display: flex; flex-wrap: wrap; gap: clamp(14px, 2.4vw, 30px); margin-bottom: clamp(30px, 4vw, 48px); border-bottom: 1px solid rgba(26,26,26,0.08); padding-bottom: 4px;">
+      <label for="f-all" style="cursor: pointer; font-size: 12px; letter-spacing: 0.14em; color: #1A1A1A; opacity: 1; padding: 8px 2px; border-bottom: 1px solid var(--accent, #C9A8A0); transition: color 0.3s, border-color 0.3s, opacity 0.3s;">すべて</label>
+      <label for="f-short" style="cursor: pointer; font-size: 12px; letter-spacing: 0.14em; color: #1A1A1A; opacity: 0.5; padding: 8px 2px; border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s, opacity 0.3s;">ショート</label>
+      <label for="f-medium" style="cursor: pointer; font-size: 12px; letter-spacing: 0.14em; color: #1A1A1A; opacity: 0.5; padding: 8px 2px; border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s, opacity 0.3s;">ミディアム</label>
+      <label for="f-long" style="cursor: pointer; font-size: 12px; letter-spacing: 0.14em; color: #1A1A1A; opacity: 0.5; padding: 8px 2px; border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s, opacity 0.3s;">ロング</label>
+      <label for="f-color" style="cursor: pointer; font-size: 12px; letter-spacing: 0.14em; color: #1A1A1A; opacity: 0.5; padding: 8px 2px; border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s, opacity 0.3s;">カラー</label>
+      <label for="f-mens" style="cursor: pointer; font-size: 12px; letter-spacing: 0.14em; color: #1A1A1A; opacity: 0.5; padding: 8px 2px; border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s, opacity 0.3s;">メンズ</label>
+    </div>
+    <div id="galGrid" style="display: grid; gap: clamp(10px, 1.4vw, 18px);">
+      <div data-cat="short" class="gal-cell" style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; border: 1px solid rgba(26,26,26,0.08);"><div class="gal-zoom" style="position: absolute; inset: 0; transition: transform 0.7s cubic-bezier(0.2,0.6,0.2,1);"><img src="/assets/images/demos/salon/gallery-short01.jpg" alt="ショートヘアのスタイル例（イメージ）" width="668" height="1000" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 8%; filter: saturate(0.80) brightness(0.97) contrast(1.04);"></div></div>
+      <div data-cat="medium" class="gal-cell" style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; border: 1px solid rgba(26,26,26,0.08);"><div class="gal-zoom" style="position: absolute; inset: 0; transition: transform 0.7s cubic-bezier(0.2,0.6,0.2,1);"><img src="/assets/images/demos/salon/gallery-medium.jpg" alt="ミディアムヘアのスタイル例（イメージ）" width="667" height="1000" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 10%; filter: saturate(0.80) brightness(0.97) contrast(1.04);"></div></div>
+      <div data-cat="long" class="gal-cell" style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; border: 1px solid rgba(26,26,26,0.08);"><div class="gal-zoom" style="position: absolute; inset: 0; transition: transform 0.7s cubic-bezier(0.2,0.6,0.2,1);"><img src="/assets/images/demos/salon/gallery-long01.jpg" alt="ロングヘアのスタイル例（イメージ）" width="900" height="600" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:35% 50%; filter: saturate(0.80) brightness(0.97) contrast(1.04);"></div></div>
+      <div data-cat="color medium" class="gal-cell" style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; border: 1px solid rgba(26,26,26,0.08);"><div class="gal-zoom" style="position: absolute; inset: 0; transition: transform 0.7s cubic-bezier(0.2,0.6,0.2,1);"><img src="/assets/images/demos/salon/gallery-color.jpg" alt="透明感のあるヘアカラーのスタイル例（イメージ）" width="900" height="600" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:22% 50%; filter: saturate(0.80) brightness(0.97) contrast(1.04);"></div></div>
+      <div data-cat="mens short" class="gal-cell" style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; border: 1px solid rgba(26,26,26,0.08);"><div class="gal-zoom" style="position: absolute; inset: 0; transition: transform 0.7s cubic-bezier(0.2,0.6,0.2,1);"><img src="/assets/images/demos/salon/gallery-mens.jpg" alt="メンズショートのスタイル例（イメージ）" width="900" height="600" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:30% 50%; filter: saturate(0.80) brightness(0.97) contrast(1.04);"></div></div>
+      <div data-cat="long" class="gal-cell" style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; border: 1px solid rgba(26,26,26,0.08);"><div class="gal-zoom" style="position: absolute; inset: 0; transition: transform 0.7s cubic-bezier(0.2,0.6,0.2,1);"><img src="/assets/images/demos/salon/gallery-long02.jpg" alt="ロングヘアのアレンジ例（イメージ）" width="900" height="600" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:62% 50%; filter: saturate(0.80) brightness(0.97) contrast(1.04);"></div></div>
+    </div>
+    <p style="text-align: center; font-size: 12px; letter-spacing: 0.1em; opacity: 0.6; margin: clamp(28px, 4vw, 44px) 0 0;">最新のスタイルは <a href="#" class="cap-link" aria-label="Instagram（架空・サンプル）" style="color: inherit; border-bottom: 1px solid rgba(26,26,26,0.3); text-decoration: none; padding-bottom: 2px;">Instagram @hairsalon_lin（架空）</a> で更新中です。</p>
+  </section>
+
+  <!-- ============ MENU ============ -->
+  <section id="menu" style="background: #EDE9E3; padding: clamp(96px, 14vh, 170px) clamp(20px, 6vw, 90px);">
+    <div style="max-width: 880px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: clamp(40px, 6vw, 64px);">
+        <div data-lin-fade style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.34em; color: var(--accent, #C9A8A0); margin-bottom: 18px;">05 — MENU & PRICE</div>
+        <h2 style="font-weight: 300; font-size: clamp(22px, 3vw, 36px); letter-spacing: 0.04em; margin: 0;">メニュー・料金</h2>
+        <p style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.18em; opacity: 0.5; margin: 14px 0 0;">PRICE INCLUDES TAX / 表示はすべて税込</p>
+      </div>
+      <dl style="margin: 0; display: flex; flex-direction: column;">
+        <div style="display: grid; grid-template-columns: 1fr 110px; align-items: baseline; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(26,26,26,0.12);">
+          <dt style="flex: 1; min-width: 0;"><span style="font-size: clamp(15px, 1.8vw, 19px); letter-spacing: 0.04em;">カット</span><span style="display: block; font-size: 12px; opacity: 0.55; margin-top: 4px;">カウンセリング・シャンプー・ブロー込み</span></dt>
+          <dd style="margin: 0; font-family: 'Jost', sans-serif; font-size: clamp(16px, 2vw, 20px); letter-spacing: 0.04em; white-space: nowrap; min-width: 100px; text-align: right;">¥6,600</dd>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 110px; align-items: baseline; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(26,26,26,0.12);">
+          <dt style="flex: 1; min-width: 0;"><span style="font-size: clamp(15px, 1.8vw, 19px); letter-spacing: 0.04em;">カラー</span><span style="display: block; font-size: 12px; opacity: 0.55; margin-top: 4px;">カット別 / 髪の長さによる追加あり</span></dt>
+          <dd style="margin: 0; font-family: 'Jost', sans-serif; font-size: clamp(16px, 2vw, 20px); letter-spacing: 0.04em; white-space: nowrap; min-width: 100px; text-align: right;">¥7,700〜</dd>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 110px; align-items: baseline; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(26,26,26,0.12);">
+          <dt style="flex: 1; min-width: 0;"><span style="font-size: clamp(15px, 1.8vw, 19px); letter-spacing: 0.04em;">パーマ</span><span style="display: block; font-size: 12px; opacity: 0.55; margin-top: 4px;">デジタル / ニュアンスパーマ</span></dt>
+          <dd style="margin: 0; font-family: 'Jost', sans-serif; font-size: clamp(16px, 2vw, 20px); letter-spacing: 0.04em; white-space: nowrap; min-width: 100px; text-align: right;">¥8,800〜</dd>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 110px; align-items: baseline; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(26,26,26,0.12);">
+          <dt style="flex: 1; min-width: 0;"><span style="font-size: clamp(15px, 1.8vw, 19px); letter-spacing: 0.04em;">トリートメント</span><span style="display: block; font-size: 12px; opacity: 0.55; margin-top: 4px;">髪質改善 / 3ステップ</span></dt>
+          <dd style="margin: 0; font-family: 'Jost', sans-serif; font-size: clamp(16px, 2vw, 20px); letter-spacing: 0.04em; white-space: nowrap; min-width: 100px; text-align: right;">¥4,400</dd>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 110px; align-items: baseline; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(26,26,26,0.12);">
+          <dt style="flex: 1; min-width: 0;"><span style="font-size: clamp(15px, 1.8vw, 19px); letter-spacing: 0.04em;">ヘッドスパ</span><span style="display: block; font-size: 12px; opacity: 0.55; margin-top: 4px;">30min / オーガニックアロマ</span></dt>
+          <dd style="margin: 0; font-family: 'Jost', sans-serif; font-size: clamp(16px, 2vw, 20px); letter-spacing: 0.04em; white-space: nowrap; min-width: 100px; text-align: right;">¥3,300</dd>
+        </div>
+      </dl>
+      <p style="font-size: 11px; letter-spacing: 0.08em; opacity: 0.5; text-align: center; margin: 28px 0 0;">※ 料金・メニューは制作見本用のサンプルです。実在のサービスではありません。</p>
+    </div>
+  </section>
+
+  <!-- ============ STYLIST ============ -->
+  <section id="stylist" style="padding: clamp(96px, 14vh, 170px) clamp(20px, 6vw, 90px); max-width: 1240px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: clamp(40px, 6vw, 70px);">
+      <div data-lin-fade style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.34em; color: var(--accent, #C9A8A0); margin-bottom: 18px;">06 — STYLIST</div>
+      <h2 style="font-weight: 300; font-size: clamp(22px, 3vw, 36px); letter-spacing: 0.04em; margin: 0;">スタイリスト</h2>
+      <p style="font-size: 13px; letter-spacing: 0.08em; opacity: 0.6; margin: 18px 0 0;">メンズの方も歓迎しています。ショート・グレイカラーもお気軽にご相談ください。</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(28px, 4vw, 56px);" id="stylistGrid">
+      <div class="lin-stylist-card" data-lin-fade style="text-align: center;">
+        <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 50%; overflow: hidden; border: 1px solid rgba(26,26,26,0.10); margin-bottom: 24px;"><img src="/assets/images/demos/salon/stylist-rin.jpg" alt="スタイリスト 結城 凛（イメージ）" width="800" height="800" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top; filter: saturate(0.78) brightness(0.97) contrast(1.04);"></div>
+        <div style="font-family: 'Jost', sans-serif; font-size: 17px; letter-spacing: 0.2em;">RIN</div>
+        <div class="lin-stylist-accent"></div>
+        <div style="font-size: 12px; opacity: 0.55; margin-top: 5px;">結城 凛 / Director</div>
+        <p style="font-size: 13px; opacity: 0.72; line-height: 1.9; margin: 16px auto 22px; max-width: 240px;">「引き算」で骨格を活かす。再現性のあるデザインを。</p>
+        <a href="#reserve" class="stylist-btn" style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-decoration: none; border: 1px solid rgba(26,26,26,0.4); padding: 9px 20px; display: inline-block; transition: background 0.4s, color 0.4s;">指名予約</a>
+      </div>
+      <div class="lin-stylist-card" data-lin-fade data-d="1" style="text-align: center;">
+        <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 50%; overflow: hidden; border: 1px solid rgba(26,26,26,0.10); margin-bottom: 24px;"><img src="/assets/images/demos/salon/stylist-aoi.jpg" alt="スタイリスト 青井 葵（イメージ）" width="800" height="800" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top; filter: saturate(0.78) brightness(0.97) contrast(1.04);"></div>
+        <div style="font-family: 'Jost', sans-serif; font-size: 17px; letter-spacing: 0.2em;">AOI</div>
+        <div class="lin-stylist-accent"></div>
+        <div style="font-size: 12px; opacity: 0.55; margin-top: 5px;">青井 葵 / Stylist</div>
+        <p style="font-size: 13px; opacity: 0.72; line-height: 1.9; margin: 16px auto 22px; max-width: 240px;">柔らかな質感づくりが得意。透明感のあるカラーを。</p>
+        <a href="#reserve" class="stylist-btn" style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-decoration: none; border: 1px solid rgba(26,26,26,0.4); padding: 9px 20px; display: inline-block; transition: background 0.4s, color 0.4s;">指名予約</a>
+      </div>
+      <div class="lin-stylist-card" data-lin-fade data-d="2" style="text-align: center;">
+        <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 50%; overflow: hidden; border: 1px solid rgba(26,26,26,0.10); margin-bottom: 24px;"><img src="/assets/images/demos/salon/stylist-maki.jpg" alt="スタイリスト 真木 慧（イメージ）" width="800" height="800" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top; filter: saturate(0.78) brightness(0.97) contrast(1.04);"></div>
+        <div style="font-family: 'Jost', sans-serif; font-size: 17px; letter-spacing: 0.2em;">MAKI</div>
+        <div class="lin-stylist-accent"></div>
+        <div style="font-size: 12px; opacity: 0.55; margin-top: 5px;">真木 慧 / Stylist</div>
+        <p style="font-size: 13px; opacity: 0.72; line-height: 1.9; margin: 16px auto 22px; max-width: 240px;">メンズ・ショート専門。清潔感のある毎日のスタイルを。</p>
+        <a href="#reserve" class="stylist-btn" style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-decoration: none; border: 1px solid rgba(26,26,26,0.4); padding: 9px 20px; display: inline-block; transition: background 0.4s, color 0.4s;">指名予約</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESERVE ============ -->
+  <section id="reserve" style="background: #1A1A1A; color: #fff; padding: clamp(100px, 15vh, 180px) clamp(20px, 6vw, 90px);">
+    <div style="max-width: 880px; margin: 0 auto; text-align: center;">
+      <div style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.34em; color: var(--accent, #C9A8A0); margin-bottom: 24px;">07 — RESERVE</div>
+      <h2 style="font-weight: 200; font-family: 'Jost', sans-serif; font-size: clamp(34px, 6vw, 72px); letter-spacing: 0.05em; margin: 0; line-height: 1.05;">Book a visit</h2>
+      <p style="font-size: 14px; opacity: 0.7; letter-spacing: 0.08em; margin: 26px auto 0; max-width: 440px;">完全予約制。ご予約はWeb・LINEから。<br>スタイリストの指名も承ります（指名料無料）。</p>
+      <p style="font-size: 12px; opacity: 0.5; letter-spacing: 0.1em; margin: 16px auto 0; max-width: 440px;">初めての方へ — カウンセリング込み。<br>所要目安はカット約70分／カラー約120分です。</p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 44px;">
+        <a href="#" class="btn-web" aria-label="WEB予約（架空・サンプル）" style="font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.18em; text-decoration: none; background: var(--accent, #C9A8A0); color: #fff; padding: 18px 42px; transition: opacity 0.3s;">WEB予約 →</a>
+        <a href="#" class="btn-line" aria-label="LINEで予約（架空・サンプル）" style="font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.18em; text-decoration: none; border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 18px 42px; transition: background 0.3s, color 0.3s;">LINEで予約</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACCESS ============ -->
+  <section id="access" style="padding: clamp(96px, 14vh, 170px) clamp(20px, 6vw, 90px); max-width: 1240px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 5vw, 80px); align-items: center;" id="accessGrid">
+      <div>
+        <div data-lin-fade style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.34em; color: var(--accent, #C9A8A0); margin-bottom: 24px;">08 — ACCESS</div>
+        <h2 style="font-weight: 300; font-size: clamp(22px, 3vw, 36px); letter-spacing: 0.04em; margin: 0 0 32px;">アクセス・営業時間</h2>
+        <dl style="margin: 0; display: flex; flex-direction: column; gap: 20px; font-size: 14px;">
+          <div style="display: grid; grid-template-columns: 92px 1fr; gap: 16px;"><dt style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.18em; opacity: 0.5; padding-top: 3px;">ADDRESS</dt><dd style="margin: 0; line-height: 1.8;">〒279-0004<br>千葉県浦安市当代島 X-X-X LIN ビル 2F</dd></div>
+          <div style="display: grid; grid-template-columns: 92px 1fr; gap: 16px;"><dt style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.18em; opacity: 0.5; padding-top: 3px;">NEAREST</dt><dd style="margin: 0; line-height: 1.8;">東京メトロ東西線「浦安」駅 徒歩5分</dd></div>
+          <div style="display: grid; grid-template-columns: 92px 1fr; gap: 16px;"><dt style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.18em; opacity: 0.5; padding-top: 3px;">PARKING</dt><dd style="margin: 0; line-height: 1.8;">提携コインパーキングあり（2時間サービス券をお渡し）</dd></div>
+          <div style="display: grid; grid-template-columns: 92px 1fr; gap: 16px;"><dt style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.18em; opacity: 0.5; padding-top: 3px;">PAYMENT</dt><dd style="margin: 0; line-height: 1.8;">現金・各種クレジットカード・QRコード決済</dd></div>
+          <div style="display: grid; grid-template-columns: 92px 1fr; gap: 16px;"><dt style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.18em; opacity: 0.5; padding-top: 3px;">HOURS</dt><dd style="margin: 0; line-height: 1.8;">10:00 – 19:00（最終受付 18:00）</dd></div>
+          <div style="display: grid; grid-template-columns: 92px 1fr; gap: 16px;"><dt style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.18em; opacity: 0.5; padding-top: 3px;">CLOSED</dt><dd style="margin: 0; line-height: 1.8;">毎週月曜・第3火曜</dd></div>
+          <div style="display: grid; grid-template-columns: 92px 1fr; gap: 16px;"><dt style="font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.18em; opacity: 0.5; padding-top: 3px;">TEL</dt><dd style="margin: 0; line-height: 1.8;">047-000-0000（架空）</dd></div>
+        </dl>
+      </div>
+      <div role="img" aria-label="地図（制作見本のため省略）" style="position: relative; width: 100%; aspect-ratio: 4 / 3; background: repeating-linear-gradient(45deg, #ECE8E2, #ECE8E2 12px, #E6E1D9 12px, #E6E1D9 24px); border: 1px solid rgba(26,26,26,0.10); display: flex; align-items: center; justify-content: center;">
+        <span style="font-family: 'Courier New', monospace; font-size: 11px; letter-spacing: 0.16em; color: rgba(26,26,26,0.42); text-transform: uppercase; padding: 7px 12px; border: 1px solid rgba(26,26,26,0.16); background: rgba(255,255,255,0.6);">MAP / 地図埋め込み</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="background: #EDE9E3; padding: clamp(64px, 9vw, 96px) clamp(20px, 6vw, 90px) clamp(40px, 6vw, 64px);">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px;">
+      <div>
+        <div style="font-family: 'Jost', sans-serif; font-weight: 300; font-size: 30px; letter-spacing: 0.5em; padding-left: 0.5em;">LIN</div>
+        <div style="font-family: 'Jost', sans-serif; font-size: 9px; letter-spacing: 0.42em; opacity: 0.5; margin-top: 6px; padding-left: 0.42em;">HAIR SALON</div>
+      </div>
+      <div style="display: flex; gap: 26px; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.2em;">
+        <a href="#" aria-label="Instagram（架空・サンプル）" style="text-decoration: none; opacity: 0.7;">INSTAGRAM</a>
+        <a href="#reserve" style="text-decoration: none; opacity: 0.7;">RESERVE</a>
+        <a href="#" aria-label="LINE（架空・サンプル）" style="text-decoration: none; opacity: 0.7;">LINE</a>
+      </div>
+      <p style="font-size: 11px; letter-spacing: 0.12em; opacity: 0.55; max-width: 480px; line-height: 1.9; margin: 0;">本サイトは制作見本です。「hair salon LIN」は架空の店舗であり、掲載している店舗情報・料金・人物・写真はすべてイメージです。</p>
+      <div style="font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.18em; opacity: 0.4;">© 2026 LIN — SAMPLE DESIGN　制作：Beacona</div>
+    </div>
+  </footer>
+
+  <!-- LIN ANIMATIONS (inline JS — CSP: script-src 'self' 'unsafe-inline') -->
+  <script>
+  (function(){
+    // ② Scroll fade-up observer
+    var fo = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); fo.unobserve(e.target); } });
+    },{ threshold:0.08, rootMargin:'0px 0px -24px 0px' });
+    document.querySelectorAll('[data-lin-fade]').forEach(function(el){ fo.observe(el); });
+
+    // ⑤ Text reveal — split headings into chars
+    var revealEls = document.querySelectorAll('[data-lin-reveal]');
+    revealEls.forEach(function(el){
+      var txt = el.textContent;
+      el.innerHTML = txt.split('').map(function(c,i){
+        var delay = (i*0.04).toFixed(2);
+        return '<span class="lin-reveal-char" style="transition-delay:'+delay+'s">'+(c===' '?'&nbsp;':c)+'</span>';
+      }).join('');
+    });
+    var ro = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.querySelectorAll('.lin-reveal-char').forEach(function(c){ c.classList.add('vis'); });
+          ro.unobserve(e.target);
+        }
+      });
+    },{ threshold:0.3 });
+    revealEls.forEach(function(el){ ro.observe(el); });
+
+    // ① Hero parallax
+    var heroImg = document.querySelector('#top > img');
+    if(heroImg){
+      window.addEventListener('scroll',function(){
+        heroImg.style.transform = 'translateY('+(window.scrollY*0.3)+'px)';
+      },{ passive:true });
+    }
+
+    // nav shrink
+    var hdr = document.querySelector('header');
+    window.addEventListener('scroll',function(){
+      hdr.setAttribute('data-scrolled', window.scrollY>60?'true':'false');
+    },{ passive:true });
+  })();
+  </script>
+
+  <!-- ============ MOBILE STICKY CTA ============ -->
+  <div id="mobileCta" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 60; grid-template-columns: 1fr 1fr; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(26,26,26,0.1);">
+    <a href="#reserve" style="text-align: center; padding: 18px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.18em; text-decoration: none; color: #fff; background: var(--accent, #C9A8A0);">ご予約</a>
+    <a href="#" aria-label="LINE（架空・サンプル）" style="text-align: center; padding: 18px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.18em; text-decoration: none; color: #1A1A1A; border-left: 1px solid rgba(255,255,255,0.4); background: #EDE9E3;">LINE</a>
+  </div>
+
+</div>
+</body>
+</html>

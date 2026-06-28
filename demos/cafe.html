@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<meta name="robots" content="noindex, nofollow">
+<title>cafe lumi｜制作見本（Beaconaデモ・架空のお店）</title>
+<meta name="description" content="これは制作見本です。実在しないお店の架空サイトです（Beaconaデモ）。カフェのホームページの一例として制作しました。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300&family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  p, li, dt, dd, blockquote, figcaption { text-wrap: pretty; word-break: auto-phrase; line-break: strict; overflow-wrap: break-word; }
+  h1, h2, h3, h4 { text-wrap: balance; word-break: auto-phrase; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+  img { max-width: 100%; display: block; }
+  ::selection { background: #8C6A4A; color: #FAF6EF; }
+  a:focus-visible, summary:focus-visible { outline: 2px solid #8C6A4A; outline-offset: 3px; }
+  @keyframes lumiFade { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes lumiGlow { 0%,100% { opacity: .5; } 50% { opacity: .85; } }
+  a { color: inherit; }
+  [data-mobile-cta] { display:none; }
+  @media (max-width:760px) {
+    [data-mobile-cta] { display:flex; }
+    [data-nav-links] { gap:18px !important; }
+    [data-nav-text] { display:none !important; }
+  }
+  /* ① scroll fade-up */
+  [data-fade]{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94);}
+  [data-fade].vis{opacity:1;transform:none;}
+  [data-fade][data-d="1"]{transition-delay:.1s;}
+  [data-fade][data-d="2"]{transition-delay:.22s;}
+  [data-fade][data-d="3"]{transition-delay:.34s;}
+  [data-fade][data-d="4"]{transition-delay:.46s;}
+  [data-fade][data-d="5"]{transition-delay:.58s;}
+
+  /* ④ section line grow */
+  .lumi-line{width:0;height:1px;background:#8C6A4A;opacity:.45;transition:width 1s cubic-bezier(.25,.46,.45,.94);}
+  .lumi-line.vis{width:64px;}
+
+  /* ③ gallery hover zoom */
+  .lumi-gal{overflow:hidden;}
+  .lumi-gal img{transition:transform .9s cubic-bezier(.25,.46,.45,.94);}
+  .lumi-gal:hover img{transform:scale(1.06);}
+
+  /* nav shrink */
+  header[data-scrolled="true"] nav{padding-top:10px!important;padding-bottom:10px!important;}
+  header{transition:box-shadow .4s;}
+  header[data-scrolled="true"]{box-shadow:0 2px 18px rgba(58,51,43,.1);}
+
+  @media (prefers-reduced-motion:reduce) {
+    html { scroll-behavior:auto; }
+    [style*="animation"] { animation:none !important; }
+    [data-fade]{opacity:1!important;transform:none!important;}
+    .lumi-gal img{transition:none!important;}
+  }
+</style>
+</head>
+<body>
+<div style="background:#FAF6EF; color:#3A332B; font-family:'Zen Kaku Gothic New',sans-serif; font-weight:300; -webkit-font-smoothing:antialiased; overflow-x:hidden;">
+
+  <!-- demo notice -->
+  <div role="note" style="background:#3A332B; color:#EFE7D8; font-size:12px; letter-spacing:.18em; text-align:center; padding:7px 16px; font-family:'Zen Kaku Gothic New',sans-serif;">
+    制作見本 ・ 架空のお店です（実在しません）　—　DEMO SITE
+  </div>
+
+  <!-- nav -->
+  <header style="position:sticky; top:0; z-index:50; backdrop-filter:saturate(120%) blur(10px); -webkit-backdrop-filter:saturate(120%) blur(10px); background:rgba(250,246,239,.72); border-bottom:1px solid rgba(58,51,43,.08);">
+    <nav aria-label="メインナビゲーション" style="max-width:1180px; margin:0 auto; padding:16px 28px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="#top" style="font-family:'Cormorant',serif; font-weight:400; font-size:23px; letter-spacing:.34em; text-decoration:none; color:#3A332B; padding-left:.34em;">cafe lumi</a>
+      <div data-nav-links style="display:flex; align-items:center; gap:30px; font-size:12.5px; letter-spacing:.2em;">
+        <a href="#menu" data-nav-text style="text-decoration:none; color:#3A332B; opacity:.78;">MENU</a>
+        <a href="#gallery" data-nav-text style="text-decoration:none; color:#3A332B; opacity:.78;">GALLERY</a>
+        <a href="#info" data-nav-text style="text-decoration:none; color:#3A332B; opacity:.78;">INFO</a>
+        <a href="#access" data-nav-text style="text-decoration:none; color:#3A332B; opacity:.78;">ACCESS</a>
+        <a href="#access" style="text-decoration:none; color:#8C6A4A; border:1px solid rgba(140,106,74,.5); border-radius:999px; padding:7px 17px; letter-spacing:.16em; white-space:nowrap;">お問い合わせ</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" aria-label="ヒーロー" style="position:relative; height:90vh; min-height:560px; width:100%; overflow:hidden;">
+    <img src="/assets/images/demos/cafe/hero.jpg" alt="朝の光が差し込む店内でハンドドリップコーヒーを淹れる手元" fetchpriority="high" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 38%;">
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(40,34,28,.12) 0%, rgba(40,34,28,.04) 35%, rgba(40,34,28,.58) 100%);"></div>
+    <div style="position:absolute; left:0; bottom:0; padding:0 28px 8vh; max-width:1180px; margin:0 auto; right:0;">
+      <div style="animation:lumiFade 1.1s ease both;">
+        <h1 style="margin:0; font-family:'Cormorant',serif; font-weight:300; color:#FAF6EF; font-size:clamp(56px,11vw,128px); line-height:.92; letter-spacing:.04em; text-shadow:0 2px 30px rgba(40,34,28,.3);">cafe lumi</h1>
+        <p style="margin:18px 0 0; font-family:'Shippori Mincho',serif; font-weight:400; color:#FAF6EF; font-size:clamp(15px,2.3vw,21px); letter-spacing:.22em; line-height:2; text-shadow:0 1px 18px rgba(40,34,28,.4);">朝の光と、手のぬくもり。<br>一杯のコーヒーから始まる、静かな一日。</p>
+      </div>
+    </div>
+    <div aria-hidden="true" style="position:absolute; left:50%; bottom:26px; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; animation:lumiGlow 3s ease-in-out infinite;">
+      <span style="font-family:'Cormorant',serif; font-size:11px; letter-spacing:.34em; color:#FAF6EF;">SCROLL</span>
+      <span style="width:1px; height:38px; background:linear-gradient(#FAF6EF,transparent);"></span>
+    </div>
+  </section>
+
+  <!-- NEWS (compact, below hero) -->
+  <section id="news" data-fade aria-label="お知らせ" style="background:#EFE7D8; border-top:1px solid rgba(58,51,43,.07);">
+    <div style="max-width:1180px; margin:0 auto; padding:clamp(44px,6vw,64px) 28px;">
+      <div style="display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 20px; margin-bottom:6px;">
+        <span style="font-family:'Cormorant',serif; font-style:italic; font-size:17px; letter-spacing:.1em; color:#8C6A4A;">News</span>
+        <h2 style="margin:0; font-family:'Shippori Mincho',serif; font-weight:500; font-size:18px; letter-spacing:.14em;">お知らせ</h2>
+      </div>
+      <ul style="list-style:none; margin:0; padding:0;">
+        <li style="display:flex; gap:18px; align-items:baseline; padding:13px 0; border-top:1px solid rgba(58,51,43,.12);">
+          <time style="font-family:'Cormorant',serif; font-size:14px; letter-spacing:.1em; color:#8C6A4A; white-space:nowrap;">2026.06</time>
+          <span style="display:inline-block; font-size:10px; letter-spacing:.14em; color:#8C6A4A; border:1px solid rgba(140,106,74,.4); border-radius:999px; padding:1px 9px; white-space:nowrap;">NEW</span>
+          <p style="margin:0; font-size:14px; line-height:1.7; letter-spacing:.03em;">夏限定「水出しアイスコーヒー」はじめました。</p>
+        </li>
+        <li style="display:flex; gap:18px; align-items:baseline; padding:13px 0; border-top:1px solid rgba(58,51,43,.12);">
+          <time style="font-family:'Cormorant',serif; font-size:14px; letter-spacing:.1em; color:#8C6A4A; white-space:nowrap;">2026.05</time>
+          <p style="margin:0; font-size:14px; line-height:1.7; letter-spacing:.03em;">新しい焙煎機を導入しました。香りがより豊かになっています。</p>
+        </li>
+        <li style="display:flex; gap:18px; align-items:baseline; padding:13px 0; border-top:1px solid rgba(58,51,43,.12); border-bottom:1px solid rgba(58,51,43,.12);">
+          <time style="font-family:'Cormorant',serif; font-size:14px; letter-spacing:.1em; color:#8C6A4A; white-space:nowrap;">2026.04</time>
+          <p style="margin:0; font-size:14px; line-height:1.7; letter-spacing:.03em;">焙煎豆の店頭販売（100g〜）を始めました。お土産にもどうぞ。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONCEPT -->
+  <section id="concept" aria-label="コンセプト" style="max-width:1180px; margin:0 auto; padding:clamp(80px,12vw,150px) 28px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(40px,6vw,84px); align-items:center;">
+      <div style="aspect-ratio:4/5; overflow:hidden; border-radius:4px; box-shadow:0 20px 60px rgba(58,51,43,.09); filter:drop-shadow(0 8px 40px rgba(58,51,43,.08));">
+        <img src="/assets/images/demos/cafe/concept.jpg" alt="淹れたてのコーヒーをカップに注ぐ手元" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; object-position:center 30%;">
+      </div>
+      <div>
+        <span data-fade style="font-family:'Cormorant',serif; font-style:italic; font-size:18px; letter-spacing:.1em; color:#8C6A4A;">Our Concept</span>
+        <h2 style="margin:14px 0 0; font-family:'Shippori Mincho',serif; font-weight:500; font-size:clamp(26px,4vw,40px); line-height:1.55; letter-spacing:.08em;">小さな焙煎所から、<br>静けさを一杯に。</h2>
+        <p style="margin:30px 0 0; font-size:15px; line-height:2.5; letter-spacing:.05em; color:#5a5147; max-width:34em;">浦安の路地裏、朝の光が長くのびる時間に店を開けます。豆は店の奥で少しずつ手焙煎し、その日のいちばんいい状態でお出しします。急がず、飾らず。あなたの一日が静かに始まる場所であれたら。</p>
+        <div class="lumi-line" style="margin-top:34px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" aria-label="メニュー" style="background:#EFE7D8;">
+    <div style="max-width:1180px; margin:0 auto; padding:clamp(80px,12vw,150px) 28px;">
+      <header style="text-align:center; margin-bottom:clamp(48px,7vw,80px);">
+        <span data-fade style="font-family:'Cormorant',serif; font-style:italic; font-size:18px; letter-spacing:.1em; color:#8C6A4A;">Menu</span>
+        <h2 style="margin:12px 0 0; font-family:'Shippori Mincho',serif; font-weight:500; font-size:clamp(28px,4.4vw,44px); letter-spacing:.14em;">お品書き</h2>
+        <p style="margin:16px 0 0; font-size:13px; letter-spacing:.1em; color:#6b6256;">価格はすべて税込です　/　メニューは季節で変わる一例です</p>
+        <p style="margin:10px 0 0; font-size:13px; letter-spacing:.04em; color:#8C6A4A; line-height:1.9;">アレルギー・苦手な食材があれば、お気軽にお知らせください。</p>
+      </header>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); gap:clamp(40px,6vw,76px);">
+
+        <div>
+          <h3 style="margin:0 0 6px; font-family:'Shippori Mincho',serif; font-weight:500; font-size:18px; letter-spacing:.16em; color:#8C6A4A;">DRINKS</h3>
+          <div style="height:1px; background:rgba(58,51,43,.14); margin-bottom:22px;"></div>
+
+          <div style="display:flex; gap:18px; align-items:center; padding:14px 0;">
+            <div role="img" aria-label="ハンドドリップコーヒーの写真枠" style="width:64px; height:64px; flex:none; background:repeating-linear-gradient(45deg,#FAF6EF,#FAF6EF 7px,#EFE7D8 7px,#EFE7D8 14px); border:1px solid rgba(58,51,43,.07);"></div>
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; align-items:baseline; gap:10px;">
+                <span style="font-size:15.5px; letter-spacing:.06em; white-space:nowrap;">本日のハンドドリップ</span>
+                <span aria-hidden="true" style="flex:1; border-bottom:1px dotted rgba(58,51,43,.3); transform:translateY(-3px);"></span>
+                <span style="font-family:'Cormorant',serif; font-size:18px; letter-spacing:.04em; white-space:nowrap;">¥600</span>
+              </div>
+              <p style="margin:5px 0 0; font-size:12.5px; color:#6b6256; line-height:1.7;">その日の自家焙煎豆から一杯ずつ</p>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:18px; align-items:center; padding:14px 0;">
+            <div role="img" aria-label="カフェラテの写真枠" style="width:64px; height:64px; flex:none; background:repeating-linear-gradient(45deg,#FAF6EF,#FAF6EF 7px,#EFE7D8 7px,#EFE7D8 14px); border:1px solid rgba(58,51,43,.07);"></div>
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; align-items:baseline; gap:10px;">
+                <span style="font-size:15.5px; letter-spacing:.06em; white-space:nowrap;">カフェラテ</span>
+                <span aria-hidden="true" style="flex:1; border-bottom:1px dotted rgba(58,51,43,.3); transform:translateY(-3px);"></span>
+                <span style="font-family:'Cormorant',serif; font-size:18px; letter-spacing:.04em; white-space:nowrap;">¥650</span>
+              </div>
+              <p style="margin:5px 0 0; font-size:12.5px; color:#6b6256; line-height:1.7;">きめ細かなミルクとモカの余韻</p>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:18px; align-items:center; padding:14px 0;">
+            <div role="img" aria-label="アイスコーヒーの写真枠" style="width:64px; height:64px; flex:none; background:repeating-linear-gradient(45deg,#FAF6EF,#FAF6EF 7px,#EFE7D8 7px,#EFE7D8 14px); border:1px solid rgba(58,51,43,.07);"></div>
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; align-items:baseline; gap:10px;">
+                <span style="font-size:15.5px; letter-spacing:.06em; white-space:nowrap;">水出しアイスコーヒー</span>
+                <span aria-hidden="true" style="flex:1; border-bottom:1px dotted rgba(58,51,43,.3); transform:translateY(-3px);"></span>
+                <span style="font-family:'Cormorant',serif; font-size:18px; letter-spacing:.04em; white-space:nowrap;">¥680</span>
+              </div>
+              <p style="margin:5px 0 0; font-size:12.5px; color:#6b6256; line-height:1.7;">8時間かけてゆっくりと抽出</p>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:18px; align-items:center; padding:14px 0;">
+            <div role="img" aria-label="季節のフルーツソーダの写真枠" style="width:64px; height:64px; flex:none; background:repeating-linear-gradient(45deg,#FAF6EF,#FAF6EF 7px,#EFE7D8 7px,#EFE7D8 14px); border:1px solid rgba(58,51,43,.07);"></div>
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; align-items:baseline; gap:10px;">
+                <span style="font-size:15.5px; letter-spacing:.06em; white-space:nowrap;">季節のフルーツソーダ</span>
+                <span aria-hidden="true" style="flex:1; border-bottom:1px dotted rgba(58,51,43,.3); transform:translateY(-3px);"></span>
+                <span style="font-family:'Cormorant',serif; font-size:18px; letter-spacing:.04em; white-space:nowrap;">¥620</span>
+              </div>
+              <p style="margin:5px 0 0; font-size:12.5px; color:#6b6256; line-height:1.7;">ノンカフェイン。コーヒーが苦手な方にも</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin:0 0 6px; font-family:'Shippori Mincho',serif; font-weight:500; font-size:18px; letter-spacing:.16em; color:#8C6A4A;">FOOD &amp; SWEETS</h3>
+          <div style="height:1px; background:rgba(58,51,43,.14); margin-bottom:22px;"></div>
+
+          <div style="display:flex; gap:18px; align-items:center; padding:14px 0;">
+            <div role="img" aria-label="自家製スコーンの写真枠" style="width:64px; height:64px; flex:none; background:repeating-linear-gradient(45deg,#FAF6EF,#FAF6EF 7px,#EFE7D8 7px,#EFE7D8 14px); border:1px solid rgba(58,51,43,.07);"></div>
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; align-items:baseline; gap:10px;">
+                <span style="font-size:15.5px; letter-spacing:.06em; white-space:nowrap;">自家製スコーン</span>
+                <span aria-hidden="true" style="flex:1; border-bottom:1px dotted rgba(58,51,43,.3); transform:translateY(-3px);"></span>
+                <span style="font-family:'Cormorant',serif; font-size:18px; letter-spacing:.04em; white-space:nowrap;">¥420</span>
+              </div>
+              <p style="margin:5px 0 0; font-size:12.5px; color:#6b6256; line-height:1.7;">バターの香り・クロテッドクリーム添え</p>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:18px; align-items:center; padding:14px 0;">
+            <div role="img" aria-label="キャロットケーキの写真枠" style="width:64px; height:64px; flex:none; background:repeating-linear-gradient(45deg,#FAF6EF,#FAF6EF 7px,#EFE7D8 7px,#EFE7D8 14px); border:1px solid rgba(58,51,43,.07);"></div>
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; align-items:baseline; gap:10px;">
+                <span style="font-size:15.5px; letter-spacing:.06em; white-space:nowrap;">キャロットケーキ</span>
+                <span aria-hidden="true" style="flex:1; border-bottom:1px dotted rgba(58,51,43,.3); transform:translateY(-3px);"></span>
+                <span style="font-family:'Cormorant',serif; font-size:18px; letter-spacing:.04em; white-space:nowrap;">¥520</span>
+              </div>
+              <p style="margin:5px 0 0; font-size:12.5px; color:#6b6256; line-height:1.7;">スパイスとくるみ、やさしい甘さ</p>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:18px; align-items:center; padding:14px 0;">
+            <div role="img" aria-label="モーニングプレートの写真枠" style="width:64px; height:64px; flex:none; background:repeating-linear-gradient(45deg,#FAF6EF,#FAF6EF 7px,#EFE7D8 7px,#EFE7D8 14px); border:1px solid rgba(58,51,43,.07);"></div>
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; align-items:baseline; gap:10px;">
+                <span style="font-size:15.5px; letter-spacing:.06em; white-space:nowrap;">朝のトーストプレート</span>
+                <span aria-hidden="true" style="flex:1; border-bottom:1px dotted rgba(58,51,43,.3); transform:translateY(-3px);"></span>
+                <span style="font-family:'Cormorant',serif; font-size:18px; letter-spacing:.04em; white-space:nowrap;">¥780</span>
+              </div>
+              <p style="margin:5px 0 0; font-size:12.5px; color:#6b6256; line-height:1.7;">厚切りトースト・卵・季節の果物（9:00-11:00）</p>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:18px; align-items:center; padding:14px 0;">
+            <div role="img" aria-label="本日のスープセットの写真枠" style="width:64px; height:64px; flex:none; background:repeating-linear-gradient(45deg,#FAF6EF,#FAF6EF 7px,#EFE7D8 7px,#EFE7D8 14px); border:1px solid rgba(58,51,43,.07);"></div>
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; align-items:baseline; gap:10px;">
+                <span style="font-size:15.5px; letter-spacing:.06em; white-space:nowrap;">本日のスープセット</span>
+                <span aria-hidden="true" style="flex:1; border-bottom:1px dotted rgba(58,51,43,.3); transform:translateY(-3px);"></span>
+                <span style="font-family:'Cormorant',serif; font-size:18px; letter-spacing:.04em; white-space:nowrap;">¥980</span>
+              </div>
+              <p style="margin:5px 0 0; font-size:12.5px; color:#6b6256; line-height:1.7;">季節の野菜スープ・パン・サラダ（11:00-14:00）</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" aria-label="店内ギャラリー" style="max-width:1180px; margin:0 auto; padding:clamp(80px,12vw,150px) 28px;">
+    <header style="text-align:center; margin-bottom:clamp(40px,6vw,68px);">
+      <span data-fade style="font-family:'Cormorant',serif; font-style:italic; font-size:18px; letter-spacing:.1em; color:#8C6A4A;">Gallery</span>
+      <h2 data-fade data-d="1" style="margin:12px 0 0; font-family:'Shippori Mincho',serif; font-weight:500; font-size:clamp(28px,4.4vw,44px); letter-spacing:.14em;">店内のひととき</h2>
+    </header>
+    <div data-fade data-d="2" style="display:grid; grid-template-columns:repeat(6,1fr); gap:14px;">
+      <div class="lumi-gal" style="grid-column:span 4; aspect-ratio:16/10; border:1px solid rgba(58,51,43,.06);"><img src="/assets/images/demos/cafe/gallery-window.jpg" alt="窓辺の席" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center;"></div>
+      <div class="lumi-gal" style="grid-column:span 2; aspect-ratio:1/1; border:1px solid rgba(58,51,43,.06);"><img src="/assets/images/demos/cafe/gallery-beans.jpg" alt="焙煎豆" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 60%;"></div>
+      <div class="lumi-gal" style="grid-column:span 2; aspect-ratio:1/1; border:1px solid rgba(58,51,43,.06);"><img src="/assets/images/demos/cafe/gallery-flowers.jpg" alt="カウンターの装花" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center;"></div>
+      <div class="lumi-gal" style="grid-column:span 2; aspect-ratio:1/1; border:1px solid rgba(58,51,43,.06);"><img src="/assets/images/demos/cafe/gallery-food.jpg" alt="フード" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center;"></div>
+      <div class="lumi-gal" style="grid-column:span 2; aspect-ratio:1/1; border:1px solid rgba(58,51,43,.06);"><img src="/assets/images/demos/cafe/gallery-exterior.jpg" alt="外観" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;"></div>
+    </div>
+  </section>
+
+  <!-- OWNER -->
+  <section id="owner" aria-label="オーナー紹介" style="background:#3F4A3C; color:#EFE7D8;">
+    <div style="max-width:1180px; margin:0 auto; padding:clamp(80px,12vw,150px) 28px; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(40px,6vw,84px); align-items:center;">
+      <div style="aspect-ratio:4/5; background:#3d4a38; display:flex; align-items:center; justify-content:center; border:1px solid rgba(239,231,216,.12); overflow:hidden;">
+        <img src="/assets/images/demos/cafe/owner-silhouette.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="width:72%; height:auto; opacity:0.25; filter:invert(1);">
+      </div>
+      <div>
+        <span data-fade style="font-family:'Cormorant',serif; font-style:italic; font-size:18px; letter-spacing:.1em; color:#C9A87E;">Owner</span>
+        <h2 style="margin:14px 0 0; font-family:'Shippori Mincho',serif; font-weight:500; font-size:clamp(26px,4vw,38px); line-height:1.6; letter-spacing:.08em;">店主　佐藤 灯</h2>
+        <p style="margin:8px 0 0; font-family:'Cormorant',serif; font-size:15px; letter-spacing:.16em; color:#C9A87E;">Akari Sato　/　Roaster &amp; Owner</p>
+        <p style="margin:28px 0 0; font-size:14.5px; line-height:2.4; letter-spacing:.04em; color:rgba(239,231,216,.84); max-width:34em;">前職は設計の仕事。慌ただしい毎日のなかで、朝に飲む一杯のコーヒーだけが自分を取り戻す時間でした。「あの静けさを、誰かと分け合いたい」と、2021年に小さな焙煎所を開いて。今日も夜明け前から豆と向き合っています。</p>
+        <p style="margin:22px 0 0; font-size:13.5px; line-height:2.2; letter-spacing:.04em; color:rgba(239,231,216,.66);">― 好きな焙煎度は中深煎り。休日は犬と海辺を散歩。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFORMATION / ご利用案内 -->
+  <section id="info" aria-label="ご利用案内" style="background:#EFE7D8;">
+    <div style="max-width:1180px; margin:0 auto; padding:clamp(80px,12vw,150px) 28px;">
+      <header style="text-align:center; margin-bottom:clamp(40px,6vw,68px);">
+        <span data-fade style="font-family:'Cormorant',serif; font-style:italic; font-size:18px; letter-spacing:.1em; color:#8C6A4A;">Information</span>
+        <h2 style="margin:12px 0 0; font-family:'Shippori Mincho',serif; font-weight:500; font-size:clamp(28px,4.4vw,44px); letter-spacing:.14em;">ご利用案内</h2>
+        <p style="margin:16px 0 0; font-size:13px; letter-spacing:.08em; color:#6b6256;">はじめての方へ、お店の使い方をご案内します</p>
+      </header>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1px; background:rgba(58,51,43,.1); border:1px solid rgba(58,51,43,.1);">
+        <div style="background:#FAF6EF; padding:28px 26px;">
+          <div style="display:flex; align-items:center; gap:11px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C6A4A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/><path d="M5 9h14l-1 6H6L5 9z"/><path d="M7 15v4M17 15v4"/></svg><p style="margin:0; font-family:'Cormorant',serif; font-size:12px; letter-spacing:.18em; color:#8C6A4A;">SEATS</p></div>
+          <p style="margin:10px 0 0; font-family:'Shippori Mincho',serif; font-size:16px; letter-spacing:.06em;">全 14席 ＋ テラス 4席</p>
+          <p style="margin:7px 0 0; font-size:13px; line-height:1.9; color:#6b6256;">テーブル 10席・カウンター 4席。天気のよい日はテラス 4席も。</p>
+        </div>
+        <div style="background:#FAF6EF; padding:28px 26px;">
+          <div style="display:flex; align-items:center; gap:11px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C6A4A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h3l1.5 5-2 1.2a12 12 0 0 0 5.3 5.3l1.2-2 5 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4 5.2 2 2 0 0 1 6 3z"/></svg><p style="margin:0; font-family:'Cormorant',serif; font-size:12px; letter-spacing:.18em; color:#8C6A4A;">RESERVATION</p></div>
+          <p style="margin:10px 0 0; font-family:'Shippori Mincho',serif; font-size:16px; letter-spacing:.06em;">ご予約は基本不要</p>
+          <p style="margin:7px 0 0; font-size:13px; line-height:1.9; color:#6b6256;">そのままお越しください。５名様以上・混雑時のみお電話で承ります。</p>
+        </div>
+        <div style="background:#FAF6EF; padding:28px 26px;">
+          <div style="display:flex; align-items:center; gap:11px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C6A4A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14h4"/></svg><p style="margin:0; font-family:'Cormorant',serif; font-size:12px; letter-spacing:.18em; color:#8C6A4A;">PAYMENT</p></div>
+          <p style="margin:10px 0 0; font-family:'Shippori Mincho',serif; font-size:16px; letter-spacing:.06em;">キャッシュレス対応</p>
+          <p style="margin:7px 0 0; font-size:13px; line-height:1.9; color:#6b6256;">現金・クレジットカード・各種QR決済がご利用いただけます。</p>
+        </div>
+        <div style="background:#FAF6EF; padding:28px 26px;">
+          <div style="display:flex; align-items:center; gap:11px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C6A4A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a13 13 0 0 1 16 0M7 14.5a8 8 0 0 1 10 0"/><circle cx="12" cy="18.5" r="1.1"/></svg><p style="margin:0; font-family:'Cormorant',serif; font-size:12px; letter-spacing:.18em; color:#8C6A4A;">WI-FI / POWER</p></div>
+          <p style="margin:10px 0 0; font-family:'Shippori Mincho',serif; font-size:16px; letter-spacing:.06em;">Wi-Fi・電源席あり</p>
+          <p style="margin:7px 0 0; font-size:13px; line-height:1.9; color:#6b6256;">読書やお仕事にも。電源席は数に限りがあります。</p>
+        </div>
+        <div style="background:#FAF6EF; padding:28px 26px;">
+          <div style="display:flex; align-items:center; gap:11px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C6A4A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.5 5.5l13 13"/><path d="M8 12h8"/></svg><p style="margin:0; font-family:'Cormorant',serif; font-size:12px; letter-spacing:.18em; color:#8C6A4A;">NON-SMOKING</p></div>
+          <p style="margin:10px 0 0; font-family:'Shippori Mincho',serif; font-size:16px; letter-spacing:.06em;">全席禁煙</p>
+          <p style="margin:7px 0 0; font-size:13px; line-height:1.9; color:#6b6256;">店内・テラス席ともに禁煙です。豆とコーヒーの香りをぜひ。</p>
+        </div>
+        <div style="background:#FAF6EF; padding:28px 26px;">
+          <div style="display:flex; align-items:center; gap:11px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C6A4A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.6-7-9.3A3.7 3.7 0 0 1 12 8a3.7 3.7 0 0 1 7 2.7C19 15.4 12 20 12 20z"/></svg><p style="margin:0; font-family:'Cormorant',serif; font-size:12px; letter-spacing:.18em; color:#8C6A4A;">FAMILY &amp; PET</p></div>
+          <p style="margin:10px 0 0; font-family:'Shippori Mincho',serif; font-size:16px; letter-spacing:.06em;">お子さま連れ歓迎</p>
+          <p style="margin:7px 0 0; font-size:13px; line-height:1.9; color:#6b6256;">ベビーカーOK・キッズチェアあり。ペットはテラス席のみ同伴可。</p>
+        </div>
+        <div style="background:#FAF6EF; padding:28px 26px;">
+          <div style="display:flex; align-items:center; gap:11px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C6A4A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8h10l-1 11a2 2 0 0 1-2 1.8h-4A2 2 0 0 1 8 19L7 8z"/><path d="M9 8l1-3h4l1 3"/></svg><p style="margin:0; font-family:'Cormorant',serif; font-size:12px; letter-spacing:.18em; color:#8C6A4A;">TAKEOUT / PARKING</p></div>
+          <p style="margin:10px 0 0; font-family:'Shippori Mincho',serif; font-size:16px; letter-spacing:.06em;">テイクアウト可</p>
+          <p style="margin:7px 0 0; font-size:13px; line-height:1.9; color:#6b6256;">ドリンク・焼菓子は持ち帰り可。専用駐車場はなく近隣Pをご利用ください。</p>
+        </div>
+      </div>
+      <p style="margin:22px 0 0; font-size:12px; letter-spacing:.04em; color:#6b6256; line-height:1.9;">※ アレルギーが気になる方は、ご注文時にお気軽にお声がけください。</p>
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section id="access" aria-label="アクセス・営業時間" style="background:#3A332B; color:#EFE7D8;">
+    <div style="max-width:1180px; margin:0 auto; padding:clamp(80px,12vw,150px) 28px;">
+      <header style="margin-bottom:clamp(40px,6vw,64px);">
+        <span data-fade style="font-family:'Cormorant',serif; font-style:italic; font-size:18px; letter-spacing:.1em; color:#C9A87E;">Access &amp; Hours</span>
+        <h2 style="margin:12px 0 0; font-family:'Shippori Mincho',serif; font-weight:500; font-size:clamp(28px,4.4vw,44px); letter-spacing:.14em;">アクセス・営業時間</h2>
+      </header>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(36px,5vw,64px);">
+
+        <div>
+          <div role="img" aria-label="店舗周辺の地図（差し込み枠）" style="min-height:300px; background:repeating-linear-gradient(45deg,#46403a,#46403a 13px,#403a34 13px,#403a34 26px); display:flex; align-items:center; justify-content:center; border:1px solid rgba(239,231,216,.12);">
+            <span style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:12px; letter-spacing:.12em; color:rgba(239,231,216,.55); text-align:center; line-height:1.8;">[ 地図差し込み<br>Google マップ等を埋め込み ]</span>
+          </div>
+          <p style="margin:14px 0 0; font-size:13px; line-height:2; letter-spacing:.03em; color:rgba(239,231,216,.78);"><span style="color:#C9A87E;">道順メモ：</span>浦安駅中央口を出てメイン通りを直進。二つ目の信号を右に曲がり、ベーカリーの隣。木の看板が目印です（徒歩6分）。</p>
+        </div>
+
+        <div>
+          <dl style="margin:0; display:grid; grid-template-columns:auto 1fr; gap:18px 24px; align-items:baseline;">
+            <dt style="font-family:'Cormorant',serif; font-size:13px; letter-spacing:.18em; color:#C9A87E;">SHOP</dt>
+            <dd style="margin:0; font-size:15px; line-height:1.9; letter-spacing:.04em;">cafe lumi（カフェ ルミ）</dd>
+
+            <dt style="font-family:'Cormorant',serif; font-size:13px; letter-spacing:.18em; color:#C9A87E;">ADDRESS</dt>
+            <dd style="margin:0; font-size:15px; line-height:1.9; letter-spacing:.04em;">〒279-0004<br>千葉県浦安市猫実1-2-3（架空）<br><span style="font-size:12.5px; color:rgba(239,231,216,.6);">東京メトロ東西線「浦安駅」中央口より徒歩6分</span></dd>
+
+            <dt style="font-family:'Cormorant',serif; font-size:13px; letter-spacing:.18em; color:#C9A87E;">PARKING</dt>
+            <dd style="margin:0; font-size:15px; line-height:1.9; letter-spacing:.04em;">専用駐車場なし<br><span style="font-size:12.5px; color:rgba(239,231,216,.6);">近隣の提携コインPを2時間分サービス（お会計時にお申し出ください）</span></dd>
+
+            <dt style="font-family:'Cormorant',serif; font-size:13px; letter-spacing:.18em; color:#C9A87E;">HOURS</dt>
+            <dd style="margin:0; font-size:15px; line-height:1.9; letter-spacing:.04em;">9:00 – 18:00<br><span style="font-size:12.5px; color:rgba(239,231,216,.6);">（L.O. 17:30）</span></dd>
+
+            <dt style="font-family:'Cormorant',serif; font-size:13px; letter-spacing:.18em; color:#C9A87E;">CLOSED</dt>
+            <dd style="margin:0; font-size:15px; line-height:1.9; letter-spacing:.04em;">火曜定休</dd>
+
+            <dt style="font-family:'Cormorant',serif; font-size:13px; letter-spacing:.18em; color:#C9A87E;">TEL</dt>
+            <dd style="margin:0; font-size:15px; line-height:1.9; letter-spacing:.04em;"><a href="tel:047-000-0000" style="text-decoration:none; border-bottom:1px solid rgba(201,168,126,.5); padding-bottom:2px;">047-000-0000（架空）</a></dd>
+          </dl>
+
+          <div style="margin-top:34px; padding:16px 18px; border:1px solid rgba(201,168,126,.3); border-radius:2px; background:rgba(201,168,126,.06);">
+            <p style="margin:0; font-size:13.5px; line-height:1.9; letter-spacing:.03em; color:#EFE7D8;"><span style="color:#C9A87E; font-family:'Shippori Mincho',serif;">席のご予約について</span><br>ご予約は基本不要です。混雑時や５名以上でのご利用のみ、お電話でご相談ください。</p>
+          </div>
+          <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:18px;">
+            <a href="tel:047-000-0000" style="flex:1; min-width:140px; text-align:center; text-decoration:none; background:#8C6A4A; color:#FAF6EF; font-size:13.5px; letter-spacing:.12em; padding:15px 20px; border-radius:2px;">電話で問い合わせる</a>
+            <a href="#" style="flex:1; min-width:140px; text-align:center; text-decoration:none; border:1px solid rgba(239,231,216,.4); color:#EFE7D8; font-size:13.5px; letter-spacing:.12em; padding:15px 20px; border-radius:2px;">Instagram（架空）</a>
+          </div>
+          <a href="#" style="display:inline-block; margin-top:20px; font-size:12.5px; letter-spacing:.08em; color:rgba(239,231,216,.7); text-decoration:none; border-bottom:1px solid rgba(201,168,126,.4); padding-bottom:2px;">Googleのクチコミを見る　→</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" aria-label="よくあるご質問" style="max-width:1180px; margin:0 auto; padding:clamp(80px,12vw,150px) 28px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:clamp(40px,6vw,76px); align-items:start;">
+      <header>
+        <span data-fade style="font-family:'Cormorant',serif; font-style:italic; font-size:18px; letter-spacing:.1em; color:#8C6A4A;">FAQ</span>
+        <h2 style="margin:12px 0 0; font-family:'Shippori Mincho',serif; font-weight:500; font-size:clamp(28px,4.4vw,44px); letter-spacing:.14em;">よくあるご質問</h2>
+        <p style="margin:18px 0 0; font-size:13.5px; line-height:2; color:#6b6256;">ご予約・お支払い・駐車場などは「ご利用案内」「アクセス」をご覧ください。その他はお電話・InstagramのDMでお気軽に。</p>
+      </header>
+      <div>
+        <details style="border-top:1px solid rgba(58,51,43,.14); padding:6px 0;">
+          <summary style="list-style:none; cursor:pointer; padding:18px 0; font-family:'Shippori Mincho',serif; font-size:15.5px; letter-spacing:.04em; display:flex; gap:14px; align-items:baseline;"><span style="font-family:'Cormorant',serif; color:#8C6A4A;">Q.</span>長く過ごしても大丈夫ですか？</summary>
+          <p style="margin:0 0 18px 30px; font-size:14px; line-height:2.1; color:#5a5147;">読書やお仕事にもどうぞ。電源席・Wi-Fiもございます。土日の混雑時のみ、お席のお譲り合いにご協力いただけると嬉しいです。</p>
+        </details>
+        <details style="border-top:1px solid rgba(58,51,43,.14); padding:6px 0;">
+          <summary style="list-style:none; cursor:pointer; padding:18px 0; font-family:'Shippori Mincho',serif; font-size:15.5px; letter-spacing:.04em; display:flex; gap:14px; align-items:baseline;"><span style="font-family:'Cormorant',serif; color:#8C6A4A;">Q.</span>一人でも入りやすいですか？</summary>
+          <p style="margin:0 0 18px 30px; font-size:14px; line-height:2.1; color:#5a5147;">お一人のお客さまも多くいらっしゃいます。カウンター席で、ひと休みや読書にごゆっくりお過ごしください。</p>
+        </details>
+        <details style="border-top:1px solid rgba(58,51,43,.14); border-bottom:1px solid rgba(58,51,43,.14); padding:6px 0;">
+          <summary style="list-style:none; cursor:pointer; padding:18px 0; font-family:'Shippori Mincho',serif; font-size:15.5px; letter-spacing:.04em; display:flex; gap:14px; align-items:baseline;"><span style="font-family:'Cormorant',serif; color:#8C6A4A;">Q.</span>コーヒーが苦手でも楽しめますか？</summary>
+          <p style="margin:0 0 18px 30px; font-size:14px; line-height:2.1; color:#5a5147;">ノンカフェインの季節のフルーツソーダや、ミルク多めのカフェラテもご用意しています。お連れさまもご一緒にどうぞ。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#3A332B; color:#EFE7D8; border-top:1px solid rgba(239,231,216,.1);">
+    <div style="max-width:1180px; margin:0 auto; padding:54px 28px 130px; display:flex; flex-wrap:wrap; gap:28px; align-items:center; justify-content:space-between;">
+      <div>
+        <p style="margin:0; font-family:'Cormorant',serif; font-size:26px; letter-spacing:.32em; padding-left:.32em;">cafe lumi</p>
+        <p style="margin:8px 0 0; font-size:11.5px; letter-spacing:.1em; color:rgba(239,231,216,.55);">朝の光と、手のぬくもり。　千葉県浦安市</p>
+      </div>
+      <nav aria-label="フッターナビ" style="display:flex; flex-wrap:wrap; gap:22px; font-size:12px; letter-spacing:.16em;">
+        <a href="#menu" style="text-decoration:none; color:rgba(239,231,216,.78);">MENU</a>
+        <a href="#gallery" style="text-decoration:none; color:rgba(239,231,216,.78);">GALLERY</a>
+        <a href="#info" style="text-decoration:none; color:rgba(239,231,216,.78);">INFO</a>
+        <a href="#access" style="text-decoration:none; color:rgba(239,231,216,.78);">ACCESS</a>
+        <a href="#news" style="text-decoration:none; color:rgba(239,231,216,.78);">NEWS</a>
+      </nav>
+    </div>
+    <div style="text-align:center; padding:0 28px 28px; font-size:11px; letter-spacing:.1em; color:rgba(239,231,216,.45);">© 2026 cafe lumi（制作見本・架空の店舗）　This is a fictional demo site.　制作：Beacona</div>
+  </footer>
+
+  <!-- MOBILE STICKY CTA -->
+  <div role="region" aria-label="お問い合わせ" style="position:fixed; left:0; right:0; bottom:0; z-index:60; gap:1px; background:rgba(58,51,43,.12); box-shadow:0 -6px 24px rgba(58,51,43,.14);" data-mobile-cta>
+    <a href="#access" style="flex:1; text-align:center; text-decoration:none; background:#FAF6EF; color:#3A332B; font-size:13.5px; letter-spacing:.1em; padding:16px 8px;">席のお問い合わせ</a>
+    <a href="tel:047-000-0000" style="flex:1; text-align:center; text-decoration:none; background:#8C6A4A; color:#FAF6EF; font-size:13.5px; letter-spacing:.1em; padding:16px 8px;">TEL で予約</a>
+  </div>
+
+  <!-- ANIMATIONS (self-hosted inline JS, no CDN) -->
+  <script>
+  (function(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // ① Scroll fade-up observer
+    var fo = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); fo.unobserve(e.target); } });
+    }, { threshold:0.09, rootMargin:'0px 0px -30px 0px' });
+    document.querySelectorAll('[data-fade]').forEach(function(el){ fo.observe(el); });
+    // ④ Line grow observer
+    var lo = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); lo.unobserve(e.target); } });
+    }, { threshold:0.5 });
+    document.querySelectorAll('.lumi-line').forEach(function(el){ lo.observe(el); });
+    // nav shrink
+    var hdr = document.querySelector('header');
+    window.addEventListener('scroll', function(){
+      hdr.setAttribute('data-scrolled', window.scrollY > 60 ? 'true' : 'false');
+    }, { passive:true });
+    // ② Hero parallax (disabled under reduced-motion)
+    if(!reduce){
+      var heroImg = document.querySelector('#top > img');
+      if(heroImg){
+        window.addEventListener('scroll', function(){
+          heroImg.style.transform = 'translateY(' + (window.scrollY * 0.32) + 'px)';
+        }, { passive:true });
+      }
+    }
+  })();
+  </script>
+
+</div>
+</body>
+</html>

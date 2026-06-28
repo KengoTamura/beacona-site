@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<meta name="robots" content="noindex, nofollow">
+<title>学習塾｜制作見本（Beaconaデモ・架空のお店）</title>
+<meta name="description" content="これは制作見本です。実在しない学習塾の架空サイトです（Beaconaデモ）。個別指導塾のホームページの一例として制作しました。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Klee+One:wght@600&display=swap" rel="stylesheet">
+<style>
+  /* 本文＝Zen Kaku Gothic New（cafe/salonと統一）／手書き調＝Klee One（Google Fonts・CSP許可済み） */
+  :root{
+    --font-base:'Zen Kaku Gothic New','Hiragino Sans','Yu Gothic',system-ui,sans-serif;
+    --font-hand:'Klee One','Hiragino Maru Gothic ProN','Yu Gothic',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{margin:0;font-family:var(--font-base);color:#1E2A3A;background:#FFFFFF;-webkit-font-smoothing:antialiased;line-height:1.85;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  ::selection{background:#E8853A;color:#fff;}
+  section[id]{scroll-margin-top:70px;}
+  a:focus-visible,summary:focus-visible{outline:2px solid #E8853A;outline-offset:3px;}
+  summary{list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+  details[open] .faq-plus{transform:rotate(45deg);}
+
+  /* ① scroll fade-up */
+  [data-jf]{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.25,.46,.45,.94),transform .75s cubic-bezier(.25,.46,.45,.94);}
+  [data-jf].vis{opacity:1;transform:none;}
+  [data-jf][data-d="1"]{transition-delay:.12s;}
+  [data-jf][data-d="2"]{transition-delay:.24s;}
+  [data-jf][data-d="3"]{transition-delay:.36s;}
+  [data-jf][data-d="4"]{transition-delay:.48s;}
+
+  /* ④ course card hover lift */
+  .juku-plan{transition:transform .3s ease,box-shadow .3s ease;}
+  .juku-plan:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(31,58,95,0.18)!important;}
+
+  /* nav shadow on scroll */
+  header[data-scrolled="true"]{box-shadow:0 2px 18px rgba(15,28,48,.12);}
+
+  /* hero text intro */
+  @keyframes jukuFadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+
+  /* ---- 追従CTA：PC/スマホ切替（CSSのみ・CSP-safe） ---- */
+  .dt-cta{display:flex;}
+  .mb-cta{display:none;}
+  @media (max-width:880px){
+    .dt-cta{display:none !important;}
+    .mb-cta{display:flex !important;}
+    body{padding-bottom:74px;}
+    .hide-sp{display:none !important;}
+  }
+  @media (max-width:560px){
+    .hero-badge{transform:scale(0.82);transform-origin:top right;}
+  }
+
+  /* ---- hover states（CSSのみ） ---- */
+  .j-h-orange:hover{background:#d9772e !important;}
+  .j-h-white:hover{background:#F4F6FA !important;}
+  .j-h-white2:hover{background:#e9edf4 !important;}
+  .j-h-navy:hover{background:#16314f !important;}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;animation:none !important;}
+    [data-jf]{opacity:1 !important;transform:none !important;}
+    .juku-plan:hover{transform:none !important;}
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "学びの森 個別指導塾（Beacona 制作見本・架空）",
+  "description": "制作見本として作成した架空の学習塾サイトです。実在しません。",
+  "telephone": "+81-120-000-000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "当代島1-2-3 学びの森ビル2F",
+    "addressLocality": "浦安市",
+    "addressRegion": "千葉県",
+    "postalCode": "279-0001",
+    "addressCountry": "JP"
+  },
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification","dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens": "15:00","closes": "22:00"},
+    {"@type": "OpeningHoursSpecification","dayOfWeek": ["Saturday"],"opens": "10:00","closes": "19:00"}
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "個別指導コース",
+    "itemListElement": [
+      {"@type": "Offer","name": "小学生コース","price": "14300","priceCurrency": "JPY"},
+      {"@type": "Offer","name": "中学生コース","price": "22000","priceCurrency": "JPY"},
+      {"@type": "Offer","name": "高校生コース","price": "26400","priceCurrency": "JPY"}
+    ]
+  },
+  "disambiguatingDescription": "これは制作見本（デモ）です。実在しない学習塾の架空サイトです。"
+}
+</script>
+</head>
+<body>
+
+<div style="overflow-x:hidden;">
+
+  <!-- demo banner（制作見本・架空／ポートフォリオへ戻る） -->
+  <div role="note" style="background:#1E2A3A;color:#fff;font-size:0.78rem;letter-spacing:0.03em;text-align:center;padding:7px 16px;font-weight:500;">
+    ⚠ これは制作見本（デモ）です — 架空の学習塾「学びの森 個別指導塾」。掲載の社名・実績・料金・住所・電話番号はすべて架空です。
+    　<a href="../index.html#b-demos" style="color:#F2B27E;text-decoration:underline;text-underline-offset:2px;white-space:nowrap;">← 制作例にもどる</a>
+  </div>
+
+  <!-- header -->
+  <header data-scrolled="false" style="position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);border-bottom:1px solid #E4E9F1;transition:box-shadow .25s;">
+    <div style="max-width:1140px;margin:0 auto;padding:12px clamp(18px,5vw,40px);display:flex;align-items:center;justify-content:space-between;gap:16px;">
+      <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;">
+        <span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:11px;background:#1F3A5F;color:#fff;font-weight:900;font-size:1.15rem;">森</span>
+        <span style="display:flex;flex-direction:column;line-height:1.25;">
+          <span style="font-weight:900;font-size:1.02rem;color:#1F3A5F;letter-spacing:0.01em;">学びの森 個別指導塾</span>
+          <span style="font-size:0.66rem;color:#5C6B7E;letter-spacing:0.18em;">MANABI-NO-MORI</span>
+        </span>
+      </a>
+      <nav aria-label="メインナビ" style="display:flex;align-items:center;gap:18px;">
+        <a href="#for-parents" class="hide-sp" style="text-decoration:none;font-size:0.9rem;font-weight:700;color:#1F3A5F;display:inline-flex;align-items:center;gap:6px;">
+          <span aria-hidden="true">▸</span>保護者のみなさまへ
+        </a>
+        <a href="#tel" class="hide-sp" style="text-decoration:none;font-size:0.9rem;font-weight:700;color:#1E2A3A;">0120-000-000</a>
+        <a href="#apply" class="j-h-orange" style="text-decoration:none;background:#E8853A;color:#fff;font-weight:700;font-size:0.9rem;padding:10px 18px;border-radius:9px;box-shadow:0 4px 12px rgba(232,133,58,0.32);white-space:nowrap;transition:background .2s;">無料体験</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" aria-label="ファーストビュー" style="position:relative;min-height:clamp(520px,72vh,660px);display:flex;align-items:center;overflow:hidden;">
+    <img src="/assets/images/demos/juku/hero.jpg" alt="明るい教室で学ぶ生徒たち（制作見本用のイメージ）" fetchpriority="high" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center;filter:saturate(0.75) brightness(0.85);">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(31,58,95,0.95) 0%,rgba(31,58,95,0.82) 40%,rgba(31,58,95,0.42) 72%,rgba(31,58,95,0.12) 100%);"></div>
+
+    <div style="position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:clamp(40px,7vw,72px) clamp(18px,5vw,40px);width:100%;">
+      <div style="max-width:640px;">
+        <span style="display:inline-block;animation:jukuFadeUp .6s ease .1s both;background:rgba(232,133,58,0.18);color:#FFD9B8;border:1px solid rgba(232,133,58,0.5);font-weight:700;font-size:0.82rem;padding:5px 14px;border-radius:999px;letter-spacing:0.04em;">信頼と、あたたかい伴走。</span>
+        <h1 style="color:#fff;font-weight:900;font-size:clamp(2.1rem,5.4vw,3.5rem);line-height:1.32;margin:20px 0 0;letter-spacing:0.01em;text-wrap:balance;animation:jukuFadeUp .7s ease .25s both;">
+          成績と、<br>まっすぐ向き合う。
+        </h1>
+        <p style="color:#E6ECF4;font-size:clamp(1rem,1.6vw,1.18rem);margin:18px 0 0;line-height:1.9;max-width:30em;">
+          ひとり一人に担任がつき、つまずきの一歩手前から伴走する個別指導。<br class="hide-sp">「わかる」を積み重ねて、お子さまの自信を育てます。
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;">
+          <a id="trial" href="#apply" class="j-h-orange" style="display:inline-flex;align-items:center;gap:9px;background:#E8853A;color:#fff;font-weight:700;font-size:1.05rem;padding:16px 30px;border-radius:11px;text-decoration:none;box-shadow:0 8px 20px rgba(232,133,58,0.42);transition:background .2s;">
+            <span aria-hidden="true">✎</span>無料体験授業を申し込む
+          </a>
+          <a href="#apply" class="j-h-white" style="display:inline-flex;align-items:center;gap:9px;background:#fff;color:#1F3A5F;font-weight:700;font-size:1.05rem;padding:16px 30px;border-radius:11px;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,0.18);transition:background .2s;">
+            資料請求（無料）
+          </a>
+        </div>
+        <p style="color:#C4D0E0;font-size:0.82rem;margin:16px 0 0;">▸ しつこい勧誘はいたしません。まずはお気軽に。</p>
+      </div>
+    </div>
+
+    <!-- 実績バッジ -->
+    <div class="hero-badge" style="position:absolute;top:clamp(20px,4vw,40px);right:clamp(18px,4vw,44px);z-index:3;background:#fff;border-radius:18px;box-shadow:0 14px 34px rgba(15,28,48,0.28);padding:18px 22px;text-align:center;border:2px solid #E8853A;">
+      <div style="font-size:0.74rem;font-weight:700;color:#5C6B7E;letter-spacing:0.05em;">通塾生の継続率</div>
+      <div style="font-weight:900;font-size:2.7rem;line-height:1;color:#1F3A5F;margin:4px 0 2px;">94<span style="font-size:1.3rem;">%</span></div>
+      <div style="font-size:0.66rem;color:#94A0B2;line-height:1.5;">2025年度・架空デモ<br>※当塾調べ（架空）</div>
+    </div>
+  </section>
+
+  <!-- 対象・科目・指導形式 -->
+  <section aria-label="対象・科目・指導形式" style="background:#fff;border-bottom:1px solid #E4E9F1;padding:clamp(28px,4vw,40px) clamp(18px,5vw,40px);">
+    <div style="max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(206px,1fr));gap:18px 28px;">
+      <div>
+        <div style="font-weight:700;color:#E8853A;font-size:0.78rem;letter-spacing:0.04em;">対象学年</div>
+        <p style="margin:5px 0 0;font-weight:900;font-size:1.08rem;color:#1F3A5F;line-height:1.5;">小学1年 〜 高校3年生</p>
+      </div>
+      <div>
+        <div style="font-weight:700;color:#E8853A;font-size:0.78rem;letter-spacing:0.04em;">対応科目</div>
+        <p style="margin:5px 0 0;font-weight:900;font-size:1.08rem;color:#1F3A5F;line-height:1.5;">英・数・国・理・社</p>
+      </div>
+      <div>
+        <div style="font-weight:700;color:#E8853A;font-size:0.78rem;letter-spacing:0.04em;">指導形式</div>
+        <p style="margin:5px 0 0;font-weight:900;font-size:1.08rem;color:#1F3A5F;line-height:1.5;">講師1人に生徒2人まで<br><span style="font-weight:500;font-size:0.86rem;color:#5C6B7E;">完全個別指導・担任制</span></p>
+      </div>
+      <div>
+        <div style="font-weight:700;color:#E8853A;font-size:0.78rem;letter-spacing:0.04em;">対応目標</div>
+        <p style="margin:5px 0 0;font-weight:900;font-size:1.08rem;color:#1F3A5F;line-height:1.5;">定期テスト 〜 各種受験</p>
+      </div>
+    </div>
+    <p style="max-width:1140px;margin:16px auto 0;text-align:right;color:#94A0B2;font-size:0.72rem;">※ 内容はすべて架空・制作見本です。</p>
+  </section>
+
+  <!-- 強み -->
+  <section style="padding:clamp(56px,8vw,96px) clamp(18px,5vw,40px);">
+    <div style="max-width:1140px;margin:0 auto;">
+      <p data-jf style="text-align:center;color:#E8853A;font-weight:700;letter-spacing:0.08em;font-size:0.92rem;margin:0;">OUR STRENGTHS</p>
+      <h2 data-jf data-d="1" style="text-align:center;font-weight:900;font-size:clamp(1.6rem,3.4vw,2.3rem);margin:8px 0 0;color:#1E2A3A;">学びの森が選ばれる、3つの理由</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:20px;margin-top:44px;">
+        <div data-jf data-d="1" style="background:#F4F6FA;border-radius:16px;padding:30px 24px;border-top:4px solid #1F3A5F;">
+          <div style="font-weight:900;color:#1F3A5F;font-size:0.9rem;letter-spacing:0.1em;">01</div>
+          <h3 style="font-weight:900;font-size:1.18rem;margin:10px 0 8px;color:#1E2A3A;">担任制で伴走</h3>
+          <p style="margin:0;color:#46566B;font-size:0.95rem;">一人ひとりに担任がつき、学習だけでなく気持ちの面まで継続して見守ります。</p>
+        </div>
+        <div data-jf data-d="2" style="background:#F4F6FA;border-radius:16px;padding:30px 24px;border-top:4px solid #1F3A5F;">
+          <div style="font-weight:900;color:#1F3A5F;font-size:0.9rem;letter-spacing:0.1em;">02</div>
+          <h3 style="font-weight:900;font-size:1.18rem;margin:10px 0 8px;color:#1E2A3A;">個別最適カリキュラム</h3>
+          <p style="margin:0;color:#46566B;font-size:0.95rem;">理解度を毎回チェックし、つまずきの一歩手前まで戻って組み直します。</p>
+        </div>
+        <div data-jf data-d="3" style="background:#F4F6FA;border-radius:16px;padding:30px 24px;border-top:4px solid #E8853A;">
+          <div style="font-weight:900;color:#E8853A;font-size:0.9rem;letter-spacing:0.1em;">03</div>
+          <h3 style="font-weight:900;font-size:1.18rem;margin:10px 0 8px;color:#1E2A3A;">部活と両立できる柔軟さ</h3>
+          <p style="margin:0;color:#46566B;font-size:0.95rem;">曜日・時間を毎月調整。振替にも対応し、忙しい中高生も無理なく続けられます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- コース・料金 -->
+  <section id="price" style="background:#1F3A5F;padding:clamp(56px,8vw,96px) clamp(18px,5vw,40px);">
+    <div style="max-width:1140px;margin:0 auto;">
+      <p data-jf style="text-align:center;color:#F2B27E;font-weight:700;letter-spacing:0.08em;font-size:0.92rem;margin:0;">COURSE &amp; PRICE</p>
+      <h2 data-jf data-d="1" style="text-align:center;font-weight:900;font-size:clamp(1.6rem,3.4vw,2.3rem);margin:8px 0 4px;color:#fff;">コース・料金</h2>
+      <p style="text-align:center;color:#C4D0E0;font-size:0.9rem;margin:0;">表示はすべて税込・架空のデモ料金です。</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:20px;margin-top:42px;">
+        <div class="juku-plan" style="background:#fff;border-radius:18px;padding:30px 26px;display:flex;flex-direction:column;">
+          <h3 style="font-weight:900;font-size:1.3rem;margin:0;color:#1F3A5F;">小学生コース</h3>
+          <p style="margin:6px 0 0;color:#5C6B7E;font-size:0.88rem;">学習習慣づくり・基礎固め</p>
+          <div style="margin:18px 0 4px;display:flex;align-items:baseline;gap:4px;">
+            <span style="font-weight:900;font-size:2.3rem;color:#1E2A3A;">14,300</span>
+            <span style="font-weight:700;color:#5C6B7E;">円〜 / 月（税込）</span>
+          </div>
+          <p style="margin:2px 0 18px;color:#94A0B2;font-size:0.8rem;">週1回 / 1コマ80分の場合</p>
+          <ul style="margin:0;padding-left:1.1em;color:#46566B;font-size:0.92rem;line-height:1.95;">
+            <li>主要2科目から選択</li>
+            <li>宿題チェック・声かけ</li>
+            <li>保護者への学習報告</li>
+          </ul>
+        </div>
+        <div class="juku-plan" style="background:#fff;border-radius:18px;padding:30px 26px;display:flex;flex-direction:column;position:relative;outline:3px solid #E8853A;">
+          <span style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#E8853A;color:#fff;font-weight:700;font-size:0.76rem;padding:5px 16px;border-radius:999px;white-space:nowrap;">いちばん人気</span>
+          <h3 style="font-weight:900;font-size:1.3rem;margin:0;color:#1F3A5F;">中学生コース</h3>
+          <p style="margin:6px 0 0;color:#5C6B7E;font-size:0.88rem;">定期テスト・高校受験対策</p>
+          <div style="margin:18px 0 4px;display:flex;align-items:baseline;gap:4px;">
+            <span style="font-weight:900;font-size:2.3rem;color:#1E2A3A;">22,000</span>
+            <span style="font-weight:700;color:#5C6B7E;">円〜 / 月（税込）</span>
+          </div>
+          <p style="margin:2px 0 18px;color:#94A0B2;font-size:0.8rem;">週2回 / 1コマ80分の場合</p>
+          <ul style="margin:0;padding-left:1.1em;color:#46566B;font-size:0.92rem;line-height:1.95;">
+            <li>5教科サポート対応</li>
+            <li>テスト前の無料補講</li>
+            <li>受験校の個別面談</li>
+          </ul>
+        </div>
+        <div class="juku-plan" style="background:#fff;border-radius:18px;padding:30px 26px;display:flex;flex-direction:column;">
+          <h3 style="font-weight:900;font-size:1.3rem;margin:0;color:#1F3A5F;">高校生コース</h3>
+          <p style="margin:6px 0 0;color:#5C6B7E;font-size:0.88rem;">大学受験・推薦対策</p>
+          <div style="margin:18px 0 4px;display:flex;align-items:baseline;gap:4px;">
+            <span style="font-weight:900;font-size:2.3rem;color:#1E2A3A;">26,400</span>
+            <span style="font-weight:700;color:#5C6B7E;">円〜 / 月（税込）</span>
+          </div>
+          <p style="margin:2px 0 18px;color:#94A0B2;font-size:0.8rem;">週2回 / 1コマ90分の場合</p>
+          <ul style="margin:0;padding-left:1.1em;color:#46566B;font-size:0.92rem;line-height:1.95;">
+            <li>志望大学別カリキュラム</li>
+            <li>総合型・推薦の小論文対策</li>
+            <li>進路相談・出願サポート</li>
+          </ul>
+        </div>
+      </div>
+      <p style="text-align:center;color:#C4D0E0;font-size:0.84rem;margin:24px 0 0;line-height:1.9;">
+        ※ 上記はすべて架空・デモ料金（税込）です。別途、入会金 16,500円（税込）・教材費が必要です（金額はデモ）。<br>
+        ※ 実際の料金体系は店舗により異なります。これは制作見本のため、契約・支払いは発生しません。
+      </p>
+    </div>
+  </section>
+
+  <!-- 合格実績・数字 -->
+  <section style="padding:clamp(56px,8vw,96px) clamp(18px,5vw,40px);">
+    <div style="max-width:1140px;margin:0 auto;">
+      <p data-jf style="text-align:center;color:#E8853A;font-weight:700;letter-spacing:0.08em;font-size:0.92rem;margin:0;">RESULTS</p>
+      <h2 data-jf data-d="1" style="text-align:center;font-weight:900;font-size:clamp(1.6rem,3.4vw,2.3rem);margin:8px 0 4px;color:#1E2A3A;">数字で見る、伴走の手ごたえ</h2>
+      <p style="text-align:center;color:#5C6B7E;font-size:0.9rem;margin:0;">いずれも架空・デモの数値です。母数・期間を併記しています。</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-top:42px;">
+        <div style="text-align:center;background:#F4F6FA;border-radius:16px;padding:34px 18px;">
+          <div style="font-weight:900;font-size:clamp(2.8rem,6vw,3.8rem);line-height:1;color:#1F3A5F;"><span data-count="87">87</span><span style="font-size:1.5rem;">%</span></div>
+          <div style="font-weight:700;margin-top:8px;color:#1E2A3A;">第一志望 合格率</div>
+          <div style="font-size:0.74rem;color:#94A0B2;margin-top:6px;line-height:1.6;">2025年度・対象58名<br>架空・デモ</div>
+        </div>
+        <div style="text-align:center;background:#F4F6FA;border-radius:16px;padding:34px 18px;">
+          <div style="font-weight:900;font-size:clamp(2.8rem,6vw,3.8rem);line-height:1;color:#E8853A;">+<span data-count="24">24</span><span style="font-size:1.5rem;">点</span></div>
+          <div style="font-weight:700;margin-top:8px;color:#1E2A3A;">定期テスト 平均アップ</div>
+          <div style="font-size:0.74rem;color:#94A0B2;margin-top:6px;line-height:1.6;">入塾後6ヶ月・対象120名<br>架空・デモ</div>
+        </div>
+        <div style="text-align:center;background:#F4F6FA;border-radius:16px;padding:34px 18px;">
+          <div style="font-weight:900;font-size:clamp(2.8rem,6vw,3.8rem);line-height:1;color:#1F3A5F;"><span data-count="94">94</span><span style="font-size:1.5rem;">%</span></div>
+          <div style="font-weight:700;margin-top:8px;color:#1E2A3A;">通塾の継続率</div>
+          <div style="font-size:0.74rem;color:#94A0B2;margin-top:6px;line-height:1.6;">2025年度通年<br>架空・デモ</div>
+        </div>
+        <div style="text-align:center;background:#F4F6FA;border-radius:16px;padding:34px 18px;">
+          <div style="font-weight:900;font-size:clamp(2.8rem,6vw,3.8rem);line-height:1;color:#E8853A;"><span data-count="98">98</span><span style="font-size:1.5rem;">%</span></div>
+          <div style="font-weight:700;margin-top:8px;color:#1E2A3A;">保護者満足度</div>
+          <div style="font-size:0.74rem;color:#94A0B2;margin-top:6px;line-height:1.6;">年次アンケート・対象210名<br>架空・デモ</div>
+        </div>
+      </div>
+      <p style="text-align:center;color:#94A0B2;font-size:0.78rem;margin:20px 0 0;">※ 「地域No.1」等の比較・誇大表現は用いていません。すべて制作見本用の架空データです。</p>
+    </div>
+  </section>
+
+  <!-- お客様の声 -->
+  <section style="background:#F4F6FA;padding:clamp(56px,8vw,96px) clamp(18px,5vw,40px);">
+    <div style="max-width:1140px;margin:0 auto;">
+      <p data-jf style="text-align:center;color:#E8853A;font-weight:700;letter-spacing:0.08em;font-size:0.92rem;margin:0;">VOICE</p>
+      <h2 data-jf data-d="1" style="text-align:center;font-weight:900;font-size:clamp(1.6rem,3.4vw,2.3rem);margin:8px 0 0;color:#1E2A3A;">保護者・生徒さんの声</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:42px;">
+        <figure style="margin:0;background:#fff;border-radius:18px;padding:28px 26px;box-shadow:0 6px 18px rgba(31,58,95,0.06);">
+          <blockquote style="margin:0;font-weight:700;font-size:1.04rem;line-height:1.85;color:#1E2A3A;">「面談で学習状況を丁寧に共有してもらえて安心。家での声のかけ方まで変わりました。」</blockquote>
+          <figcaption style="display:flex;align-items:center;gap:12px;margin-top:20px;">
+            <span role="img" aria-label="保護者のイメージアイコン" style="width:44px;height:44px;border-radius:50%;background:#E1E7F0;flex:none;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;">
+              <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="#9AA8BE"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 22c0-4.7 3.8-8 8.5-8s8.5 3.3 8.5 8z"/></svg>
+            </span>
+            <span style="font-size:0.86rem;color:#5C6B7E;"><strong style="color:#1F3A5F;">中2 保護者・Hさん</strong><br>架空のお客様</span>
+          </figcaption>
+        </figure>
+        <figure style="margin:0;background:#fff;border-radius:18px;padding:28px 26px;box-shadow:0 6px 18px rgba(31,58,95,0.06);">
+          <blockquote style="margin:0;font-weight:700;font-size:1.04rem;line-height:1.85;color:#1E2A3A;">「わからない所をその場で聞けるので、勉強が前より好きになりました。」</blockquote>
+          <figcaption style="display:flex;align-items:center;gap:12px;margin-top:20px;">
+            <span role="img" aria-label="生徒のイメージアイコン" style="width:44px;height:44px;border-radius:50%;background:#E1E7F0;flex:none;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;">
+              <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="#9AA8BE"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 22c0-4.7 3.8-8 8.5-8s8.5 3.3 8.5 8z"/></svg>
+            </span>
+            <span style="font-size:0.86rem;color:#5C6B7E;"><strong style="color:#1F3A5F;">中3 生徒・Rさん</strong><br>架空のお客様</span>
+          </figcaption>
+        </figure>
+        <figure style="margin:0;background:#fff;border-radius:18px;padding:28px 26px;box-shadow:0 6px 18px rgba(31,58,95,0.06);">
+          <blockquote style="margin:0;font-weight:700;font-size:1.04rem;line-height:1.85;color:#1E2A3A;">「部活と両立できるスケジュールが助かっています。料金の見通しも事前に示してもらえました。」</blockquote>
+          <figcaption style="display:flex;align-items:center;gap:12px;margin-top:20px;">
+            <span role="img" aria-label="保護者のイメージアイコン" style="width:44px;height:44px;border-radius:50%;background:#E1E7F0;flex:none;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;">
+              <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="#9AA8BE"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 22c0-4.7 3.8-8 8.5-8s8.5 3.3 8.5 8z"/></svg>
+            </span>
+            <span style="font-size:0.86rem;color:#5C6B7E;"><strong style="color:#1F3A5F;">高1 保護者・Mさん</strong><br>架空のお客様</span>
+          </figcaption>
+        </figure>
+      </div>
+      <p style="text-align:center;color:#94A0B2;font-size:0.78rem;margin:24px 0 0;">※ お客様の声・お名前はすべて架空です（制作見本）。アイコンはイメージです。</p>
+    </div>
+  </section>
+
+  <!-- 講師紹介 -->
+  <section style="padding:clamp(56px,8vw,96px) clamp(18px,5vw,40px);">
+    <div style="max-width:1140px;margin:0 auto;">
+      <p data-jf style="text-align:center;color:#E8853A;font-weight:700;letter-spacing:0.08em;font-size:0.92rem;margin:0;">TEACHERS</p>
+      <h2 data-jf data-d="1" style="text-align:center;font-weight:900;font-size:clamp(1.6rem,3.4vw,2.3rem);margin:8px 0 0;color:#1E2A3A;">伴走する講師たち</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(202px,1fr));gap:22px;margin-top:42px;">
+        <div style="text-align:center;">
+          <div role="img" aria-label="講師のイメージアイコン" style="aspect-ratio:1/1;border-radius:18px;background:linear-gradient(160deg,#e4eaf3,#d6deea);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;">
+            <svg viewBox="0 0 24 24" width="56%" height="56%" aria-hidden="true" fill="#A7B4C8"><circle cx="12" cy="8" r="4.4"/><path d="M3 22c0-4.8 4-8.2 9-8.2s9 3.4 9 8.2z"/></svg>
+          </div>
+          <h3 style="font-weight:900;font-size:1.1rem;margin:14px 0 2px;color:#1F3A5F;">森田 先生</h3>
+          <p style="margin:0;color:#5C6B7E;font-size:0.84rem;font-weight:700;">数学・理科</p>
+          <p style="margin:8px 0 0;font-family:var(--font-hand);font-weight:600;color:#46566B;font-size:0.92rem;">「つまずきの一歩手前を見つけます。」</p>
+        </div>
+        <div style="text-align:center;">
+          <div role="img" aria-label="講師のイメージアイコン" style="aspect-ratio:1/1;border-radius:18px;background:linear-gradient(160deg,#e4eaf3,#d6deea);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;">
+            <svg viewBox="0 0 24 24" width="56%" height="56%" aria-hidden="true" fill="#A7B4C8"><circle cx="12" cy="8" r="4.4"/><path d="M3 22c0-4.8 4-8.2 9-8.2s9 3.4 9 8.2z"/></svg>
+          </div>
+          <h3 style="font-weight:900;font-size:1.1rem;margin:14px 0 2px;color:#1F3A5F;">高橋 先生</h3>
+          <p style="margin:0;color:#5C6B7E;font-size:0.84rem;font-weight:700;">英語</p>
+          <p style="margin:8px 0 0;font-family:var(--font-hand);font-weight:600;color:#46566B;font-size:0.92rem;">「英語を得意科目に変えましょう。」</p>
+        </div>
+        <div style="text-align:center;">
+          <div role="img" aria-label="講師のイメージアイコン" style="aspect-ratio:1/1;border-radius:18px;background:linear-gradient(160deg,#e4eaf3,#d6deea);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;">
+            <svg viewBox="0 0 24 24" width="56%" height="56%" aria-hidden="true" fill="#A7B4C8"><circle cx="12" cy="8" r="4.4"/><path d="M3 22c0-4.8 4-8.2 9-8.2s9 3.4 9 8.2z"/></svg>
+          </div>
+          <h3 style="font-weight:900;font-size:1.1rem;margin:14px 0 2px;color:#1F3A5F;">佐藤 先生</h3>
+          <p style="margin:0;color:#5C6B7E;font-size:0.84rem;font-weight:700;">国語・社会</p>
+          <p style="margin:8px 0 0;font-family:var(--font-hand);font-weight:600;color:#46566B;font-size:0.92rem;">「読む力は、一生の力。」</p>
+        </div>
+        <div style="text-align:center;">
+          <div role="img" aria-label="講師のイメージアイコン" style="aspect-ratio:1/1;border-radius:18px;background:linear-gradient(160deg,#e4eaf3,#d6deea);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;">
+            <svg viewBox="0 0 24 24" width="56%" height="56%" aria-hidden="true" fill="#A7B4C8"><circle cx="12" cy="8" r="4.4"/><path d="M3 22c0-4.8 4-8.2 9-8.2s9 3.4 9 8.2z"/></svg>
+          </div>
+          <h3 style="font-weight:900;font-size:1.1rem;margin:14px 0 2px;color:#1F3A5F;">田中 先生</h3>
+          <p style="margin:0;color:#5C6B7E;font-size:0.84rem;font-weight:700;">算数・数学</p>
+          <p style="margin:8px 0 0;font-family:var(--font-hand);font-weight:600;color:#46566B;font-size:0.92rem;">「わかる楽しさを、一緒に。」</p>
+        </div>
+      </div>
+      <p style="text-align:center;color:#94A0B2;font-size:0.78rem;margin:24px 0 0;">※ 講師は架空の人物です。アイコンはイメージです（制作見本）。</p>
+    </div>
+  </section>
+
+  <!-- 教室の雰囲気 -->
+  <section style="background:#F4F6FA;padding:clamp(56px,8vw,96px) clamp(18px,5vw,40px);">
+    <div style="max-width:1140px;margin:0 auto;">
+      <p data-jf style="text-align:center;color:#E8853A;font-weight:700;letter-spacing:0.08em;font-size:0.92rem;margin:0;">CLASSROOM</p>
+      <h2 data-jf data-d="1" style="text-align:center;font-weight:900;font-size:clamp(1.6rem,3.4vw,2.3rem);margin:8px 0 0;color:#1E2A3A;">教室の雰囲気</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:42px;">
+        <div style="aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#dde4ee;"><img src="/assets/images/demos/juku/classroom.jpg" alt="個別指導ブースの様子（制作見本用のイメージ）" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;filter:saturate(0.85) brightness(0.98);"></div>
+        <div style="aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#dde4ee;"><img src="/assets/images/demos/juku/classroom-02.jpg" alt="自習スペースの様子（制作見本用のイメージ）" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:saturate(0.85) brightness(0.98);"></div>
+        <div style="aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#dde4ee;"><img src="/assets/images/demos/juku/classroom-03.jpg" alt="面談スペースの様子（制作見本用のイメージ）" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:saturate(0.85) brightness(0.98);"></div>
+      </div>
+      <p style="text-align:right;color:#94A0B2;font-size:0.72rem;margin:14px 0 0;">※ 写真は制作見本用のイメージです。実在の教室ではありません。</p>
+    </div>
+  </section>
+
+  <!-- 入塾までの流れ -->
+  <section id="flow" style="padding:clamp(56px,8vw,96px) clamp(18px,5vw,40px);">
+    <div style="max-width:1140px;margin:0 auto;">
+      <p data-jf style="text-align:center;color:#E8853A;font-weight:700;letter-spacing:0.08em;font-size:0.92rem;margin:0;">FLOW</p>
+      <h2 data-jf data-d="1" style="text-align:center;font-weight:900;font-size:clamp(1.6rem,3.4vw,2.3rem);margin:8px 0 0;color:#1E2A3A;">入塾までの流れ</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:42px;">
+        <div style="background:#F4F6FA;border-radius:16px;padding:26px 20px;">
+          <span style="display:inline-flex;width:40px;height:40px;border-radius:50%;background:#1F3A5F;color:#fff;font-weight:900;align-items:center;justify-content:center;">1</span>
+          <h3 style="font-weight:900;font-size:1.04rem;margin:14px 0 6px;">お問い合わせ</h3>
+          <p style="margin:0;color:#46566B;font-size:0.9rem;">フォーム・お電話・資料請求から。無理な勧誘はいたしません。</p>
+        </div>
+        <div style="background:#F4F6FA;border-radius:16px;padding:26px 20px;">
+          <span style="display:inline-flex;width:40px;height:40px;border-radius:50%;background:#1F3A5F;color:#fff;font-weight:900;align-items:center;justify-content:center;">2</span>
+          <h3 style="font-weight:900;font-size:1.04rem;margin:14px 0 6px;">体験授業（無料）</h3>
+          <p style="margin:0;color:#46566B;font-size:0.9rem;">実際の授業を体験。学習の悩みもじっくりお聞きします。</p>
+        </div>
+        <div style="background:#F4F6FA;border-radius:16px;padding:26px 20px;">
+          <span style="display:inline-flex;width:40px;height:40px;border-radius:50%;background:#1F3A5F;color:#fff;font-weight:900;align-items:center;justify-content:center;">3</span>
+          <h3 style="font-weight:900;font-size:1.04rem;margin:14px 0 6px;">学習プランのご提案</h3>
+          <p style="margin:0;color:#46566B;font-size:0.9rem;">目標と現状をふまえ、料金の総額もあわせてご提示します。</p>
+        </div>
+        <div style="background:#F4F6FA;border-radius:16px;padding:26px 20px;">
+          <span style="display:inline-flex;width:40px;height:40px;border-radius:50%;background:#E8853A;color:#fff;font-weight:900;align-items:center;justify-content:center;">4</span>
+          <h3 style="font-weight:900;font-size:1.04rem;margin:14px 0 6px;">ご入塾・伴走スタート</h3>
+          <p style="margin:0;color:#46566B;font-size:0.9rem;">担任とともにスタート。月1回の面談で歩みを共有します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 保護者の方へ -->
+  <section id="for-parents" style="background:#1F3A5F;padding:clamp(56px,8vw,96px) clamp(18px,5vw,40px);">
+    <div style="max-width:1140px;margin:0 auto;">
+      <div style="text-align:center;">
+        <span style="font-family:var(--font-hand);font-weight:600;color:#F2B27E;font-size:1.05rem;">保護者のみなさまへ</span>
+        <h2 style="font-weight:900;font-size:clamp(1.6rem,3.4vw,2.3rem);margin:10px 0 0;color:#fff;text-wrap:balance;">お子さまの「今」を、ご家庭と一緒に。</h2>
+        <p style="color:#C4D0E0;font-size:1rem;max-width:38em;margin:16px auto 0;line-height:1.95;">成績はもちろん、お子さまの気持ちの変化まで共有することを大切にしています。安心してお任せいただける環境づくりに努めています。</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:38px;">
+        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:24px 22px;">
+          <h3 style="font-weight:900;font-size:1.06rem;margin:0 0 6px;color:#fff;">月1回の定期面談</h3>
+          <p style="margin:0;color:#C4D0E0;font-size:0.9rem;">学習状況と次の目標を、担任から直接ご報告します。</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:24px 22px;">
+          <h3 style="font-weight:900;font-size:1.06rem;margin:0 0 6px;color:#fff;">毎回の授業報告</h3>
+          <p style="margin:0;color:#C4D0E0;font-size:0.9rem;">その日の取り組みと理解度を、わかりやすくお伝えします。</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:24px 22px;">
+          <h3 style="font-weight:900;font-size:1.06rem;margin:0 0 6px;color:#fff;">入退室のお知らせ</h3>
+          <p style="margin:0;color:#C4D0E0;font-size:0.9rem;">登下校をメールで通知（デモ）。安全面にも配慮します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding:clamp(56px,8vw,96px) clamp(18px,5vw,40px);">
+    <div style="max-width:860px;margin:0 auto;">
+      <p data-jf style="text-align:center;color:#E8853A;font-weight:700;letter-spacing:0.08em;font-size:0.92rem;margin:0;">FAQ</p>
+      <h2 data-jf data-d="1" style="text-align:center;font-weight:900;font-size:clamp(1.6rem,3.4vw,2.3rem);margin:8px 0 0;color:#1E2A3A;">よくあるご質問</h2>
+      <div style="margin-top:38px;display:flex;flex-direction:column;gap:12px;">
+        <details style="background:#F4F6FA;border-radius:14px;border:1px solid #E4E9F1;">
+          <summary style="cursor:pointer;padding:20px 22px;font-weight:700;font-size:1.02rem;color:#1F3A5F;display:flex;align-items:flex-start;gap:12px;">
+            <span aria-hidden="true" style="color:#E8853A;font-weight:900;flex:none;">Q</span>
+            <span style="flex:1;">体験授業は本当に無料ですか？</span>
+            <span class="faq-plus" aria-hidden="true" style="flex:none;color:#94A0B2;font-weight:400;font-size:1.4rem;line-height:1;transition:transform .2s;">＋</span>
+          </summary>
+          <p style="margin:0;padding:0 22px 22px 50px;color:#46566B;font-size:0.95rem;line-height:1.9;">はい、無料です（架空・デモ）。しつこい勧誘や、その後の入塾を前提とした説明は一切いたしません。お子さまの様子を見ていただく機会としてお気軽にご利用ください。</p>
+        </details>
+        <details style="background:#F4F6FA;border-radius:14px;border:1px solid #E4E9F1;">
+          <summary style="cursor:pointer;padding:20px 22px;font-weight:700;font-size:1.02rem;color:#1F3A5F;display:flex;align-items:flex-start;gap:12px;">
+            <span aria-hidden="true" style="color:#E8853A;font-weight:900;flex:none;">Q</span>
+            <span style="flex:1;">対象の学年・科目を教えてください。</span>
+            <span class="faq-plus" aria-hidden="true" style="flex:none;color:#94A0B2;font-weight:400;font-size:1.4rem;line-height:1;transition:transform .2s;">＋</span>
+          </summary>
+          <p style="margin:0;padding:0 22px 22px 50px;color:#46566B;font-size:0.95rem;line-height:1.9;">小学1年生から高校3年生まで、英・数・国・理・社に対応しています（架空）。定期テスト対策から各種受験対策まで、目標に合わせてカリキュラムを組みます。</p>
+        </details>
+        <details style="background:#F4F6FA;border-radius:14px;border:1px solid #E4E9F1;">
+          <summary style="cursor:pointer;padding:20px 22px;font-weight:700;font-size:1.02rem;color:#1F3A5F;display:flex;align-items:flex-start;gap:12px;">
+            <span aria-hidden="true" style="color:#E8853A;font-weight:900;flex:none;">Q</span>
+            <span style="flex:1;">部活や習い事と両立できますか？</span>
+            <span class="faq-plus" aria-hidden="true" style="flex:none;color:#94A0B2;font-weight:400;font-size:1.4rem;line-height:1;transition:transform .2s;">＋</span>
+          </summary>
+          <p style="margin:0;padding:0 22px 22px 50px;color:#46566B;font-size:0.95rem;line-height:1.9;">曜日・時間は毎月調整でき、急なご予定にも前日までのご連絡で振替に対応します（デモ）。忙しい中高生も無理なく続けられます。</p>
+        </details>
+        <details style="background:#F4F6FA;border-radius:14px;border:1px solid #E4E9F1;">
+          <summary style="cursor:pointer;padding:20px 22px;font-weight:700;font-size:1.02rem;color:#1F3A5F;display:flex;align-items:flex-start;gap:12px;">
+            <span aria-hidden="true" style="color:#E8853A;font-weight:900;flex:none;">Q</span>
+            <span style="flex:1;">入会金や教材費はいくらかかりますか？</span>
+            <span class="faq-plus" aria-hidden="true" style="flex:none;color:#94A0B2;font-weight:400;font-size:1.4rem;line-height:1;transition:transform .2s;">＋</span>
+          </summary>
+          <p style="margin:0;padding:0 22px 22px 50px;color:#46566B;font-size:0.95rem;line-height:1.9;">入会金 16,500円（税込）と、別途教材費が必要です（いずれもデモ料金）。ご提案の際に、月謝を含めた総額の見通しを必ず事前にお伝えします。</p>
+        </details>
+        <details style="background:#F4F6FA;border-radius:14px;border:1px solid #E4E9F1;">
+          <summary style="cursor:pointer;padding:20px 22px;font-weight:700;font-size:1.02rem;color:#1F3A5F;display:flex;align-items:flex-start;gap:12px;">
+            <span aria-hidden="true" style="color:#E8853A;font-weight:900;flex:none;">Q</span>
+            <span style="flex:1;">講師は選べますか／変更できますか？</span>
+            <span class="faq-plus" aria-hidden="true" style="flex:none;color:#94A0B2;font-weight:400;font-size:1.4rem;line-height:1;transition:transform .2s;">＋</span>
+          </summary>
+          <p style="margin:0;padding:0 22px 22px 50px;color:#46566B;font-size:0.95rem;line-height:1.9;">担任制で、お子さまとの相性を大切に担当を決めています。気になることがあれば、ご相談のうえ担当の変更も可能です（デモ）。</p>
+        </details>
+        <details style="background:#F4F6FA;border-radius:14px;border:1px solid #E4E9F1;">
+          <summary style="cursor:pointer;padding:20px 22px;font-weight:700;font-size:1.02rem;color:#1F3A5F;display:flex;align-items:flex-start;gap:12px;">
+            <span aria-hidden="true" style="color:#E8853A;font-weight:900;flex:none;">Q</span>
+            <span style="flex:1;">自習室は使えますか？個人情報の扱いは？</span>
+            <span class="faq-plus" aria-hidden="true" style="flex:none;color:#94A0B2;font-weight:400;font-size:1.4rem;line-height:1;transition:transform .2s;">＋</span>
+          </summary>
+          <p style="margin:0;padding:0 22px 22px 50px;color:#46566B;font-size:0.95rem;line-height:1.9;">自習室は受付時間内、いつでもご利用いただけます（架空）。お預かりした個人情報は厳重に管理し、ご相談の対応以外の目的には使用しません（デモ）。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 申し込み・お問い合わせフォーム -->
+  <section id="apply" style="background:#1F3A5F;padding:clamp(56px,8vw,96px) clamp(18px,5vw,40px);">
+    <div style="max-width:760px;margin:0 auto;">
+      <p style="text-align:center;color:#F2B27E;font-weight:700;letter-spacing:0.08em;font-size:0.92rem;margin:0;">CONTACT</p>
+      <h2 style="text-align:center;font-weight:900;font-size:clamp(1.6rem,3.4vw,2.3rem);margin:8px 0 4px;color:#fff;">まずは無料体験・資料請求から</h2>
+      <p style="text-align:center;color:#C4D0E0;font-size:0.95rem;margin:0;line-height:1.9;">下記フォームよりお気軽にどうぞ。1〜2営業日内に担当よりご連絡します（デモ）。<br>お電話でのお問い合わせは <strong style="color:#fff;">0120-000-000</strong>（架空・デモ）。</p>
+
+      <form style="background:#fff;border-radius:18px;padding:clamp(24px,4vw,38px);margin-top:30px;">
+        <fieldset style="border:0;margin:0 0 22px;padding:0;">
+          <legend style="font-weight:700;font-size:0.85rem;color:#1F3A5F;margin-bottom:10px;padding:0;">ご希望の内容 <span style="color:#E8853A;">*</span></legend>
+          <div style="display:flex;flex-wrap:wrap;gap:10px 18px;">
+            <label style="display:inline-flex;align-items:center;gap:7px;font-size:0.95rem;cursor:pointer;"><input type="radio" name="kind" value="trial" checked style="accent-color:#E8853A;width:17px;height:17px;">無料体験授業</label>
+            <label style="display:inline-flex;align-items:center;gap:7px;font-size:0.95rem;cursor:pointer;"><input type="radio" name="kind" value="doc" style="accent-color:#E8853A;width:17px;height:17px;">資料請求</label>
+            <label style="display:inline-flex;align-items:center;gap:7px;font-size:0.95rem;cursor:pointer;"><input type="radio" name="kind" value="other" style="accent-color:#E8853A;width:17px;height:17px;">その他のご相談</label>
+          </div>
+        </fieldset>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;">
+          <div>
+            <label for="f-name" style="display:block;font-weight:700;font-size:0.85rem;color:#1F3A5F;margin-bottom:6px;">保護者さまのお名前 <span style="color:#E8853A;">*</span></label>
+            <input id="f-name" type="text" placeholder="例）学び 花子" style="padding:12px 14px;border:1px solid #DCE3EC;border-radius:9px;font-family:inherit;font-size:0.95rem;width:100%;background:#fff;color:#1E2A3A;">
+          </div>
+          <div>
+            <label for="f-grade" style="display:block;font-weight:700;font-size:0.85rem;color:#1F3A5F;margin-bottom:6px;">お子さまの学年 <span style="color:#E8853A;">*</span></label>
+            <select id="f-grade" style="padding:12px 14px;border:1px solid #DCE3EC;border-radius:9px;font-family:inherit;font-size:0.95rem;width:100%;background:#fff;color:#1E2A3A;">
+              <option value="">選択してください</option>
+              <option>小学生</option>
+              <option>中学1年</option>
+              <option>中学2年</option>
+              <option>中学3年</option>
+              <option>高校1年</option>
+              <option>高校2年</option>
+              <option>高校3年</option>
+            </select>
+          </div>
+          <div>
+            <label for="f-tel" style="display:block;font-weight:700;font-size:0.85rem;color:#1F3A5F;margin-bottom:6px;">お電話番号 <span style="color:#E8853A;">*</span></label>
+            <input id="f-tel" type="tel" placeholder="例）047-000-0000" style="padding:12px 14px;border:1px solid #DCE3EC;border-radius:9px;font-family:inherit;font-size:0.95rem;width:100%;background:#fff;color:#1E2A3A;">
+          </div>
+          <div>
+            <label for="f-mail" style="display:block;font-weight:700;font-size:0.85rem;color:#1F3A5F;margin-bottom:6px;">メールアドレス</label>
+            <input id="f-mail" type="email" placeholder="例）hanako@example.com" style="padding:12px 14px;border:1px solid #DCE3EC;border-radius:9px;font-family:inherit;font-size:0.95rem;width:100%;background:#fff;color:#1E2A3A;">
+          </div>
+        </div>
+
+        <div style="margin-top:18px;">
+          <label for="f-msg" style="display:block;font-weight:700;font-size:0.85rem;color:#1F3A5F;margin-bottom:6px;">ご相談内容・ご希望（任意）</label>
+          <textarea id="f-msg" rows="4" placeholder="お子さまの学習のお悩みや、ご希望の曜日・時間帯などをご記入ください。" style="padding:12px 14px;border:1px solid #DCE3EC;border-radius:9px;font-family:inherit;font-size:0.95rem;width:100%;background:#fff;color:#1E2A3A;resize:vertical;"></textarea>
+        </div>
+
+        <button type="button" class="j-h-orange" style="margin-top:24px;width:100%;background:#E8853A;color:#fff;font-weight:700;font-size:1.08rem;padding:17px;border:0;border-radius:11px;cursor:pointer;box-shadow:0 8px 20px rgba(232,133,58,0.4);transition:background .2s;">送信する（無料）</button>
+        <p style="margin:14px 0 0;text-align:center;color:#94A0B2;font-size:0.78rem;line-height:1.7;">※ 本フォームは制作見本のため、実際には送信されません。<br>ご入力内容は保存・送信されず、個人情報は収集しません。</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- アクセス・受付 -->
+  <section id="contact" style="padding:clamp(56px,8vw,96px) clamp(18px,5vw,40px);">
+    <div style="max-width:1140px;margin:0 auto;">
+      <p style="text-align:center;color:#E8853A;font-weight:700;letter-spacing:0.08em;font-size:0.92rem;margin:0;">ACCESS</p>
+      <h2 style="text-align:center;font-weight:900;font-size:clamp(1.6rem,3.4vw,2.3rem);margin:8px 0 0;color:#1E2A3A;">アクセス・受付時間</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:42px;align-items:stretch;">
+        <div role="img" aria-label="地図（浦安駅周辺）の差し込み枠" style="min-height:280px;border-radius:18px;background:repeating-linear-gradient(45deg,#d6deea 0 16px,#e4eaf3 16px 32px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:0.82rem;color:#7C8AA0;">[ 地図（浦安駅周辺）をここに差し込み ]</div>
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <div>
+            <div style="font-weight:700;color:#E8853A;font-size:0.82rem;">所在地（架空）</div>
+            <p style="margin:4px 0 0;font-weight:700;font-size:1.05rem;">〒279-0001 千葉県浦安市当代島1-2-3<br>学びの森ビル 2F</p>
+            <p style="margin:4px 0 0;color:#5C6B7E;font-size:0.9rem;">東京メトロ東西線「浦安」駅 徒歩4分（架空）</p>
+          </div>
+          <div>
+            <div style="font-weight:700;color:#E8853A;font-size:0.82rem;">受付時間</div>
+            <p style="margin:4px 0 0;font-weight:700;">平日 15:00–22:00 ／ 土 10:00–19:00<br><span style="font-weight:500;color:#5C6B7E;">日・祝 休</span></p>
+          </div>
+          <div>
+            <div style="font-weight:700;color:#E8853A;font-size:0.82rem;">駐輪場・お車での送迎</div>
+            <p style="margin:4px 0 0;color:#46566B;font-size:0.92rem;line-height:1.85;">建物裏に駐輪場あり（約10台／架空）。お車での送迎は、ビル前が駐停車禁止のため、当代島通り沿いの送迎スペースをご利用ください（架空）。</p>
+          </div>
+          <div>
+            <div style="font-weight:700;color:#E8853A;font-size:0.82rem;">お電話（架空・デモ）</div>
+            <a id="tel" href="#apply" style="display:inline-block;margin-top:4px;font-weight:900;font-size:1.7rem;color:#1F3A5F;text-decoration:none;">0120-000-000</a>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:4px;">
+            <a href="#apply" class="j-h-orange" style="background:#E8853A;color:#fff;font-weight:700;padding:13px 24px;border-radius:10px;text-decoration:none;transition:background .2s;">無料体験を申し込む</a>
+            <a href="#apply" class="j-h-white2" style="background:#F4F6FA;color:#1F3A5F;font-weight:700;padding:13px 24px;border-radius:10px;text-decoration:none;border:1px solid #DCE3EC;transition:background .2s;">資料請求</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer style="background:#1E2A3A;color:#C4D0E0;padding:44px clamp(18px,5vw,40px) 40px;">
+    <div style="max-width:1140px;margin:0 auto;">
+      <div style="display:flex;align-items:center;gap:11px;">
+        <span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:#fff;color:#1F3A5F;font-weight:900;">森</span>
+        <span style="font-weight:900;color:#fff;font-size:1.02rem;">学びの森 個別指導塾</span>
+      </div>
+      <p style="margin:18px 0 0;font-size:0.82rem;line-height:1.95;max-width:60em;">
+        本ページは<strong style="color:#F2B27E;">制作見本（デモ）</strong>です。「学びの森 個別指導塾」は架空の学習塾であり、掲載のロゴ・社名・講師・合格実績・料金・住所・電話番号・お客様の声はすべて架空のものです。実在の人物・団体とは関係ありません。本ページから契約・支払い・申込みは発生しません。掲載写真・アイコンは制作見本用のイメージで、実在の教室・人物ではありません。
+      </p>
+      <p style="margin:16px 0 0;font-size:0.78rem;">
+        <a href="../index.html#b-demos" style="color:#F2B27E;text-decoration:underline;text-underline-offset:2px;">← Beaconaの制作例にもどる</a>
+      </p>
+      <p style="margin:14px 0 0;font-size:0.74rem;color:#7C8AA0;">© 2026 学びの森 個別指導塾（架空）— 制作見本 / Sample design.</p>
+    </div>
+  </footer>
+
+  <!-- PC 追従CTA（CSSのみで表示制御） -->
+  <div class="dt-cta" aria-label="お問い合わせ" style="position:fixed;right:18px;bottom:24px;z-index:70;flex-direction:column;gap:10px;">
+    <a href="#apply" class="j-h-orange" style="display:flex;align-items:center;gap:9px;background:#E8853A;color:#fff;font-weight:700;padding:14px 20px;border-radius:12px;text-decoration:none;box-shadow:0 8px 22px rgba(232,133,58,0.45);transition:background .2s;"><span aria-hidden="true">✎</span>無料体験授業</a>
+    <a href="#apply" class="j-h-white" style="display:flex;align-items:center;gap:9px;background:#fff;color:#1F3A5F;font-weight:700;padding:14px 20px;border-radius:12px;text-decoration:none;box-shadow:0 8px 22px rgba(15,28,48,0.22);border:1px solid #DCE3EC;transition:background .2s;"><span aria-hidden="true">▤</span>資料請求</a>
+    <a href="#tel" class="j-h-navy" style="display:flex;align-items:center;gap:9px;background:#1F3A5F;color:#fff;font-weight:700;padding:14px 20px;border-radius:12px;text-decoration:none;box-shadow:0 8px 22px rgba(15,28,48,0.3);transition:background .2s;"><span aria-hidden="true">☎</span>電話で相談</a>
+  </div>
+
+  <!-- スマホ 追従CTA（CSSのみで表示制御） -->
+  <div class="mb-cta" aria-label="お問い合わせ" style="position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;background:#fff;border-top:1px solid #DCE3EC;box-shadow:0 -4px 18px rgba(15,28,48,0.12);padding:9px 12px;gap:9px;">
+    <a href="#apply" style="flex:1;text-align:center;background:#E8853A;color:#fff;font-weight:700;padding:14px 8px;border-radius:11px;text-decoration:none;">無料体験</a>
+    <a href="#apply" style="flex:1;text-align:center;background:#1F3A5F;color:#fff;font-weight:700;padding:14px 8px;border-radius:11px;text-decoration:none;">資料請求</a>
+  </div>
+
+</div>
+
+<!-- ANIMATIONS（自前のインラインJS・CDN不使用／prefers-reduced-motion尊重） -->
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // ① scroll fade-up
+  if('IntersectionObserver' in window){
+    var fo = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); fo.unobserve(e.target); } });
+    },{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
+    document.querySelectorAll('[data-jf]').forEach(function(el){ fo.observe(el); });
+    // ② count-up（数値は初期表示でも最終値を保持。JS無効時もそのまま表示）
+    var co = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          var el=e.target, n=+el.getAttribute('data-count');
+          if(reduce){ el.textContent=n; co.unobserve(el); return; }
+          var s=null;
+          (function t(now){ if(s===null)s=now; var p=Math.min((now-s)/1000,1),ease=1-Math.pow(1-p,3); el.textContent=Math.round(ease*n); if(p<1)requestAnimationFrame(t); })(performance.now());
+          co.unobserve(el);
+        }
+      });
+    },{threshold:0.5});
+    document.querySelectorAll('[data-count]').forEach(function(el){ co.observe(el); });
+  }
+  // ③ nav shadow on scroll
+  var hdr=document.querySelector('header');
+  if(hdr){ window.addEventListener('scroll',function(){ hdr.setAttribute('data-scrolled',window.scrollY>60?'true':'false'); },{passive:true}); }
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<meta name="robots" content="noindex, nofollow">
+<title>こもれび整骨院｜制作見本（Beaconaデモ・架空のお店）</title>
+<meta name="description" content="これは制作見本です。実在しないお店の架空サイトです（Beaconaデモ）。整骨院のホームページの一例として制作しました。柔道整復師（国家資格）が担当。医療広告ガイドラインに配慮して制作。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --font-base: "Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI",system-ui,sans-serif;
+    --font-serif: "Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+  img { max-width: 100%; display: block; }
+  p, li, dt, dd, blockquote, figcaption { text-wrap: pretty; word-break: auto-phrase; line-break: strict; overflow-wrap: break-word; }
+  h1, h2, h3, h4 { text-wrap: balance; word-break: auto-phrase; }
+  ::selection { background: #cfe0d7; }
+  a { color: inherit; }
+  a:focus-visible, summary:focus-visible { outline: 2px solid #3d6b5e; outline-offset: 3px; }
+
+  /* SP追従CTA（CSSのみ：720px以下で表示） */
+  .kom-spcta { display: none; }
+  @media (max-width: 720px) {
+    .kom-spcta { display: grid !important; }
+    .kom-root { padding-bottom: 78px; }
+  }
+
+  /* FAQアコーディオン（CSSのみ：details/summary） */
+  .kom-faq summary { list-style: none; }
+  .kom-faq summary::-webkit-details-marker { display: none; }
+  .kom-faq .kom-faq-ic::before { content: "＋"; }
+  .kom-faq[open] .kom-faq-ic::before { content: "−"; }
+
+  /* ボタンのホバー（CSSのみ） */
+  .kom-btn-primary:hover { background: #345e52 !important; }
+  .kom-btn-line:hover { background: #4f9863 !important; }
+
+  /* ① scroll fade-up */
+  [data-kom-fade] { opacity:0; transform:translateY(22px); transition:opacity .75s cubic-bezier(.25,.46,.45,.94), transform .75s cubic-bezier(.25,.46,.45,.94); }
+  [data-kom-fade].vis { opacity:1; transform:none; }
+  [data-kom-fade][data-d="1"] { transition-delay:.12s; }
+  [data-kom-fade][data-d="2"] { transition-delay:.24s; }
+  [data-kom-fade][data-d="3"] { transition-delay:.36s; }
+  [data-kom-fade][data-d="4"] { transition-delay:.48s; }
+  [data-kom-fade][data-d="5"] { transition-delay:.60s; }
+  [data-kom-fade][data-d="6"] { transition-delay:.72s; }
+  [data-kom-fade][data-d="7"] { transition-delay:.84s; }
+  [data-kom-fade][data-d="8"] { transition-delay:.96s; }
+
+  /* ④ CTA pulse */
+  @keyframes komPulse { 0%,100% { box-shadow:0 10px 24px rgba(61,107,94,.28); } 50% { box-shadow:0 10px 34px rgba(61,107,94,.52), 0 0 0 6px rgba(61,107,94,.10); } }
+  .kom-pulse { animation: komPulse 2.8s ease-in-out infinite; }
+
+  /* nav shrink */
+  header[data-scrolled="true"] { box-shadow: 0 2px 18px rgba(54,48,38,.10); }
+
+  @media (prefers-reduced-motion:reduce) {
+    [data-kom-fade] { opacity:1!important; transform:none!important; }
+    .kom-pulse { animation:none!important; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="kom-root" style="font-family:var(--font-base); color:#2c2a25; background:#f7f4ee; -webkit-font-smoothing:antialiased; line-height:1.85;">
+
+  <!-- ===== 制作見本バー ===== -->
+  <div role="note" style="background:#2f5349; color:#dfeae4; font-size:12.5px; letter-spacing:.04em; text-align:center; padding:7px 16px;">
+    制作見本（架空の整骨院です）／ 医療広告ガイドラインに配慮して制作
+  </div>
+
+  <!-- ===== ヘッダー ===== -->
+  <header data-scrolled="false" style="position:sticky; top:0; z-index:50; background:rgba(247,244,238,.92); backdrop-filter:blur(8px); border-bottom:1px solid #e6dfd2;">
+    <div style="width:min(1140px,92vw); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0;">
+      <a href="#top" style="display:flex; align-items:center; gap:11px; text-decoration:none; color:inherit;">
+        <span style="width:34px; height:34px; border-radius:50%; background:#3d6b5e; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--font-serif); font-size:17px;">こ</span>
+        <span style="display:flex; flex-direction:column; line-height:1.25;">
+          <span style="font-family:var(--font-serif); font-size:17px; font-weight:700; letter-spacing:.04em;">こもれび整骨院</span>
+          <span style="font-size:10.5px; color:#8a8475; letter-spacing:.18em;">KOMOREBI SEIKOTSU</span>
+        </span>
+      </a>
+      <nav aria-label="ページ内ナビ" style="display:flex; align-items:center; gap:22px; flex-wrap:wrap; justify-content:flex-end;">
+        <a href="#about" style="text-decoration:none; color:#54504a; font-size:13.5px;">お悩み</a>
+        <a href="#flow" style="text-decoration:none; color:#54504a; font-size:13.5px;">施術の流れ</a>
+        <a href="#price" style="text-decoration:none; color:#54504a; font-size:13.5px;">料金</a>
+        <a href="#access" style="text-decoration:none; color:#54504a; font-size:13.5px;">アクセス</a>
+        <a href="#contact" class="kom-btn-primary" style="text-decoration:none; background:#3d6b5e; color:#fff; font-size:13.5px; font-weight:500; padding:9px 18px; border-radius:999px; box-shadow:0 4px 14px rgba(61,107,94,.25);">ご予約</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== ヒーロー ===== -->
+  <section id="top" aria-label="メインビジュアル" style="position:relative; overflow:hidden;">
+    <div style="width:min(1140px,92vw); margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:clamp(28px,5vw,64px); align-items:center; padding:clamp(48px,8vw,96px) 0;">
+      <div>
+        <div style="display:inline-flex; align-items:center; gap:8px; background:#eef2ee; color:#3d6b5e; font-size:12.5px; font-weight:500; letter-spacing:.06em; padding:7px 14px; border-radius:999px; margin-bottom:26px;">
+          <span style="width:6px; height:6px; border-radius:50%; background:#3d6b5e;"></span>こもれび駅 西口 徒歩2分 ／ 地域のかかりつけ
+        </div>
+        <h1 style="font-family:var(--font-serif); font-weight:700; font-size:clamp(34px,5.4vw,56px); line-height:1.4; letter-spacing:.02em; margin:0 0 24px; color:#26312c;">
+          今日のからだに、<br>ていねいに寄り添う。
+        </h1>
+        <p style="font-size:clamp(15px,1.7vw,17px); color:#54504a; margin:0 0 34px; max-width:30em;">
+          国家資格を持つ柔道整復師が、お一人おひとりの<br>お身体の状態をうかがいながら、<br>無理のない施術プランをご提案します。<br>お仕事帰りやご年配の方も、通いやすい整骨院です。
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center;">
+          <a href="#contact" class="kom-btn-primary kom-pulse" style="display:inline-flex; align-items:center; gap:9px; background:#3d6b5e; color:#fff; font-weight:500; font-size:15px; padding:15px 28px; border-radius:999px; text-decoration:none; box-shadow:0 10px 24px rgba(61,107,94,.28);">
+            ネットで予約する <span style="font-size:17px;">→</span>
+          </a>
+          <a href="tel:0312345678" style="display:inline-flex; align-items:center; gap:9px; background:#fffdf9; color:#2f5349; font-weight:500; font-size:15px; padding:14px 24px; border-radius:999px; text-decoration:none; border:1px solid #d8cfbf;">
+            <span style="font-size:16px;">☎</span> 03-1234-5678
+          </a>
+          <a href="#" class="kom-btn-line" style="display:inline-flex; align-items:center; gap:9px; background:#5aa86f; color:#fff; font-weight:500; font-size:15px; padding:14px 24px; border-radius:999px; text-decoration:none;">LINEで予約</a>
+        </div>
+        <p style="font-size:12px; color:#9a9488; margin:22px 0 0;">※ 当ページは架空の整骨院の制作見本です。記載の院名・住所・電話番号・料金はすべて架空です。</p>
+      </div>
+
+      <div style="position:relative;">
+        <div style="aspect-ratio:4/5; border-radius:20px; overflow:hidden; box-shadow:0 24px 60px rgba(54,48,38,.14); position:relative;">
+          <img id="komHeroImg" src="/assets/images/demos/seikotsu/hero.jpg" alt="院内で施術を受ける様子（イメージ・制作見本）" fetchpriority="high" decoding="async" style="width:100%;height:130%;object-fit:cover;object-position:center 20%; filter: saturate(0.82) brightness(0.96) contrast(1.03) sepia(0.06);">
+        </div>
+        <div style="position:absolute; left:-18px; bottom:34px; background:#fffdf9; border:1px solid #ece4d6; border-radius:14px; padding:14px 18px; box-shadow:0 14px 30px rgba(54,48,38,.12); display:flex; align-items:center; gap:12px;">
+          <span style="width:40px; height:40px; border-radius:10px; background:#eef2ee; display:flex; align-items:center; justify-content:center; font-family:var(--font-serif); color:#3d6b5e; font-size:18px;">資</span>
+          <span style="line-height:1.4;"><span style="display:block; font-size:11px; color:#9a9488;">担当は全員</span><span style="font-size:14px; font-weight:700; color:#2f5349;">国家資格者（柔道整復師）</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 安心ポイント帯 ===== -->
+  <section aria-label="安心ポイント" style="background:#fffdf9; border-top:1px solid #efe7da; border-bottom:1px solid #efe7da;">
+    <div style="width:min(1140px,92vw); margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:clamp(18px,3vw,36px); padding:clamp(30px,4vw,44px) 0;">
+      <div style="display:flex; gap:14px; align-items:flex-start;">
+        <span style="font-family:var(--font-serif); font-size:26px; color:#c7a079; line-height:1;">01</span>
+        <span style="line-height:1.55;"><strong style="font-size:15.5px;">駅から徒歩2分・夜20時まで</strong><br><span style="font-size:13px; color:#6b665c;">お仕事帰りにも立ち寄りやすい立地と時間。</span></span>
+      </div>
+      <div style="display:flex; gap:14px; align-items:flex-start;">
+        <span style="font-family:var(--font-serif); font-size:26px; color:#c7a079; line-height:1;">02</span>
+        <span style="line-height:1.55;"><strong style="font-size:15.5px;">ていねいな説明</strong><br><span style="font-size:13px; color:#6b665c;">状態の確認と施術の内容を、<br>わかりやすくお伝えします。</span></span>
+      </div>
+      <div style="display:flex; gap:14px; align-items:flex-start;">
+        <span style="font-family:var(--font-serif); font-size:26px; color:#c7a079; line-height:1;">03</span>
+        <span style="line-height:1.55;"><strong style="font-size:15.5px;">国家資格者が担当</strong><br><span style="font-size:13px; color:#6b665c;">柔道整復師がカウンセリングから対応します。</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== お悩み ===== -->
+  <section id="about" aria-label="お悩み" style="width:min(1140px,92vw); margin:0 auto; padding:clamp(56px,9vw,104px) 0;">
+    <div style="text-align:center; margin-bottom:clamp(36px,5vw,56px);">
+      <span data-kom-fade style="display:inline-block; font-size:12.5px; letter-spacing:.22em; color:#3d6b5e; margin-bottom:12px;">YOUR CONCERNS</span>
+      <h2 data-kom-fade data-d="1" style="font-family:var(--font-serif); font-weight:700; font-size:clamp(26px,3.6vw,38px); margin:0; line-height:1.5; color:#26312c;">こんなこと、感じていませんか</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px;">
+      <div style="background:#fffdf9; border:1px solid #ece4d6; border-radius:16px; padding:26px 24px; display:flex; gap:16px; align-items:flex-start;">
+        <span style="flex:none; width:44px; height:44px; border-radius:12px; background:#eef2ee; display:flex; align-items:center; justify-content:center; font-family:var(--font-serif); color:#3d6b5e; font-size:18px;">肩</span>
+        <span style="font-size:14.5px; color:#3f3b35; line-height:1.7; padding-top:3px;">デスクワークで、<br>肩や首がこわばりやすい</span>
+      </div>
+      <div style="background:#fffdf9; border:1px solid #ece4d6; border-radius:16px; padding:26px 24px; display:flex; gap:16px; align-items:flex-start;">
+        <span style="flex:none; width:44px; height:44px; border-radius:12px; background:#eef2ee; display:flex; align-items:center; justify-content:center; font-family:var(--font-serif); color:#3d6b5e; font-size:18px;">腰</span>
+        <span style="font-size:14.5px; color:#3f3b35; line-height:1.7; padding-top:3px;">腰に張りや重さを<br>感じることがある</span>
+      </div>
+      <div style="background:#fffdf9; border:1px solid #ece4d6; border-radius:16px; padding:26px 24px; display:flex; gap:16px; align-items:flex-start;">
+        <span style="flex:none; width:44px; height:44px; border-radius:12px; background:#eef2ee; display:flex; align-items:center; justify-content:center; font-family:var(--font-serif); color:#3d6b5e; font-size:18px;">脚</span>
+        <span style="font-size:14.5px; color:#3f3b35; line-height:1.7; padding-top:3px;">立ち仕事で、<br>脚がだるくなりやすい</span>
+      </div>
+      <div style="background:#fffdf9; border:1px solid #ece4d6; border-radius:16px; padding:26px 24px; display:flex; gap:16px; align-items:flex-start;">
+        <span style="flex:none; width:44px; height:44px; border-radius:12px; background:#eef2ee; display:flex; align-items:center; justify-content:center; font-family:var(--font-serif); color:#3d6b5e; font-size:18px;">眠</span>
+        <span style="font-size:14.5px; color:#3f3b35; line-height:1.7; padding-top:3px;">寝ても、<br>疲れが残りやすい気がする</span>
+      </div>
+      <div style="background:#fffdf9; border:1px solid #ece4d6; border-radius:16px; padding:26px 24px; display:flex; gap:16px; align-items:flex-start;">
+        <span style="flex:none; width:44px; height:44px; border-radius:12px; background:#eef2ee; display:flex; align-items:center; justify-content:center; font-family:var(--font-serif); color:#3d6b5e; font-size:18px;">姿</span>
+        <span style="font-size:14.5px; color:#3f3b35; line-height:1.7; padding-top:3px;">姿勢のくずれや、<br>左右の差が気になる</span>
+      </div>
+      <div style="background:#fffdf9; border:1px solid #ece4d6; border-radius:16px; padding:26px 24px; display:flex; gap:16px; align-items:flex-start;">
+        <span style="flex:none; width:44px; height:44px; border-radius:12px; background:#eef2ee; display:flex; align-items:center; justify-content:center; font-family:var(--font-serif); color:#3d6b5e; font-size:18px;">膝</span>
+        <span style="font-size:14.5px; color:#3f3b35; line-height:1.7; padding-top:3px;">階段の上り下りで、<br>膝まわりが気になる</span>
+      </div>
+    </div>
+    <p style="text-align:center; max-width:34em; margin:clamp(32px,4vw,44px) auto 0; font-size:15px; color:#54504a;">
+      当院では、こうしたお身体の状態をうかがいながら、<br>お一人おひとりに合わせた施術プランをご提案します。<br>気になることは、どうぞお気軽にご相談ください。
+    </p>
+  </section>
+
+  <!-- ===== 施術の流れ ===== -->
+  <section id="flow" aria-label="施術の流れ" style="background:#eef2ee;">
+    <div style="width:min(1140px,92vw); margin:0 auto; padding:clamp(56px,9vw,104px) 0;">
+      <div style="text-align:center; margin-bottom:clamp(36px,5vw,56px);">
+        <span data-kom-fade style="display:inline-block; font-size:12.5px; letter-spacing:.22em; color:#3d6b5e; margin-bottom:12px;">FLOW</span>
+        <h2 data-kom-fade data-d="1" style="font-family:var(--font-serif); font-weight:700; font-size:clamp(26px,3.6vw,38px); margin:0; line-height:1.5; color:#26312c;">はじめての方への、施術の流れ</h2>
+      </div>
+
+      <!-- タイムライン -->
+      <div style="max-width:680px; margin:0 auto; position:relative; padding-left:56px;">
+        <!-- 縦ライン -->
+        <div style="position:absolute; left:20px; top:12px; bottom:12px; width:2px; background:linear-gradient(to bottom, #3d6b5e, rgba(61,107,94,.15));"></div>
+
+        <!-- STEP 1 -->
+        <div data-kom-fade data-d="1" style="position:relative; margin-bottom:32px;">
+          <div style="position:absolute; left:-44px; top:0; width:32px; height:32px; border-radius:50%; background:#3d6b5e; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--font-serif); font-size:14px; font-weight:700; box-shadow:0 4px 12px rgba(61,107,94,.3);">1</div>
+          <div style="background:#fffdf9; border-radius:14px; padding:22px 24px; box-shadow:0 4px 16px rgba(54,48,38,.06); border-left:3px solid #3d6b5e;">
+            <h3 style="font-size:16px; font-weight:700; margin:0 0 8px; color:#2f3a35;">ご予約・受付</h3>
+            <p style="font-size:13.5px; color:#6b665c; margin:0; line-height:1.9;">ネットまたはお電話でご予約ください。<br>当日のご来院もご相談いただけます。</p>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div data-kom-fade data-d="2" style="position:relative; margin-bottom:32px;">
+          <div style="position:absolute; left:-44px; top:0; width:32px; height:32px; border-radius:50%; background:#3d6b5e; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--font-serif); font-size:14px; font-weight:700; box-shadow:0 4px 12px rgba(61,107,94,.3);">2</div>
+          <div style="background:#fffdf9; border-radius:14px; padding:22px 24px; box-shadow:0 4px 16px rgba(54,48,38,.06); border-left:3px solid #3d6b5e;">
+            <h3 style="font-size:16px; font-weight:700; margin:0 0 8px; color:#2f3a35;">カウンセリング</h3>
+            <p style="font-size:13.5px; color:#6b665c; margin:0; line-height:1.9;">気になる箇所やお困りごとを<br>ゆっくりとおうかがいします。</p>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div data-kom-fade data-d="3" style="position:relative; margin-bottom:32px;">
+          <div style="position:absolute; left:-44px; top:0; width:32px; height:32px; border-radius:50%; background:#3d6b5e; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--font-serif); font-size:14px; font-weight:700; box-shadow:0 4px 12px rgba(61,107,94,.3);">3</div>
+          <div style="background:#fffdf9; border-radius:14px; padding:22px 24px; box-shadow:0 4px 16px rgba(54,48,38,.06); border-left:3px solid #3d6b5e;">
+            <h3 style="font-size:16px; font-weight:700; margin:0 0 8px; color:#2f3a35;">状態の確認</h3>
+            <p style="font-size:13.5px; color:#6b665c; margin:0; line-height:1.9;">お身体の動きや状態をていねいに確認し、<br>施術の内容をわかりやすくご説明します。</p>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div data-kom-fade data-d="4" style="position:relative; margin-bottom:32px;">
+          <div style="position:absolute; left:-44px; top:0; width:32px; height:32px; border-radius:50%; background:#2f5349; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--font-serif); font-size:14px; font-weight:700; box-shadow:0 4px 12px rgba(47,83,73,.35);">4</div>
+          <div style="background:#fffdf9; border-radius:14px; padding:22px 24px; box-shadow:0 4px 16px rgba(54,48,38,.06); border-left:3px solid #2f5349;">
+            <h3 style="font-size:16px; font-weight:700; margin:0 0 8px; color:#2f3a35;">施術</h3>
+            <p style="font-size:13.5px; color:#6b665c; margin:0; line-height:1.9;">確認した内容をもとに、<br>お一人おひとりに合わせた無理のない施術を行います。</p>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div data-kom-fade data-d="5" style="position:relative; margin-bottom:32px;">
+          <div style="position:absolute; left:-44px; top:0; width:32px; height:32px; border-radius:50%; background:#2f5349; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--font-serif); font-size:14px; font-weight:700; box-shadow:0 4px 12px rgba(47,83,73,.35);">5</div>
+          <div style="background:#fffdf9; border-radius:14px; padding:22px 24px; box-shadow:0 4px 16px rgba(54,48,38,.06); border-left:3px solid #2f5349;">
+            <h3 style="font-size:16px; font-weight:700; margin:0 0 8px; color:#2f3a35;">セルフケアの説明</h3>
+            <p style="font-size:13.5px; color:#6b665c; margin:0; line-height:1.9;">ご自宅でできるケアや日常の過ごし方を<br>わかりやすくお伝えします。</p>
+          </div>
+        </div>
+
+        <!-- STEP 6 -->
+        <div data-kom-fade data-d="6" style="position:relative;">
+          <div style="position:absolute; left:-44px; top:0; width:32px; height:32px; border-radius:50%; background:#c7a079; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--font-serif); font-size:14px; font-weight:700; box-shadow:0 4px 12px rgba(199,160,121,.35);">6</div>
+          <div style="background:#fffdf9; border-radius:14px; padding:22px 24px; box-shadow:0 4px 16px rgba(54,48,38,.06); border-left:3px solid #c7a079;">
+            <h3 style="font-size:16px; font-weight:700; margin:0 0 8px; color:#2f3a35;">次回のご提案</h3>
+            <p style="font-size:13.5px; color:#6b665c; margin:0; line-height:1.9;">今後の通い方について<br>ご希望をうかがいながら、無理のないご提案をします。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 料金 ===== -->
+  <section id="price" aria-label="料金" style="width:min(1140px,92vw); margin:0 auto; padding:clamp(56px,9vw,104px) 0;">
+    <div style="text-align:center; margin-bottom:clamp(36px,5vw,56px);">
+      <span data-kom-fade style="display:inline-block; font-size:12.5px; letter-spacing:.22em; color:#3d6b5e; margin-bottom:12px;">PRICE</span>
+      <h2 data-kom-fade data-d="1" style="font-family:var(--font-serif); font-weight:700; font-size:clamp(26px,3.6vw,38px); margin:0; line-height:1.5; color:#26312c;">料金のご案内</h2>
+    </div>
+    <div style="max-width:680px; margin:0 auto; background:#fffdf9; border:1px solid #ece4d6; border-radius:18px; overflow:hidden;">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 28px; border-bottom:1px solid #efe7da;">
+        <span style="line-height:1.5;"><span style="display:block; font-size:15.5px; font-weight:700; color:#33302b;">初回（カウンセリング＋状態の確認＋施術）</span><span style="font-size:12.5px; color:#9a9488;">はじめての方</span></span>
+        <span style="flex:none; font-family:var(--font-serif); font-size:22px; color:#2f5349;">¥4,400</span>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 28px; border-bottom:1px solid #efe7da;">
+        <span style="line-height:1.5;"><span style="display:block; font-size:15.5px; font-weight:700; color:#33302b;">2回目以降の施術</span><span style="font-size:12.5px; color:#9a9488;">通常メニュー</span></span>
+        <span style="flex:none; font-family:var(--font-serif); font-size:22px; color:#2f5349;">¥3,300</span>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 28px; border-bottom:1px solid #efe7da;">
+        <span style="line-height:1.5;"><span style="display:block; font-size:15.5px; font-weight:700; color:#33302b;">骨盤まわりのケア</span><span style="font-size:12.5px; color:#9a9488;">自費メニュー</span></span>
+        <span style="flex:none; font-family:var(--font-serif); font-size:22px; color:#2f5349;">¥2,200〜</span>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 28px; border-bottom:1px solid #efe7da;">
+        <span style="line-height:1.5;"><span style="display:block; font-size:15.5px; font-weight:700; color:#33302b;">セルフケア相談（再来）</span><span style="font-size:12.5px; color:#9a9488;">経過の確認・ご相談</span></span>
+        <span style="flex:none; font-family:var(--font-serif); font-size:22px; color:#2f5349;">¥1,650</span>
+      </div>
+      <div style="padding:18px 28px; background:#f7f4ee; font-size:12.5px; color:#6b665c; line-height:1.7;">
+        ・表示はすべて税込の参考価格です（架空）。<br>
+        ・健康保険の取扱いについては、お身体の状態によりご案内が異なります。<br>受付までお気軽にご相談ください。
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 院長プロフィール ===== -->
+  <section id="profile" aria-label="院長プロフィール" style="background:#fffdf9; border-top:1px solid #efe7da; border-bottom:1px solid #efe7da;">
+    <div style="width:min(1140px,92vw); margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:clamp(28px,5vw,60px); align-items:center; padding:clamp(56px,9vw,96px) 0;">
+      <div>
+        <div style="aspect-ratio:4/5; max-width:380px; border-radius:18px; overflow:hidden; background:#ece6da; display:flex; align-items:flex-end; justify-content:center;">
+          <svg viewBox="0 0 200 250" width="78%" height="auto" role="img" aria-label="院長のイメージ（シルエット・制作見本）" style="display:block;">
+            <circle cx="100" cy="76" r="46" fill="#3f6f5e"></circle>
+            <path d="M100 130 C48 130 24 170 24 222 V250 H176 V222 C176 170 152 130 100 130 Z" fill="#3f6f5e"></path>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <span style="display:inline-block; font-size:12.5px; letter-spacing:.22em; color:#3d6b5e; margin-bottom:14px;">DIRECTOR</span>
+        <h2 data-kom-fade data-d="1" style="font-family:var(--font-serif); font-weight:700; font-size:clamp(24px,3.2vw,34px); margin:0 0 6px; color:#26312c;">院長 ／ 佐藤 健司</h2>
+        <p style="font-size:13.5px; color:#3d6b5e; font-weight:500; margin:0 0 22px;">柔道整復師（国家資格）</p>
+        <p style="font-size:15px; color:#54504a; margin:0 0 18px; line-height:1.9;">
+          「その日のお身体の状態を、ていねいにうかがうこと」を<br>大切にしています。なぜ今その施術を行うのかを、<br>できるだけわかりやすい言葉でお伝えし、<br>ご自宅でのセルフケアまで一緒に考えていきます。
+        </p>
+        <p style="font-size:15px; color:#54504a; margin:0; line-height:1.9;">
+          地域のみなさまが、年齢を重ねても<br>自分の足で気持ちよく過ごせるよう、<br>長くお付き合いできる整骨院をめざしています。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== アクセス・診療時間 ===== -->
+  <section id="access" aria-label="アクセス・診療時間" style="width:min(1140px,92vw); margin:0 auto; padding:clamp(56px,9vw,104px) 0;">
+    <div style="text-align:center; margin-bottom:clamp(36px,5vw,56px);">
+      <span data-kom-fade style="display:inline-block; font-size:12.5px; letter-spacing:.22em; color:#3d6b5e; margin-bottom:12px;">ACCESS</span>
+      <h2 data-kom-fade data-d="1" style="font-family:var(--font-serif); font-weight:700; font-size:clamp(26px,3.6vw,38px); margin:0; line-height:1.5; color:#26312c;">アクセス・診療時間</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(20px,3vw,36px); align-items:start;">
+      <div role="img" aria-label="地図プレースホルダー（Googleマップ・差し替え可）" style="aspect-ratio:16/12; border-radius:18px; overflow:hidden; background:repeating-linear-gradient(135deg,#e8eceb,#e8eceb 12px,#dfe6e3 12px,#dfe6e3 24px); display:flex; align-items:center; justify-content:center; border:1px solid #dce4e0;">
+        <span style="font-family:monospace; font-size:13px; color:#7c8a85; background:rgba(255,255,255,.7); padding:8px 14px; border-radius:8px;">[ 地図 / Googleマップ ]</span>
+      </div>
+      <div>
+        <table style="width:100%; border-collapse:collapse; margin-bottom:26px;">
+          <tbody>
+            <tr style="border-bottom:1px solid #ece4d6;"><th style="text-align:left; vertical-align:top; padding:13px 0; width:96px; font-size:13.5px; color:#9a9488; font-weight:500;">住所</th><td style="padding:13px 0; font-size:14.5px; color:#3f3b35;">〒000-0000 ○○県○○市こもれび町1-2-3 こもれびビル2F</td></tr>
+            <tr style="border-bottom:1px solid #ece4d6;"><th style="text-align:left; vertical-align:top; padding:13px 0; font-size:13.5px; color:#9a9488; font-weight:500;">最寄駅</th><td style="padding:13px 0; font-size:14.5px; color:#3f3b35;">こもれび駅 西口より徒歩2分</td></tr>
+            <tr style="border-bottom:1px solid #ece4d6;"><th style="text-align:left; vertical-align:top; padding:13px 0; font-size:13.5px; color:#9a9488; font-weight:500;">駐車場</th><td style="padding:13px 0; font-size:14.5px; color:#3f3b35;">提携コインパーキングあり（2台）</td></tr>
+            <tr><th style="text-align:left; vertical-align:top; padding:13px 0; font-size:13.5px; color:#9a9488; font-weight:500;">電話</th><td style="padding:13px 0; font-size:14.5px; color:#3f3b35;">03-1234-5678</td></tr>
+          </tbody>
+        </table>
+        <div style="background:#fffdf9; border:1px solid #ece4d6; border-radius:16px; overflow:hidden;">
+          <div style="background:#2f5349; color:#dfeae4; font-size:13px; font-weight:500; padding:11px 18px;">診療時間</div>
+          <table style="width:100%; border-collapse:collapse;">
+            <thead>
+              <tr style="border-bottom:1px solid #efe7da;">
+                <th style="padding:10px 14px; font-size:11.5px; color:#9a9488; font-weight:500; text-align:left;">時間</th>
+                <th style="padding:10px 6px; font-size:12px; color:#54504a; font-weight:500; text-align:center;">月</th>
+                <th style="padding:10px 6px; font-size:12px; color:#54504a; font-weight:500; text-align:center;">火</th>
+                <th style="padding:10px 6px; font-size:12px; color:#54504a; font-weight:500; text-align:center;">水</th>
+                <th style="padding:10px 6px; font-size:12px; color:#54504a; font-weight:500; text-align:center;">木</th>
+                <th style="padding:10px 6px; font-size:12px; color:#54504a; font-weight:500; text-align:center;">金</th>
+                <th style="padding:10px 6px; font-size:12px; color:#54504a; font-weight:500; text-align:center;">土</th>
+                <th style="padding:10px 6px; font-size:12px; color:#54504a; font-weight:500; text-align:center;">日祝</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid #efe7da;">
+                <td style="padding:11px 14px; font-size:12.5px; color:#54504a; white-space:nowrap;">午前 9:00〜12:30</td>
+                <td style="padding:11px 6px; font-size:13px; color:#33302b; text-align:center;">◯</td>
+                <td style="padding:11px 6px; font-size:13px; color:#33302b; text-align:center;">◯</td>
+                <td style="padding:11px 6px; font-size:13px; color:#33302b; text-align:center;">◯</td>
+                <td style="padding:11px 6px; font-size:13px; color:#33302b; text-align:center;">◯</td>
+                <td style="padding:11px 6px; font-size:13px; color:#33302b; text-align:center;">◯</td>
+                <td style="padding:11px 6px; font-size:13px; color:#33302b; text-align:center;">△</td>
+                <td style="padding:11px 6px; font-size:13px; color:#33302b; text-align:center;">−</td>
+              </tr>
+              <tr style="border-bottom:1px solid #efe7da;">
+                <td style="padding:11px 14px; font-size:12.5px; color:#54504a; white-space:nowrap;">午後 15:00〜20:00</td>
+                <td style="padding:11px 6px; font-size:13px; color:#33302b; text-align:center;">◯</td>
+                <td style="padding:11px 6px; font-size:13px; color:#33302b; text-align:center;">◯</td>
+                <td style="padding:11px 6px; font-size:13px; color:#33302b; text-align:center;">◯</td>
+                <td style="padding:11px 6px; font-size:13px; color:#33302b; text-align:center;">◯</td>
+                <td style="padding:11px 6px; font-size:13px; color:#33302b; text-align:center;">◯</td>
+                <td style="padding:11px 6px; font-size:13px; color:#33302b; text-align:center;">△</td>
+                <td style="padding:11px 6px; font-size:13px; color:#33302b; text-align:center;">−</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="padding:11px 16px; font-size:11.5px; color:#9a9488;">休診：日曜・祝日　／　△ 土曜は 9:00〜17:00 の通し</div>
+          <div style="padding:0 16px 14px; font-size:12px; color:#3d6b5e; line-height:1.75; border-top:1px solid #efe7da; margin-top:2px; padding-top:12px;">初診の方は健康保険証をお持ちください。<br>保険の取扱いは負傷の状態により異なりますので、受付でご相談ください。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" aria-label="よくある質問" style="background:#eef2ee;">
+    <div style="width:min(820px,92vw); margin:0 auto; padding:clamp(56px,9vw,104px) 0;">
+      <div style="text-align:center; margin-bottom:clamp(36px,5vw,52px);">
+        <span data-kom-fade style="display:inline-block; font-size:12.5px; letter-spacing:.22em; color:#3d6b5e; margin-bottom:12px;">FAQ</span>
+        <h2 data-kom-fade data-d="1" style="font-family:var(--font-serif); font-weight:700; font-size:clamp(26px,3.6vw,38px); margin:0; line-height:1.5; color:#26312c;">よくあるご質問</h2>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <details class="kom-faq" open style="background:#fffdf9; border:1px solid #ece4d6; border-radius:14px; overflow:hidden;">
+          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:20px 22px; text-align:left;">
+            <span style="flex:none; font-family:var(--font-serif); font-size:17px; color:#3d6b5e;">Q</span>
+            <span style="flex:1; font-size:14.5px; font-weight:700; color:#33302b; line-height:1.6;">予約は必要ですか？</span>
+            <span class="kom-faq-ic" style="flex:none; font-size:18px; color:#9a9488; line-height:1;"></span>
+          </summary>
+          <div style="display:flex; gap:14px; padding:0 22px 22px;">
+            <span style="flex:none; font-family:var(--font-serif); font-size:17px; color:#c7a079;">A</span>
+            <p style="flex:1; margin:0; font-size:14px; color:#54504a; line-height:1.85;">ご予約優先で承っています。<br>お待ちいただく時間を少なくするため、<br>ネットまたはお電話での事前予約をおすすめしています。<br>当日のご来院もまずはお気軽にご連絡ください。</p>
+          </div>
+        </details>
+        <details class="kom-faq" style="background:#fffdf9; border:1px solid #ece4d6; border-radius:14px; overflow:hidden;">
+          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:20px 22px; text-align:left;">
+            <span style="flex:none; font-family:var(--font-serif); font-size:17px; color:#3d6b5e;">Q</span>
+            <span style="flex:1; font-size:14.5px; font-weight:700; color:#33302b; line-height:1.6;">健康保険は使えますか？</span>
+            <span class="kom-faq-ic" style="flex:none; font-size:18px; color:#9a9488; line-height:1;"></span>
+          </summary>
+          <div style="display:flex; gap:14px; padding:0 22px 22px;">
+            <span style="flex:none; font-family:var(--font-serif); font-size:17px; color:#c7a079;">A</span>
+            <p style="flex:1; margin:0; font-size:14px; color:#54504a; line-height:1.85;">保険の取扱いは負傷の状態によって異なります。<br>初診の際は健康保険証をお持ちいただくとご案内がスムーズです。<br>対象となるかどうかは、受付またはカウンセリング時にご相談ください。</p>
+          </div>
+        </details>
+        <details class="kom-faq" style="background:#fffdf9; border:1px solid #ece4d6; border-radius:14px; overflow:hidden;">
+          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:20px 22px; text-align:left;">
+            <span style="flex:none; font-family:var(--font-serif); font-size:17px; color:#3d6b5e;">Q</span>
+            <span style="flex:1; font-size:14.5px; font-weight:700; color:#33302b; line-height:1.6;">どんな服装で行けばよいですか？</span>
+            <span class="kom-faq-ic" style="flex:none; font-size:18px; color:#9a9488; line-height:1;"></span>
+          </summary>
+          <div style="display:flex; gap:14px; padding:0 22px 22px;">
+            <span style="flex:none; font-family:var(--font-serif); font-size:17px; color:#c7a079;">A</span>
+            <p style="flex:1; margin:0; font-size:14px; color:#54504a; line-height:1.85;">動きやすい服装でお越しいただくと安心です。<br>お着替えのご用意もありますので、<br>お仕事帰りなどそのままでも問題ありません。</p>
+          </div>
+        </details>
+        <details class="kom-faq" style="background:#fffdf9; border:1px solid #ece4d6; border-radius:14px; overflow:hidden;">
+          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:20px 22px; text-align:left;">
+            <span style="flex:none; font-family:var(--font-serif); font-size:17px; color:#3d6b5e;">Q</span>
+            <span style="flex:1; font-size:14.5px; font-weight:700; color:#33302b; line-height:1.6;">子どもと一緒に行ってもよいですか？</span>
+            <span class="kom-faq-ic" style="flex:none; font-size:18px; color:#9a9488; line-height:1;"></span>
+          </summary>
+          <div style="display:flex; gap:14px; padding:0 22px 22px;">
+            <span style="flex:none; font-family:var(--font-serif); font-size:17px; color:#c7a079;">A</span>
+            <p style="flex:1; margin:0; font-size:14px; color:#54504a; line-height:1.85;">お子さま連れでのご来院も歓迎しています。<br>ご不安な点があれば、ご予約時にお知らせください。</p>
+          </div>
+        </details>
+        <details class="kom-faq" style="background:#fffdf9; border:1px solid #ece4d6; border-radius:14px; overflow:hidden;">
+          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:20px 22px; text-align:left;">
+            <span style="flex:none; font-family:var(--font-serif); font-size:17px; color:#3d6b5e;">Q</span>
+            <span style="flex:1; font-size:14.5px; font-weight:700; color:#33302b; line-height:1.6;">駐車場はありますか？</span>
+            <span class="kom-faq-ic" style="flex:none; font-size:18px; color:#9a9488; line-height:1;"></span>
+          </summary>
+          <div style="display:flex; gap:14px; padding:0 22px 22px;">
+            <span style="flex:none; font-family:var(--font-serif); font-size:17px; color:#c7a079;">A</span>
+            <p style="flex:1; margin:0; font-size:14px; color:#54504a; line-height:1.85;">提携のコインパーキング（2台分）をご利用いただけます。<br>詳しい場所は、ご予約時または受付でご案内します。</p>
+          </div>
+        </details>
+        <details class="kom-faq" style="background:#fffdf9; border:1px solid #ece4d6; border-radius:14px; overflow:hidden;">
+          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:20px 22px; text-align:left;">
+            <span style="flex:none; font-family:var(--font-serif); font-size:17px; color:#3d6b5e;">Q</span>
+            <span style="flex:1; font-size:14.5px; font-weight:700; color:#33302b; line-height:1.6;">1回どのくらい時間がかかりますか？</span>
+            <span class="kom-faq-ic" style="flex:none; font-size:18px; color:#9a9488; line-height:1;"></span>
+          </summary>
+          <div style="display:flex; gap:14px; padding:0 22px 22px;">
+            <span style="flex:none; font-family:var(--font-serif); font-size:17px; color:#c7a079;">A</span>
+            <p style="flex:1; margin:0; font-size:14px; color:#54504a; line-height:1.85;">はじめての方はカウンセリングを含めて<br>およそ40〜60分、<br>2回目以降は20〜40分が目安です。<br>状態により前後します。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section id="contact" aria-label="予約のご案内" style="background:#2f5349; color:#eef4f1;">
+    <div style="width:min(1140px,92vw); margin:0 auto; padding:clamp(56px,9vw,96px) 0; text-align:center;">
+      <span style="display:inline-block; font-size:12.5px; letter-spacing:.22em; color:#9cc1b4; margin-bottom:16px;">RESERVATION</span>
+      <h2 data-kom-fade data-d="1" style="font-family:var(--font-serif); font-weight:700; font-size:clamp(26px,4vw,42px); margin:0 0 18px; line-height:1.5;">気になることは、お気軽にご相談ください</h2>
+      <p style="font-size:15px; color:#cfddd6; max-width:32em; margin:0 auto 38px;">ご予約・ご相談はネットまたはお電話で承っています。はじめての方も、どうぞお気軽にどうぞ。</p>
+      <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center;">
+        <a href="#" style="display:inline-flex; align-items:center; gap:9px; background:#fffdf9; color:#2f5349; font-weight:700; font-size:15.5px; padding:16px 32px; border-radius:999px; text-decoration:none; box-shadow:0 12px 28px rgba(0,0,0,.18);">ネットで予約する <span style="font-size:17px;">→</span></a>
+        <a href="tel:0312345678" style="display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,.08); color:#fff; font-weight:500; font-size:15.5px; padding:15px 28px; border-radius:999px; text-decoration:none; border:1px solid rgba(255,255,255,.3);"><span style="font-size:16px;">☎</span> 03-1234-5678</a>
+        <a href="#" class="kom-btn-line" style="display:inline-flex; align-items:center; gap:9px; background:#5aa86f; color:#fff; font-weight:500; font-size:15.5px; padding:15px 26px; border-radius:999px; text-decoration:none;">LINEで予約</a>
+      </div>
+      <p style="font-size:12px; color:#8fb0a4; margin:30px 0 0;">診療時間　平日 9:00〜12:30 / 15:00〜20:00　土 9:00〜17:00（休診：日曜・祝日）</p>
+    </div>
+  </section>
+
+  <!-- ===== フッター ===== -->
+  <footer style="background:#26312c; color:#b9c6bf;">
+    <div style="width:min(1140px,92vw); margin:0 auto; padding:clamp(40px,6vw,64px) 0 28px;">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:12px; padding-bottom:30px; margin-bottom:34px; border-bottom:1px solid rgba(255,255,255,.1);">
+        <span style="font-family:var(--font-serif); font-size:15px; color:#f1f5f3; margin-right:6px;">ご予約・お問い合わせ</span>
+        <a href="#contact" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:46px; background:#fffdf9; color:#2f5349; font-weight:700; font-size:14px; padding:0 22px; border-radius:999px; text-decoration:none;">ネットで予約</a>
+        <a href="tel:0312345678" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:46px; background:rgba(255,255,255,.08); color:#eef4f1; font-weight:500; font-size:14px; padding:0 22px; border-radius:999px; text-decoration:none; border:1px solid rgba(255,255,255,.28);"><span style="font-size:15px;">☎</span> 03-1234-5678</a>
+        <a href="#" class="kom-btn-line" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:46px; background:#5aa86f; color:#fff; font-weight:500; font-size:14px; padding:0 22px; border-radius:999px; text-decoration:none;">LINEで予約</a>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:32px; padding-bottom:34px; border-bottom:1px solid rgba(255,255,255,.1);">
+        <div>
+          <div style="display:flex; align-items:center; gap:11px; margin-bottom:14px;">
+            <span style="width:32px; height:32px; border-radius:50%; background:#3d6b5e; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--font-serif); font-size:16px;">こ</span>
+            <span style="font-family:var(--font-serif); font-size:16px; font-weight:700; color:#f1f5f3;">こもれび整骨院</span>
+          </div>
+          <p style="font-size:13px; line-height:1.9; margin:0;">〒000-0000<br>○○県○○市こもれび町1-2-3 こもれびビル2F<br>03-1234-5678</p>
+        </div>
+        <div>
+          <p style="font-size:12px; letter-spacing:.14em; color:#7e8e86; margin:0 0 12px;">MENU</p>
+          <div style="display:flex; flex-direction:column; gap:9px;">
+            <a href="#about" style="text-decoration:none; color:#b9c6bf; font-size:13.5px;">お悩み</a>
+            <a href="#flow" style="text-decoration:none; color:#b9c6bf; font-size:13.5px;">施術の流れ</a>
+            <a href="#price" style="text-decoration:none; color:#b9c6bf; font-size:13.5px;">料金</a>
+            <a href="#profile" style="text-decoration:none; color:#b9c6bf; font-size:13.5px;">院長紹介</a>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:12px; letter-spacing:.14em; color:#7e8e86; margin:0 0 12px;">HOURS</p>
+          <p style="font-size:13px; line-height:1.9; margin:0;">平日　9:00〜12:30 / 15:00〜20:00<br>土曜　9:00〜17:00（通し）<br>休診　日曜・祝日</p>
+        </div>
+      </div>
+      <p style="font-size:12px; line-height:1.9; color:#8a978f; margin:24px 0 0;">
+        ◎ 本ページは、整骨院サイトの<strong style="color:#cdd8d2;">制作見本</strong>です。掲載の院名・人物・住所・電話番号・料金・写真はすべて架空・イメージであり、実在の整骨院とは関係ありません。<br>
+        ◎ 当ページは医療広告ガイドラインに配慮し、効果・効能を保証する表現や、施術前後の比較写真、患者個人の効果を語る体験談は掲載していません。施術内容や保険の取扱いは、状態により個別にご案内します。
+      </p>
+      <p style="font-size:11.5px; color:#6f7d75; margin:18px 0 0;">© KOMOREBI SEIKOTSU（制作見本）</p>
+    </div>
+  </footer>
+
+  <!-- ===== SP追従CTA（CSSのみで表示制御） ===== -->
+  <div class="kom-spcta" role="navigation" aria-label="クイックCTA" style="position:fixed; left:0; right:0; bottom:0; z-index:60; grid-template-columns:1fr 1fr; gap:10px; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:rgba(247,244,238,.96); backdrop-filter:blur(8px); border-top:1px solid #e6dfd2; box-shadow:0 -6px 18px rgba(54,48,38,.08);">
+    <a href="#contact" style="display:flex; align-items:center; justify-content:center; gap:8px; min-height:52px; background:#3d6b5e; color:#fff; font-weight:700; font-size:15px; border-radius:12px; text-decoration:none;">ご予約</a>
+    <a href="tel:0312345678" style="display:flex; align-items:center; justify-content:center; gap:8px; min-height:52px; background:#fffdf9; color:#2f5349; font-weight:700; font-size:15px; border-radius:12px; text-decoration:none; border:1px solid #d8cfbf;"><span style="font-size:16px;">☎</span> TEL</a>
+  </div>
+
+</div>
+
+  <!-- KOM ANIMATIONS（自己ホストのインラインJS・CDN不使用） -->
+  <script>
+  (function(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // ① Scroll fade-up
+    var fo = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); fo.unobserve(e.target); } });
+    },{ threshold:0.08, rootMargin:'0px 0px -20px 0px' });
+    document.querySelectorAll('[data-kom-fade]').forEach(function(el){ fo.observe(el); });
+    // ③ Hero parallax（reduced-motion時は無効）
+    var heroImg = document.getElementById('komHeroImg');
+    if(heroImg && !reduce){
+      window.addEventListener('scroll',function(){
+        heroImg.style.transform = 'translateY('+(-window.scrollY*0.18)+'px)';
+      },{ passive:true });
+    }
+    // ⑤ Nav scroll
+    var hdr = document.querySelector('header');
+    window.addEventListener('scroll',function(){
+      hdr.setAttribute('data-scrolled', window.scrollY>60?'true':'false');
+    },{ passive:true });
+  })();
+  </script>
+
+</body>
+</html>
